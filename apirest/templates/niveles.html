@@ -1,4 +1,5 @@
-SERVICIO NACIONAL DE APRENDIZAJE
+{% block content%}
+SERVICIO NACIONAL DE APRENDIZAJE<br>
 {%if N == '0' %}
 Nivel 0
 {%endif%}
@@ -11,3 +12,4 @@ Nivel 2
 {%if N == '3' %}
 Nivel 3
 {%endif%}
+{% endblock %}

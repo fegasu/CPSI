@@ -1,16 +1,27 @@
-{% extends 'static/base.html' %}
-{% block content %}
-SERVICIO NACIONAL DE APRENDIZAJE<br>
-{%if N == '0' %}
+
+<center><img src="{{url_for('static',filename='images/CGMLTI.png')}}" style="border:true;width:90%;border-color:black;height:150px;-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);border: 1px solid #000000;"></center>
+<br>
+{%if N == '0' or N == ''  %}
 Nivel 0
+
+<a href="/niveles/1">Siguiente Nivel</a>
+
 {%endif%}
 {%if N == '1' %}
 Nivel 1
+<a href="/niveles/0">Anterior Nivel</a>
+<a href="/niveles/2">Siguiente Nivel</a>
+
 {%endif%}
 {%if N == '2' %}
 Nivel 2
+<a href="/niveles/1">Anterior Nivel</a>
+<a href="/niveles/3">Siguiente Nivel</a>
 {%endif%}
 {%if N == '3' %}
 Nivel 3
+<a href="/niveles/2">Anterior Nivel</a>
+<a href="/niveles/0">Primer Nivel</a>
 {%endif%}
-{% endblock %}

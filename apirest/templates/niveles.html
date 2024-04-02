@@ -4,19 +4,24 @@
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);border: 1px solid #000000;"></center>
 <br>
 <script>
-   function Ir(cual){
-    document.forms['mio'].action="/niveles/"+cual
-    document.forms['mio'].submit();
- 
- 
-   }
-</script>
+    function Ir(cual){
+        document.forms['mio'].action="/niveles/"+cual
+        document.forms['mio'].submit();
+     
+     
+       }
+       function Va(cual){
+        document.forms['mio'].action="/niveles/i"
+        document.forms['mio'].submit();    
+     
+       }
+    </script>
 {%if N == '0' or N == ''  %}
 Nivel 0
 <form name=mio method=get>
     Nombre:<input type=text name=nom><br>
     Apellido:<input type=text name=ape><br>
-<input type="button" value="Submit" onclick="Ir(1)">
+<input type="button" value="Submit" onclick="Va()">
 </form>
 <a href="/niveles/1">Siguiente Nivel</a>
 

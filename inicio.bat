@@ -1,4 +1,7 @@
+@echo off
 env\Scripts\Activate.bat
 cd ..
 cd ..
-cd apirest
+cls
+echo .
+pause ambiente activado

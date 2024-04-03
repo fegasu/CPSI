@@ -22,6 +22,11 @@
     </script>
 {%if N == '0' or N == ''  %}
 Nivel 0
+<a href="/niveles/1">Siguiente Nivel</a>
+
+{%endif%}
+{%if N == '1' %}
+Nivel 1
 <center>
     <div class="w3-responsive">
 <table class="w3-striped w3-border w3-centered">
@@ -33,11 +38,6 @@ Nivel 0
 </table>
 </form>
 </div>
-<a href="/niveles/1">Siguiente Nivel</a>
-
-{%endif%}
-{%if N == '1' %}
-Nivel 1
 <a href="/niveles/0">Anterior Nivel</a>
 <a href="/niveles/2">Siguiente Nivel</a>
 

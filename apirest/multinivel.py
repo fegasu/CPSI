@@ -21,7 +21,7 @@ def nivelInserta():
         "NOMBRE":nom,"APELLIDO":ape
     }
     u1.Inserte(datos)
-    return "Ok1"
+    return render_template("niveles.html",N=0)
 
 if __name__=='__main__':
     app.run(debug=True,host='0.0.0.0',port=8000)

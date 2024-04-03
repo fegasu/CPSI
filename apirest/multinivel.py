@@ -14,8 +14,8 @@ def nivel(id=0):
 
 @app.route("/niveles/i",methods=["POST"])
 def nivelInserta():
-    nom=request.form.get('nom')+"pk"
-    ape=request.form.get('ape')+"tk"
+    nom=request.form.get('nom')
+    ape=request.form.get('ape')
     u1= Usuario("http://127.0.0.1:5000/usua")
     datos={
         "NOMBRE":nom,"APELLIDO":ape

@@ -7,7 +7,7 @@ app=Flask(__name__)
 
 @app.route("/",methods=["GET","POST"])
 def index():
-    return render_template("niveles.html",N="2")
+    return render_template("niveles.html",N="0")
 @app.route("/niveles/<id>",methods=["GET","POST"])
 def nivel(id=0):
     return render_template("niveles.html",N=id)

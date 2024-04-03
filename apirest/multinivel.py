@@ -22,7 +22,8 @@ def nivelInserta():
     }
     u1.Inserte(datos)
     id=0
-    return render_template("alertas.html",N=0)
+    msgitos="Usuario creado satisfactoriamente"
+    return render_template("alertas.html",msgito=msgitos)
 
 if __name__=='__main__':
     app.run(debug=True,host='0.0.0.0',port=8000)

@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+
 <html>
     <head>
         <meta charset="utf-8">
@@ -10,7 +7,8 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
     </head>
     <body>
         <center><img src="{{url_for('static',filename='images/CGMLTI.png')}}" style="border:true;width:90%;border-color:black;height:150px;-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
@@ -18,10 +16,15 @@
             box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);border: 1px solid #000000;"></center>
         <hr>
         <center>
-            <font size=6 color=red><b>OPERACION EXITOSA</b></font>
+            <form action="/niveles/0"
+            <font size=6 color=red><b>OPERACION EXITOSA</b></font><br>
+
+            <button class="w3-button w3-hover-green w3-round-xxlarge">OK</button>
+            </form>
+            </div>
         <script>
             function Voy(){
-            location.href="/niveles/0"
+            //location.href="/niveles/0"
             }
             setTimeout('Voy()',5000)
         </script>

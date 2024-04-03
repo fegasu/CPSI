@@ -1,5 +1,5 @@
 @echo off
 cls
-color 6
+color
 env\Scripts\Activate.bat
 cls

@@ -1,4 +1,4 @@
-from flask import Flask, jsonify,request
+from flask import Flask, jsonify,request,redirect, url_for
 import json,requests
 from flask import render_template
 from services.apicnx import Usuario       
@@ -21,7 +21,8 @@ def nivelInserta():
         "NOMBRE":nom,"APELLIDO":ape
     }
     u1.Inserte(datos)
-    return render_template("niveles.html",N=0)
+    id=0
+    return render_template("alertas.html",N=0)
 
 if __name__=='__main__':
     app.run(debug=True,host='0.0.0.0',port=8000)

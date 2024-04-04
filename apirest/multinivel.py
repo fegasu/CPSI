@@ -24,6 +24,25 @@ def nivelInserta():
     id=0
     msgitos="Usuario creado satisfactoriamente"
     return render_template("alertas.html",msgito=msgitos)
+@app.route("/niveles/e/<id>",methods=["GET"])
+def nivelEdita(id):
+    u1= Usuario("http://127.0.0.1:5000/usua")
+    cadena=u1.ListarUno(id)
+    return render_template("niveles.html",N=2,cadena=cadena)
+@app.route("/niveles/r",methods=["POST"])
+def Lista():
+    u1= Usuario("http://127.0.0.1:5000/usua")
+    cadena=u1.ListarTodos()
+    id=0
+    return cadena
+    return render_template("niveles.html",N=id,cadena=cadena,can=len(cadena))
+@app.route("/niveles/l",methods=["GET"])
+def ListarTodos():
+    u1= Usuario("http://127.0.0.1:5000/usua")
+    cadena=u1.ListarTodos()
+    id="l"
+    return render_template("niveles.html",N=id,cadena=cadena,can=len(cadena))
+    
 
 if __name__=='__main__':
     app.run(debug=True,host='0.0.0.0',port=8000)

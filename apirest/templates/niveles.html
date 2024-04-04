@@ -10,8 +10,14 @@
         document.forms['mio'].submit();
      
      
+       }function Ir1(cual){
+        location.href="/niveles/"+cual
        }
-       function Va(){
+    
+       function Va(tipo){
+        if(tipo=="i")
+        document.forms['mio'].action="/niveles/i"
+        else
         document.forms['mio'].action="/niveles/i"
         //alert(document.forms['mio']['nom'].value)
         document.forms['mio'].submit();    
@@ -21,20 +27,23 @@
     <center><img src="{{url_for('static',filename='images/CGMLTI.png')}}" style="border:true;width:60%;border-color:black;height:150px;-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);border: 1px solid #000000;"><br>
-{%if N == '0'%}
-Nivel 0
+    {{N}}
+
+{% if N == "l"  %}
+Nivel 0*
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
 <center>
 <table width=50% class="w3-striped w3-border" border="1">
-
-        <td style="text-align:left">Juan</td>
+    
+    {% for x in range(can)%}
+        <td style="text-align:left">{{cadena[x][0]}}-{{cadena[x][1]}} {{cadena[x][2]}}</td>
         <td width="50px">
         <a href="/niveles/1">N</a>
-        <a href="/niveles/2">E</a>
-        <a href="">D</a></td>
-        
+        <a href="/niveles/e/{{cadena[x][0]}}">E</a>
+        <a href="">D</a></td></tr>
+    {% endfor %}    
 
     </tr>
 </table>
@@ -58,8 +67,22 @@ Nivel 1
 <a href="/niveles/2">Siguiente Nivel</a>
 
 {%endif%}
-{%if N == '2' %}
-Nivel 2
+{%if N == 2 %}
+
+<center>
+    <div class="w3-responsive">
+<table class="w3-striped w3-border w3-centered">
+    <tr>
+<form name=mio method=post>
+    <td>Nombre:</td><td><input type=text name=nom value="{{cadena[0][1]}}"></td></tr>
+    <td>Apellido:</td><td><input type=text name=ape value="{{cadena[0][2]}}"></td></tr>
+    <td colspan=2><input type="button" value="Grabar" onclick="Va()" class="w3-button w3-black">
+        <input type="button" value="Regresar" onclick="Ir1('l')" class="w3-button w3-black">
+    </td></tr>
+</table>
+</form>
+</div>
+
 <a href="/niveles/1">Anterior Nivel</a>
 <a href="/niveles/3">Siguiente Nivel</a>
 {%endif%}

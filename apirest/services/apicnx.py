@@ -53,4 +53,3 @@ class Usuario(cnx):
         response = requests.delete(self.url+"/d/"+str(cual))
     def Actualiza(self,data):
         response = requests.put(self.url+"/u", json=data)
-

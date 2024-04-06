@@ -45,7 +45,7 @@ def ListarTodos():
     cadena=list(u1.ListarTodos())
     can=len(cadena)
     id=0
-    return render_template("niveles.html",N=id,cadena=cadena,can=1)
+    return render_template("niveles.html",N=id,cadena=cadena,can=can)
     
 
 if __name__=='__main__':

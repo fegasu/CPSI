@@ -8,11 +8,7 @@ app=Flask(__name__)
 def inicio():
     return "Hola"
 @app.route("/usua/cc")
-def ListaUsuarioC():
-    sql="select count(*) from USUA" 
-    con=cnxsqlite()   
-    todo=con.Consultar("./usuarios.db",sql)    
-    return todo
+
 @app.route("/usua/to")
 def ListaUsuario():
     sql="select * from USUA" 

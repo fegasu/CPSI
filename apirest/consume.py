@@ -9,7 +9,7 @@ u1= Usuario("http://127.0.0.1:5000/usua")
 emp={
     "NOMBRE":"Soila","APELLIDO":"Vaca del corrar"
 }
-#u1.Inserte(emp)
+u1.Inserte(emp)
 #u1.Borra(39)
 
 
@@ -18,5 +18,8 @@ emp={
 }
 #u1.Actualiza(emp)
 ''''''
+x=u1.ListarTodos()
+print(x)
 print(len(u1.ListarTodos()))
+print(x[2][1],x[2][2])
 

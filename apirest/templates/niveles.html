@@ -27,11 +27,11 @@
     <center><img src="{{url_for('static',filename='images/CGMLTI.png')}}" style="border:true;width:60%;border-color:black;height:150px;-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);border: 1px solid #000000;"><br>
-    {{can}}
+    {{N}}
 
-{% if N == "0"  %}
+{% if N == 0  %}
 Nivel 0*
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
@@ -40,10 +40,10 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
     
     {% for x in range(0,can)%}
         <td style="text-align:left">{{cadena[x][0]}}-{{cadena[x][1]}} {{cadena[x][2]}}</td>
-        <td width="50px">
-        <a href="/niveles/1">N</a>
-        <a href="/niveles/e/{{cadena[x][0]}}"><img src="{{url_for('static',filename='images/editar.png')}}"></a>
-        <a href="">D</a></td></tr>
+        <td width="100px">
+        <a href="/niveles/1"><img width=20px src="{{url_for('static',filename='images/crear.png')}}"></a>
+        <a href="/niveles/e/{{cadena[x][0]}}"><img width=20px src="{{url_for('static',filename='images/editar.png')}}"></a>
+        <a href=""><img width=20px src="{{url_for('static',filename='images/borrar.png')}}"></a></td></tr>
     {% endfor %}    
 
     </tr>

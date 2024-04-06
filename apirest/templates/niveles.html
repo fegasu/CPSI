@@ -33,20 +33,20 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
+<div class="w3-container">
 <center>
-<table width=50% class="w3-table w3-striped w3-border" border="1">   
+<table class="w3-table w3-striped w3-border" border="1">   
     {% for x in range(0,can)%}
         <td style="text-align:left">{{cadena[x][1]}} {{cadena[x][2]}}</td>
         <td width="100px">
-        <a href="/niveles/1"><img width=20px src="{{url_for('static',filename='images/crear.png')}}"></a>
-        <a href="/niveles/e/{{cadena[x][0]}}"><img width=20px src="{{url_for('static',filename='images/editar.png')}}"></a>
-        <a href=""><img width=20px src="{{url_for('static',filename='images/borrar.png')}}"></a></td></tr>
+        <a href="/niveles/1"><img width=20px src="{{url_for('static',filename='images/crear.png')}}" title="Crear"></a>
+        <a href="/niveles/e/{{cadena[x][0]}}"><img width=20px src="{{url_for('static',filename='images/editar.png')}}" title="Editar"></a>
+        <a href=""><img width=20px src="{{url_for('static',filename='images/borrar.png')}}" title="Eliminar"></a></td></tr>
     {% endfor %}    
 
     </tr>
 </table>
-<a href="/niveles/1">Siguiente Nivel</a>
+
 
 {%endif%}
 {%if N == '1' %}

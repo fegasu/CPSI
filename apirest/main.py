@@ -27,6 +27,7 @@ def CrearUsuario():
     ape=datos['APELLIDO']
     nom=datos['NOMBRE']
     sql="insert into USUA(NOMBRE,APELLIDO) values('"+nom+"','"+ape+"')"
+    con=cnxsqlite()   
     todo=con.Ejecutar("./usuarios.db",sql)
     return "OK"
 @app.route("/usua/u",methods = ['PUT'])

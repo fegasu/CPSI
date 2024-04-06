@@ -39,7 +39,9 @@ class Usuario(cnx):
         response = requests.get(murl)
         #print(self.data)
     def ListarTodos(self):
-        return self.data
+        self.res=requests.get(self.url)
+        data1=json.loads(self.res.content)
+        return data1
     def ListarUno(self,cual=0):    
         self.res=requests.get(self.url+"/"+str(cual))
         data1=json.loads(self.res.content)

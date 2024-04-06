@@ -7,7 +7,14 @@ class cnxsqlite:
         res=cur.execute(sql)
         todo=res.fetchall()
         con.close() 
-        return json.dumps(todo)   
+        return todo   
+    def ConsultarUno(self,bd,sql):
+        con = sqlite3.connect(bd)
+        cur = con.cursor()
+        res=cur.execute(sql)
+        todo = res.fetchone()[0]
+        con.close() 
+        return todo   
     def Ejecutar(self,bd,sql):
         con = sqlite3.connect(bd)
         cur = con.cursor()
@@ -34,12 +41,16 @@ class Usuario(cnx):
     data=None
     def __init__(self,murl):
         self.res=requests.get(murl)
-        self.data=json.loads(self.res.content)
+        #self.data=json.loads(self.res.content)
         self.url=murl
         response = requests.get(murl)
         #print(self.data)
+    def ListarTodosC(self):
+        self.res=requests.get(self.url+"/C")
+        data1=json.loads(self.res.content)
+        return data1
     def ListarTodos(self):
-        self.res=requests.get(self.url)
+        self.res=requests.get(self.url+"/to")
         data1=json.loads(self.res.content)
         return data1
     def ListarUno(self,cual=0):    

@@ -7,12 +7,17 @@ app=Flask(__name__)
 @app.route("/")
 def inicio():
     return "Hola"
-@app.route("/usua")
+@app.route("/usua/cc")
+def ListaUsuarioC():
+    sql="select count(*) from USUA" 
+    con=cnxsqlite()   
+    todo=con.Consultar("./usuarios.db",sql)    
+    return todo
+@app.route("/usua/to")
 def ListaUsuario():
     sql="select * from USUA" 
     con=cnxsqlite()   
     todo=con.Consultar("./usuarios.db",sql)
-    con=None
     return json.dumps(todo)
 @app.route("/usua/<id>")
 def ListaUnUsuario(id):

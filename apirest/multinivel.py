@@ -5,9 +5,10 @@ from services.apicnx import Usuario
 
 app=Flask(__name__)
 
-@app.route("/",methods=["GET","POST"])
+@app.route("/niveles/0",methods=["GET","POST"])
 def index():
     return render_template("niveles.html",N="0")
+
 @app.route("/niveles/<id>",methods=["GET","POST"])
 def nivel(id=0):
     return render_template("niveles.html",N=id)
@@ -33,15 +34,18 @@ def nivelEdita(id):
 def Lista():
     u1= Usuario("http://127.0.0.1:5000/usua")
     cadena=u1.ListarTodos()
-    id=0
+    can=len(cadena)
+    id="0"
     return cadena
     return render_template("niveles.html",N=id,cadena=cadena,can=len(cadena))
+
 @app.route("/niveles/l",methods=["GET"])
 def ListarTodos():
     u1= Usuario("http://127.0.0.1:5000/usua")
-    cadena=u1.ListarTodos()
-    id="l"
-    return render_template("niveles.html",N=id,cadena=cadena,can=len(cadena))
+    cadena=list(u1.ListarTodos())
+    can=len(cadena)
+    id=0
+    return render_template("niveles.html",N=id,cadena=cadena,can=1)
     
 
 if __name__=='__main__':

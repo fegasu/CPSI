@@ -2,15 +2,14 @@ import json,requests
 from services.apicnx import Usuario       
 
 u1= Usuario("http://127.0.0.1:5000/usua")
-#print(u1.ListarTodos())
 #print(u1.ListarUno(16))
 
-
+#print(u1.ListarTodosC())
 
 emp={
     "NOMBRE":"Soila","APELLIDO":"Vaca del corrar"
 }
-u1.Inserte(emp)
+#u1.Inserte(emp)
 #u1.Borra(39)
 
 
@@ -19,5 +18,5 @@ emp={
 }
 #u1.Actualiza(emp)
 ''''''
-print(u1.ListarTodos())
+print(len(u1.ListarTodos()))
 

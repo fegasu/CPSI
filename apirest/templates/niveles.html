@@ -13,16 +13,21 @@
        }
     
        function Va(tipo){
+        
         if(tipo=="i")
         document.forms['mio'].action="/niveles/i"
-        else
-        document.forms['mio'].action="/niveles/i"
-        //alert(document.forms['mio']['nom'].value)
+        if(tipo=="u"){
+         
+         document.forms['mio'].action="/niveles/u"   
+        }
+        
         document.forms['mio'].submit();    
      
        }
     </script>
-    <center><img src="{{url_for('static',filename='images/CGMLTI.png')}}" style="border:true;width:60%;border-color:black;height:150px;-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    <center>
+<div style="width:70%;overflow:auto">
+    <center><img src="{{url_for('static',filename='images/CGMLTI.png')}}" style="border:true;width:100%;border-color:black;height:150px;-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);border: 1px solid #000000;"><br>
     {{N}}
@@ -39,7 +44,7 @@
         <td width="100px">
         <a href="/niveles/1"><img width=20px src="{{url_for('static',filename='images/crear.png')}}" title="Crear"></a>
         <a href="/niveles/e/{{cadena[x][0]}}"><img width=20px src="{{url_for('static',filename='images/editar.png')}}" title="Editar"></a>
-        <a href=""><img width=20px src="{{url_for('static',filename='images/borrar.png')}}" title="Eliminar"></a></td></tr>
+        <a href="/niveles/d/{{cadena[x][0]}}"><img width=20px src="{{url_for('static',filename='images/borrar.png')}}" title="Eliminar"></a></td></tr>
     {% endfor %}    
 
     </tr>
@@ -53,10 +58,10 @@ Nivel 1
     <div class="w3-responsive">
 <table class="w3-striped w3-border w3-centered">
     <tr>
-<form name=mio method=post>
+<form name=mio method=POST>
     <td>Nombre:</td><td><input type=text name=nom></td></tr>
     <td>Apellido:</td><td><input type=text name=ape></td></tr>
-    <td colspan=2><input type="button" value="Grabar" onclick="Va()" class="w3-button w3-black"></td></tr>
+    <td colspan=2><input type="button" value="Grabar" onclick="Va('i')" class="w3-button w3-black w3-half"></td></tr>
 </table>
 </form>
 </div>
@@ -70,10 +75,11 @@ Nivel 1
     <div class="w3-responsive">
 <table class="w3-striped w3-border w3-centered">
     <tr>
-<form name=mio method=post>
-    <td>Nombre:</td><td><input type=text name=nom value="{{cadena[0][1]}}"></td></tr>
+<form name=mio method=POST>
+    <td>Nombre*:</td><td><input type=text name=nom value="{{cadena[0][1]}}"></td></tr>
     <td>Apellido:</td><td><input type=text name=ape value="{{cadena[0][2]}}"></td></tr>
-    <td colspan=2><input type="button" value="Grabar" onclick="Va()" class="w3-button w3-black">
+    <td colspan=2><input type="button" value="Grabar" onclick="Va('u')" class="w3-button w3-black">
+        <input type=hidden name=id value="{{cadena[0][0]}}">
         <input type="button" value="Regresar" onclick="Ir1('l')" class="w3-button w3-black">
     </td></tr>
 </table>

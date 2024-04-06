@@ -40,15 +40,8 @@ class Usuario(cnx):
     res=None
     data=None
     def __init__(self,murl):
-        self.res=requests.get(murl)
-        #self.data=json.loads(self.res.content)
         self.url=murl
-        response = requests.get(murl)
-        #print(self.data)
-    def ListarTodosC(self):
-        self.res=requests.get(self.url+"/C")
-        data1=json.loads(self.res.content)
-        return data1
+
     def ListarTodos(self):
         self.res=requests.get(self.url+"/to")
         data1=json.loads(self.res.content)

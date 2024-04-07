@@ -42,6 +42,7 @@
 <center>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<!--EDILISTAR REGISTROS-->
 
 <center>
 <table class="w3-table w3-striped w3-border" border="1">   
@@ -58,14 +59,15 @@
 
 {%endif%}
 {%if N == '1' %}
+<!--CREAR UN REGISTRO-->
 
 <center>
     <div class="w3-responsive"><br>
 <table class="w3-striped  w3-centered">
     <tr>
 <form name=mio method=POST class="w3-bordered">
-    <td>Nombre:</td><td><input class="w3-input w3-border w3-hover-yellow" type=text name=nom></td></tr>
-    <td>Apellido:</td><td><input class="w3-input w3-border w3-hover-yellow" type=text name=ape></td></tr>
+    <td>Nombre:</td><td><input class="w3-input w3-border w3-hover-yellow" type=text name=nom required maxlength="45"></td></tr>
+    <td>Apellido:</td><td><input class="w3-input w3-border w3-hover-yellow" type=text name=ape required maxlength="45"></td></tr>
     <tr><td>.</td></tr>
     <td colspan=2><input type="button" value="Grabar" onclick="Va('i')" class="w3-button w3-black w3-half">
     <input type="button" value="Regresar" onclick="Ir1('l')" class="w3-button w3-black"></td></tr>
@@ -75,14 +77,14 @@
 
 {%endif%}
 {%if N == 2 %}
-
+<!--EDITAR UN REGISTRO-->
 <center>
     <div class="w3-responsive"><br>
 <table class="w3-striped w3-border w3-centered">
     <tr>
 <form name=mio method=POST>
-    <td>Nombre:</td><td><input type=text name=nom value="{{cadena[0][1]}}"></td></tr>
-    <td>Apellido:</td><td><input type=text name=ape value="{{cadena[0][2]}}"></td></tr>
+    <td>Nombre:</td><td><input type=text name=nom id=nom value="{{cadena[0][1]}}"  required></td></tr>
+    <td>Apellido:</td><td><input type=text name=ape id=ape value="{{cadena[0][2]}}"  required></td></tr>
     <td colspan=2><input type="button" value="Grabar" onclick="Va('u')" class="w3-button w3-black">
         <input type=hidden name=id value="{{cadena[0][0]}}">
         <input type="button" value="Regresar" onclick="Ir1('l')" class="w3-button w3-black">

@@ -36,7 +36,7 @@
       <div class="w3-bar w3-black">
         <a href="/niveles/l" class="w3-bar-item w3-button w3-mobile">Inicio</a>
         <a href="/niveles/1" class="w3-bar-item w3-button w3-mobile">Nuevo</a>
-        <a href="" class="w3-bar-item w3-button w3-mobile">Acerca de...</a>
+        <a href="/niveles/1000" class="w3-bar-item w3-button w3-mobile">Acerca de...</a>
       </div>
 {% if N == 0  %}
 <center>
@@ -92,9 +92,10 @@
 </div>
 
 {%endif%}
-{%if N == '3' %}
-Nivel 3
-<a href="/niveles/2">Anterior Nivel</a>
-<a href="/niveles/0">Primer Nivel</a>
+{%if N == '1000' %}
+<center><br><img src="{{url_for('static',filename='images/CPSI.png')}}" style="border:true;border-color:black;height:150px;-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);border: 1px solid #000000;"><br>
+ 
 {%endif%}
 </div>

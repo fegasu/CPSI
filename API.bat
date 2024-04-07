@@ -1,2 +1,3 @@
 cd apirest
-python main.py
+start python main.py
+cd ..

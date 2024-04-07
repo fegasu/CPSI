@@ -32,10 +32,12 @@
     <center><img src="{{url_for('static',filename='images/CGMLTI.png')}}" style="border:true;width:100%;border-color:black;height:150px;-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);border: 1px solid #000000;"><br>
- 
-
+    <br>
+      <div class="w3-bar w3-black">
+        <a href="/niveles/l" class="w3-bar-item w3-button w3-mobile">Inicio</a>
+        <a href="/niveles/1" class="w3-bar-item w3-button w3-mobile">Nuevo</a>
+      </div>
 {% if N == 0  %}
-<button onclick="Ir1(1)" class="w3-button btn-success w3-round-xxlarge" style="width:10%">Nuevo</button>
 <center>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
@@ -44,8 +46,7 @@
 <table class="w3-table w3-striped w3-border" border="1">   
     {% for x in range(0,can)%}
         <td style="text-align:left">{{cadena[x][1]}} {{cadena[x][2]}}</td>
-        <td width="100px">
-        <a href="/niveles/1"><img width=20px src="{{url_for('static',filename='images/crear.png')}}" title="Crear"></a>
+        <td width="80px">
         <a href="/niveles/e/{{cadena[x][0]}}"><img width=20px src="{{url_for('static',filename='images/editar.png')}}" title="Editar"></a>
         <a href="/niveles/d/{{cadena[x][0]}}"><img width=20px src="{{url_for('static',filename='images/borrar.png')}}" title="Eliminar"></a></td></tr>
     {% endfor %}    
@@ -56,20 +57,18 @@
 
 {%endif%}
 {%if N == '1' %}
-Nivel 1
+
 <center>
     <div class="w3-responsive">
-<table class="w3-striped w3-border w3-centered">
+<table class="w3-striped  w3-centered">
     <tr>
-<form name=mio method=POST>
-    <td>Nombre:</td><td><input type=text name=nom></td></tr>
-    <td>Apellido:</td><td><input type=text name=ape></td></tr>
+<form name=mio method=POST class="w3-bordered">
+    <td>Nombre:</td><td><input class="w3-input w3-border w3-hover-yellow" type=text name=nom></td></tr>
+    <td>Apellido:</td><td><input class="w3-input w3-border w3-hover-yellow" type=text name=ape></td></tr>
     <td colspan=2><input type="button" value="Grabar" onclick="Va('i')" class="w3-button w3-black w3-half"></td></tr>
 </table>
 </form>
 </div>
-<a href="/niveles/0">Anterior Nivel</a>
-<a href="/niveles/2">Siguiente Nivel</a>
 
 {%endif%}
 {%if N == 2 %}

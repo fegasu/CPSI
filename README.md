@@ -7,6 +7,8 @@ Pasos a seguir:
 <ul>
 <li>Descargue desde el <a href="https://github.com/fegasu/CPSI/archive/refs/heads/main.zip">archivo</a> desde este github</li>
 <li>Descomprima el archivo descargado</li>
+<li>Aseurese que python este instalado</li>
+<li>Instale el ambiente virtual pip intall virtualenv</li>
 <li>Inicie el ambiente virtual con el archivo ini.bat</li>
 <li>Inicie la API con el archivo api.bat</li>
 <li>Inicie el servidor web con el archivo multi.bat</li>

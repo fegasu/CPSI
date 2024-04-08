@@ -11,6 +11,9 @@ Pasos a seguir para la practica CONSUMIR SERVICIOS APIRESTS:
 <li>Instale el ambiente virtual:<a href="#"> <mark>pip intall virtualenv</mark></a></li>
 <li>Crear el ambiente virtual: <a href="#"><mark>python -m venv env</mark></a></li>
 <li>Inicie el ambiente virtual con el archivo <a href="#">ini.bat</a></li>
+<li>no olvida instalar flask estando en el ambiente virtual<a href="#">pip install flask</a></li>
+<li>no olvida instalar requests  estando en el ambiente virtual <a href="#">pip install requests</a></li>
+
 <li>Inicie la API con el archivo <a href="#">api.bat</a> desde el ambiente virtual</li>
 <li>Inicie el servidor web con el archivo <a href="#">multi.bat</a> desde el ambiente virtual</li>
 <li>Ingrese al navegador y escriba la url http://127.0.0.1:8000/niveles/l

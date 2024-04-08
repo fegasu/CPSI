@@ -9,9 +9,9 @@ Pasos a seguir:
 <li>Descomprima el archivo descargado</li>
 <li>Asegurese que python este instalado</li>
 <li>Instale el ambiente virtual:<a href="#"> <mark>pip intall virtualenv</mark></a></li>
-<li>Crear el ambiente virtual: <mark>python -m venv env</mark></li>
-<li>Inicie el ambiente virtual con el archivo ini.bat</li>
-<li>Inicie la API con el archivo api.bat</li>
+<li>Crear el ambiente virtual: <a href="#"><mark>python -m venv env</mark></a></li>
+<li>Inicie el ambiente virtual con el archivo <a href="#">ini.bat</a></li>
+<li>Inicie la API con el archivo <a href="#">api.bat</a></li>
 <li>Inicie el servidor web con el archivo multi.bat</li>
 <li>Ingrese al navegador y escriba la url http://127.0.0.1:8000/niveles/l
 </ul>

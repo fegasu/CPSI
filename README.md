@@ -5,7 +5,7 @@
 <br>
 Pasos a seguir:
 <ul>
-<li>Descargue desde el <a href="https://github.com/fegasu/CPSI/archive/refs/heads/main.zip">archivo</a> desde este github</li>
+<li>Descargue el <a href="https://github.com/fegasu/CPSI/archive/refs/heads/main.zip">archivo</a> desde este github</li>
 <li>Descomprima el archivo descargado</li>
 <li>Asegurese que python este instalado, de lo contrario descrguelo <a href="https://www.python.org/downloads/">Aqui</a></li>
 <li>Instale el ambiente virtual:<a href="#"> <mark>pip intall virtualenv</mark></a></li>

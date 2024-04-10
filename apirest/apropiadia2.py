@@ -9,6 +9,7 @@ class Cuenta:
         return self.__tipo
     def getSaldo(self):
         return self.__saldo
+      
 class Cliente: 
   def __init__(self,ced,nom,numerocta,tipo,saldo):
     self.__cedula=ced

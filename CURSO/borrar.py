@@ -1,24 +1,18 @@
-'''
-nombre #atributo público
-_nombre #atributo protegido
-__nombre #atributo privado
-'''
-class Alumno:
-  def __init__(self, nombre, nota):
-    self.__nombre = nombre
-    self.__nota = nota
-    print ("Estoy dentro del constructor")
+import random
+class Persona:
+  def __init__(self, nombre, edad):
+    self.nombre = nombre
+    self.edad = edad
 
-  def mostrar_info(self, maximo=5):
-    print ("nombre", self.__nombre, "nota:", self.__nota, "entre ", maximo)
-    print ("Objeto actual ", self)
-########################################
-a1 = Alumno ("Juan", 3)
+  @staticmethod    #este es un método estático
+  def mensaje_hoy():
+    mensajes =["La vida es bella", "Mejor tarde que nunca", "Dios te bendiga", "Vive para servir"]
+    print (random.choice(mensajes))
 
-a1.mostrar_info()
-
-
-a2 = Alumno ("Margarita", 3)
-a2.mostrar_info(4)
-print(a2)
-print (a2)
+  def mostrar_info(self):
+    print (f"{self.nombre} tiene {self.edad} años")
+####################################################################################################
+Persona.mensaje_hoy()
+p1 = Persona ("Pablo", 38)
+p1.mostrar_info()
+Persona.mensaje_hoy()

@@ -1,17 +1,18 @@
-class Motor:
-  def __init_(self,tipo):
-    self.tipo=tipo
-  def arrancar(self):
-    print("Motor arrancado")
-  
-class Coche:
-  def __init__(self,modelo,tipoMotor):
-    self.__modelo=modelo
-    self.__tipoMotor=tipoMotor
-  def getModelo(self):
-        return self.__modelo
-  def conducir(self):
-    print("Conduciendo el coche modelo: "+self.getModelo())
-    
-miCoche=Coche("Sedan","Gasolina")
-miCoche.conducir()
+class Point:
+      def __init__(self,x,y):
+            self.__x=x
+            self.__y=y
+            
+class Rectangle:
+  def __init__(self,topLeft:Point,width,height):
+        self.__topLeft=topLeft
+        self.__width=width
+        self.__height=height
+  def calculateArea(self):
+        return self.__width*self.__height
+point=Point(10,20)
+rectangle =  Rectangle(point, 30, 40)
+area = rectangle.calculateArea()
+print("Area del rectángulo: " , area)
+      
+      

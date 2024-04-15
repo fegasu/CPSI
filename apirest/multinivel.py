@@ -37,7 +37,7 @@ def nivelactualiza():
     }
     u1.Actualiza(datos)
     id=0
-    msgitos="Usuario editado satisfactoriamente"
+    msgitos="Usuario editado* satisfactoriamente"
     return render_template("alertas.html",msgito=msgitos)
 
 
@@ -69,7 +69,7 @@ def ListarTodos():
     cadena=list(u1.ListarTodos())
     can=len(cadena)
     id=0
-    return render_template("niveles.html",N=id,cadena=cadena,can=can)
+    return render_template("niveles.html",N=0,cadena=cadena,can=can)
     
 
 if __name__=='__main__':

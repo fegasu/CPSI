@@ -1,10 +1,10 @@
 import json,requests
-    
+from config import configura   
 class Usuario:
     url=None
     res=None
     data=None
-    def __init__(self,murl):
+    def __init__(self,murl=configura['SERVER_NAME']):
         self.url=murl
 
     def ListarTodos(self):

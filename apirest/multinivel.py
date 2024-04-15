@@ -1,7 +1,8 @@
 from flask import Flask, jsonify,request,redirect, url_for
 import json,requests
 from flask import render_template
-from services.apicnx import Usuario       
+from services.apicnx import Usuario   
+    
 app=Flask(__name__)
 
 @app.route("/niveles/0",methods=["GET","POST"])
@@ -17,6 +18,8 @@ def nivelInserta():
     nom=request.form.get('nom')
     ape=request.form.get('ape')
     u1= Usuario("http://127.0.0.1:5000/usua")
+    
+    
     datos={
         "NOMBRE":nom,"APELLIDO":ape
     }

@@ -4,6 +4,7 @@ import json
 
 #from services.apicnx import cnxsqlite
 from database.cnxSqlite import cnxsqlite  
+import config
 app=Flask(__name__)
 @app.route("/")
 def inicio():

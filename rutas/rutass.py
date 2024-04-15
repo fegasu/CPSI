@@ -1,11 +1,4 @@
-from flask import Flask, jsonify,request
 
-import json
-
-#from services.apicnx import cnxsqlite
-from database.cnxSqlite import cnxsqlite  
-from config import configura 
-app=Flask(__name__)
 @app.route("/")
 def inicio():
     return "Hola"
@@ -49,7 +42,4 @@ def BorrarUsuario(id):
     sql="delete from USUA where IDUSUA="+str(id)
     con=cnxsqlite()
     todo=con.Ejecutar("./usuarios.db",sql)
-    return "OK"
-
-if __name__=='__main__':
-    app.run(debug=True,port=configura['PUERTOREST'],host='0.0.0.0')
+    return "OK"i

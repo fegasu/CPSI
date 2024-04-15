@@ -4,7 +4,7 @@ import json
 
 #from services.apicnx import cnxsqlite
 from database.cnxSqlite import cnxsqlite  
-import config
+from config import configura 
 app=Flask(__name__)
 @app.route("/")
 def inicio():
@@ -52,4 +52,4 @@ def BorrarUsuario(id):
     return "OK"
 
 if __name__=='__main__':
-    app.run(debug=True,host='0.0.0.0')
+    app.run(debug=True,port=configura['PUERTOREST'],host='0.0.0.0')

@@ -2,7 +2,7 @@ from flask import Flask, jsonify,request,redirect, url_for
 import json,requests
 from flask import render_template
 from services.apicnx import Usuario   
-    
+from config import configura       
 app=Flask(__name__)
 
 @app.route("/niveles/0",methods=["GET","POST"])

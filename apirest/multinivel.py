@@ -2,7 +2,6 @@ from flask import Flask, jsonify,request,redirect, url_for
 import json,requests
 from flask import render_template
 from services.apicnx import Usuario       
-
 app=Flask(__name__)
 
 @app.route("/niveles/0",methods=["GET","POST"])
@@ -73,4 +72,5 @@ def ListarTodos():
     
 
 if __name__=='__main__':
-    app.run(debug=True,host='0.0.0.0',port=8000)
+    app.run(debug=True,host='0.0.0.0',port=8000)    
+    

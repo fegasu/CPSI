@@ -1,3 +1,3 @@
 @echo off
 cd todo
-code .
+start code .

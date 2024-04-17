@@ -1,2 +1,5 @@
-venv
-  env
+/.python_modules/
+**/__pychache__/
+
+.venv
+env/

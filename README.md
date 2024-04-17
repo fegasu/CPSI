@@ -8,7 +8,7 @@ Pasos a seguir para la practica CONSUMIR SERVICIOS APIRESTS:
 <li>Descargue el <a href="https://github.com/fegasu/CPSI/archive/refs/heads/main.zip">archivo</a> desde este github</li>
 <li>Descomprima el archivo descargado</li>
 <li>Asegurese que python este instalado, de lo contrario descrguelo <a href="https://www.python.org/downloads/">Aqui</a></li>
-<li>Instale el ambiente virtual:<a href="#"> <mark>pip intall virtualenv</mark></a></li>
+<li>Instale el ambiente virtual:<a href="#"> <mark>pip install virtualenv</mark></a></li>
 <li>Crear el ambiente virtual: <a href="#"><mark>python -m venv env</mark></a></li>
 <li>Inicie el ambiente virtual con el archivo <a href="#">inicio.bat</a></li>
 <li>no olvidar instalar <a href="#">flask</a> estando en el ambiente virtual<a href="#">pip install flask</a></li>

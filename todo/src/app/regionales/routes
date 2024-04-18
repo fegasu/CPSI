@@ -1,0 +1,6 @@
+from flask import request, jsonify, Blueprint
+from jwt import encode
+regional=Blueprint('regional',url_prefix='/R')
+@regional.route('/')
+def raiz():
+    return "Hola"

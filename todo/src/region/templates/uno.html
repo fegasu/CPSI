@@ -35,6 +35,9 @@
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);border: 1px solid #000000;"><br>
     <br>
     <br>
+    <div class="w3-display-container w3-green" >
+      SISTEMA DE GESTION DE HORARIOS -SIGHO-
+    </div>
       <div class="w3-bar w3-black">
         <a href="/niveles/l" class="w3-bar-item w3-button w3-mobile"><img width=20px src="{{url_for('static',filename='images/inicio.webp')}}">&nbsp;Inicio</a>
         <a href="/niveles/1" class="w3-bar-item w3-button w3-mobile"><i class="fa fa-bars"></i>&nbsp;&nbsp;Nuevo</a>
@@ -62,10 +65,13 @@
     outline: none;
     font-size: 15px;
     transition: 0.4s;
+    font-weight: bold;
   }
   
   .active, .accordion:hover {
-    background-color: #aaaa; 
+    background-color: #52BE80; 
+    color:yellow
+    
   }
   
   .panel {
@@ -98,7 +104,10 @@
 <br>
 <button class="accordion">Reportes</button>
 <div class="panel">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  <br>
+  <button class=bt>horarios por ambientes</button>
+  <button class=bt>horarios por instructor</button>
+
 </div>
 <script>
   var acc = document.getElementsByClassName("accordion");

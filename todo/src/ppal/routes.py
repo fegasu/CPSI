@@ -5,17 +5,17 @@ from jwt import encode
 from datetime import datetime, timedelta # for the user registration time
 import hashlib # to make a hash of the user's password (strongly recommended)
 
-region = Blueprint('region', __name__, url_prefix='/r',
+ppal = Blueprint('region', __name__, url_prefix='/ppl',
                         template_folder='templates')
 
 # If user exist
-def existing_regin(region):
+def existing_regin(ppal):
     return 'Existe'
 
-@region.route('/l', methods=['GET'])
-def new_region():
+@ppal.route('/l', methods=['GET'])
+def new_ppal():
     return render_template("uno.html",N=id)
 
-@region.route('/')
+@ppal.route('/')
 def show():
     return "Otro"

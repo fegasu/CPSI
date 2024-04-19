@@ -5,12 +5,12 @@ from jwt import encode
 from datetime import datetime, timedelta # for the user registration time
 import hashlib # to make a hash of the user's password (strongly recommended)
 
-user = Blueprint('user', __name__, url_prefix='/user')
+region = Blueprint('region', __name__, url_prefix='/r')
 
 # If user exist
-def existing_user(user):
+def existing_regin(region):
     return 'Existe'
 
-@user.route('/l', methods=['GET'])
-def new_user():
+@region.route('/l', methods=['GET'])
+def new_region():
     return "Hola"

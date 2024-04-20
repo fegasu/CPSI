@@ -18,7 +18,7 @@ def new_ppal():
 
 @ppal.route('/')
 def show():
-    return "Otro"
+    return render_template("uno.html",N=0)
 @ppal.route("/h",methods=["GET"])
 def nivel():
     return render_template("acerca.html",N=1000)

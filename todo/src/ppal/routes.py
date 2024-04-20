@@ -14,8 +14,11 @@ def existing_regin(ppal):
 
 @ppal.route('/l', methods=['GET'])
 def new_ppal():
-    return render_template("uno.html",N=id)
+    return render_template("uno.html",N=0)
 
 @ppal.route('/')
 def show():
     return "Otro"
+@ppal.route("/h",methods=["GET"])
+def nivel():
+    return render_template("acerca.html",N=1000)

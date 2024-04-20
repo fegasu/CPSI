@@ -43,7 +43,7 @@
         <a href="/ppl/h" class="w3-bar-item w3-button w3-mobile  w3-right"><i class="fa fa-search"></i>&nbsp;&nbsp;Acerca de...</a>
       </div>
 <style>
-  <center>****************n={{N}}
+  
   {%if N == 0 %}
   .collapse {
     &:not(.show) {
@@ -127,18 +127,4 @@
   }
   </script>
   {%endif%}
-  {%if N == 1000 %}
-<center>
-    <div class="w3-card">
-        <div class="w3-container w3-center w3-green">
-            <h1>CENTRO DE PRODUCCION DE SOLUCIONES INTELIGENTES -CPSI-</h1>
-          </div>
-          <img src="{{url_for('static',filename='images/CPSI.png')}}">
-       </div>
-       <script>
-        function Voy(){
-        location.href="/ppl/l"
-        }
-        //setTimeout('Voy()',5000)
-    </script>
-{%endif%}
+ 

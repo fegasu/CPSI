@@ -12,9 +12,10 @@
      
      
        }function Ir1(cual){
-        
-        location.href=cual
+        print("/reg/"+cual)
+        location.href="/reg/"+cual
        }
+    
     
        function Va(tipo){
         
@@ -37,7 +38,7 @@
     <br>
     <br>
     <div class="w3-display-container w3-green" >
-      SISTEMA DE GESTION DE HORARIOS -SIGHO-
+      SISTEMA DE GESTION DE HORARIOS -SIGHO- REGIONALES
     </div>
       <div class="w3-bar w3-black">
         <a href="/ppl/l" class="w3-bar-item w3-button w3-mobile"><img width=20px src="{{url_for('static',filename='images/inicio.webp')}}">&nbsp;Inicio</a>
@@ -45,7 +46,7 @@
       </div>
 <style>
   
-  {%if N == 0 %}
+
   .collapse {
     &:not(.show) {
       display: none;
@@ -83,49 +84,3 @@
     overflow: hidden;
   }
 </style>
-<button class="accordion">Modulos</button>
-<div class="w3-panel">
-  <br>
-  <button onclick=Ir1("/reg/l") class=bt>Regionales</button>
-  <button class=bt>Centros de formacion</button>
-  <button class=bt>Sedes</button>
-  <button class=bt>Ambientes</button>
-  <button class=bt>Titulaciones</button>
-  <button class=bt>Ambiente</button>
-  <button class=bt>Fichas</button>
-  <button class=bt>Instructores</button>
-
-</div>
-<br>
-<button class="accordion">Horarios</button>
-<div class="panel">
-  <br>
-  <button class=bt>administracion de horarios por ambientes de formacion</button>
-  <button class=bt>administracion de horarios por instructor</button>
-</div>
-<br>
-<button class="accordion">Reportes</button>
-<div class="panel">
-  <br>
-  <button class=bt>horarios por ambientes</button>
-  <button class=bt>horarios por instructor</button>
-<br>
-</div>
-<script>
-  var acc = document.getElementsByClassName("accordion");
-  var i;
-  
-  for (i = 0; i < acc.length; i++) {
-    acc[i].addEventListener("click", function() {
-      this.classList.toggle("active");
-      var panel = this.nextElementSibling;
-      if (panel.style.display === "block") {
-        panel.style.display = "none";
-      } else {
-        panel.style.display = "block";
-      }
-    });
-  }
-  </script>
-  {%endif%}
- 

@@ -22,6 +22,12 @@ def ListaCentro():
     con=cnxsqlite()   
     todo=con.Consultar(bd,sql)
     return json.dumps(todo)
+@app.route("/centro/<idc>")
+def ListaCentro1(idc):
+    sql="select * from CENTRO c,regional r where c.idregion=r.idregional and idcentro="+idc 
+    con=cnxsqlite()   
+    todo=con.Consultar(bd,sql)
+    return json.dumps(todo)
 @app.route("/sede")
 def ListaSede():
     sql="select * from SEDE s, CENTRO c where s.idcentro=c.idcentro " 

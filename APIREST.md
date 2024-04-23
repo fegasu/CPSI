@@ -12,6 +12,7 @@ Pasos a seguir para la practica CONSUMIR SERVICIOS APIRESTS:
 <li>Instale el ambiente virtual:<a href="#"> <mark>pip install virtualenv</mark></a></li>
 <li>Crear el ambiente virtual: <a href="#"><mark>python -m venv env</mark></a></li>
 <li>Inicie el ambiente virtual con el archivo <a href="#">inicio.bat</a></li>
+<li>Instale los requerimientos necesarios<a href="#">requi.bat</a></li>
 <li>no olvidar instalar <a href="#">flask</a> estando en el ambiente virtual<a href="#">pip install flask</a></li>
 <li>no olvidar instalar <a href="#">requests</a>  estando en el ambiente virtual <a href="#">pip install requests</a></li>
 

@@ -12,7 +12,7 @@ Pasos a seguir para la practica CONSUMIR SERVICIOS APIRESTS:
 <li>Instale el ambiente virtual:<a href="#"> <mark>pip install virtualenv</mark></a></li>
 <li>Crear el ambiente virtual: <a href="#"><mark>python -m venv env</mark></a></li>
 <li>Inicie el ambiente virtual con el archivo <a href="#">inicio.bat</a></li>
-<li>Instale los requerimientos necesarios <a href="#">requeri.bat</a> o escriba el comando: <a href="">pip install -r requirements.txt</a></li>
+<li>Instale los requerimientos necesarios <a href="#">requeri.bat</a> &oacute; escriba el comando: <a href="">pip install -r requirements.txt</a></li>
 
 <li>Inicie la API con el archivo <a href="#">api.bat</a> desde el ambiente virtual</li>
 <li>Inicie el servidor web con el archivo <a href="#">multi.bat</a> desde el ambiente virtual</li>

@@ -36,6 +36,7 @@
        }
     </script>
     <center>
+        <br><br>
 <div style="width:70%;overflow:auto" class="w3-white">
     <center><img src="{{url_for('static',filename='images/CGMLTI.png')}}" style="border:true;width:100%;border-color:black;height:150px;-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
@@ -58,13 +59,15 @@
             <table class="w3-striped  w3-centered">
                 <tr><td colspan=2 class="w3-green"><h2>CREANDO REGISTRO</h2></td></tr>
                 <tr>
-            <form name=mio method=POST class="w3-bordered">
-                <td>Nombre:</td><td><input class="w3-input w3-border w3-hover-yellow" type=text name=nom required maxlength="45"></td></tr>
-                <td>Apellido:</td><td><input class="w3-input w3-border w3-hover-yellow" type=text name=ape required maxlength="45"></td></tr>
+            <form name=mio method=POST action="/niveles/i"class="row g-3">
+                <td><label for="exampleFormControlInput1" class="form-label">Nombre:</td>
+                    <td><input class="form-control" type="text" id="nom" name="nom"  required></td></tr>
+                <td><label for="exampleFormControlInput1" class="form-label">Apellido:</td>
+                    <td><input class="form-control" type="text" id="ape" name="ape"  required></td></tr>
                 <tr><td colspan=2>.</td></tr>
                 <td colspan=2>
                     <div class="d-grid gap-2">
-                <input type="button" value="Grabar" onclick="Va('i')" class="btn btn-´primary w3-green w3-round">
+                <input type="submit" value="Grabar"  class="btn btn-primary w3-round">
                     </div></td></tr>
             </table>
             </form>

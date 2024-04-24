@@ -3,7 +3,11 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+<style>
+    body{
+        background-color:#17881a;
+    }
+</style>
 <script>
     function Ir(cual){
         document.forms['mio'].action="/niveles/"+cual
@@ -31,7 +35,7 @@
        }
     </script>
     <center>
-<div style="width:70%;overflow:auto">
+<div style="width:70%;overflow:auto" class="w3-white">
     <center><img src="{{url_for('static',filename='images/CGMLTI.png')}}" style="border:true;width:100%;border-color:black;height:150px;-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);border: 1px solid #000000;"><br>
@@ -49,14 +53,34 @@
 
 <center>
 <table class="w3-table w3-striped w3-border" border="1">   
+    <td>
+        <div class="w3-responsive"><br>
+            <table class="w3-striped  w3-centered">
+                <tr><td colspan=2 class="w3-green">CREANDO REGISTRO...</td></tr>
+                <tr>
+            <form name=mio method=POST class="w3-bordered">
+                <td>Nombre:</td><td><input class="w3-input w3-border w3-hover-yellow" type=text name=nom required maxlength="45"></td></tr>
+                <td>Apellido:</td><td><input class="w3-input w3-border w3-hover-yellow" type=text name=ape required maxlength="45"></td></tr>
+                <tr><td colspan=2>.</td></tr>
+                <td colspan=2>
+                <input type="button" value="Grabar" onclick="Va('i')" class="w3-button w3-green w3-half w3-round">
+                        <input type="button" value="Regresar" onclick="Ir1('/niveles/l')" class="w3-round w3-button w3-black"></td></tr>
+            </table>
+            </form>
+            </div>
+    </td>
+    <td>
+        <table class="table w3-striped">
     {% for x in range(0,can)%}
         <td style="text-align:left">{{cadena[x][1]}} {{cadena[x][2]}}</td>
         <td width="200px">
-            <button class="w3-blue" onclick=Ir1("/niveles/e/{{cadena[x][0]}}")><i class="fa fa-truck"></i>&nbsp;Editar</button>
-        <button class="w3-red" onclick='Confirmar("Desea Borrar el registro?","/niveles/d/{{cadena[x][0]}}")'><i class="fa fa-trash"></i>&nbsp;Eliminar</button></td></tr>
+            <button class="btn w3-blue" alt="Editar" onclick=Ir1("/niveles/e/{{cadena[x][0]}}")><i class="fa fa-truck"></i></button>
+        <button class="btn w3-red" onclick='Confirmar("Desea Borrar el registro?","/niveles/d/{{cadena[x][0]}}")'><i class="fa fa-trash"></i></button></td></tr>
     {% endfor %}    
 
     </tr>
+</table>
+</tr>
 </table>
 
 

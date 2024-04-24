@@ -1,5 +1,4 @@
 from flask import Flask, jsonify,request
-
 import json
 
 #from services.apicnx import cnxsqlite

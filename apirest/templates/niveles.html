@@ -40,10 +40,9 @@
     <center><img src="{{url_for('static',filename='images/CGMLTI.png')}}" style="border:true;width:100%;border-color:black;height:150px;-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);border: 1px solid #000000;"><br>
-    <br>
+    
       <div class="w3-bar w3-black">
         <a href="/niveles/l" class="w3-bar-item w3-button w3-mobile"><img width=20px src="{{url_for('static',filename='images/inicio.webp')}}">&nbsp;Inicio</a>
-        <a href="/niveles/1" class="w3-bar-item w3-button w3-mobile"><i class="fa fa-bars"></i>&nbsp;&nbsp;Nuevo</a>
         <a href="/niveles/1000" class="w3-bar-item w3-button w3-mobile  w3-right"><i class="fa fa-search"></i>&nbsp;&nbsp;Acerca de...</a>
       </div>
 {% if N == 0  %}
@@ -57,15 +56,16 @@
     <td>
         <div class="w3-responsive"><br>
             <table class="w3-striped  w3-centered">
-                <tr><td colspan=2 class="w3-green">CREANDO REGISTRO...</td></tr>
+                <tr><td colspan=2 class="w3-green"><h2>CREANDO REGISTRO</h2></td></tr>
                 <tr>
             <form name=mio method=POST class="w3-bordered">
                 <td>Nombre:</td><td><input class="w3-input w3-border w3-hover-yellow" type=text name=nom required maxlength="45"></td></tr>
                 <td>Apellido:</td><td><input class="w3-input w3-border w3-hover-yellow" type=text name=ape required maxlength="45"></td></tr>
                 <tr><td colspan=2>.</td></tr>
                 <td colspan=2>
+                    <div class="d-grid gap-2">
                 <input type="button" value="Grabar" onclick="Va('i')" class="btn btn-´primary w3-green w3-round">
-                        <input type="button" value="Regresar" onclick="Ir1('/niveles/l')" class="btn w3-round w3-button btn-secondary"></td></tr>
+                    </div></td></tr>
             </table>
             </form>
             </div>

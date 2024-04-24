@@ -51,7 +51,7 @@
 <table class="w3-table w3-striped w3-border" border="1">   
     {% for x in range(0,can)%}
         <td style="text-align:left">{{cadena[x][1]}} {{cadena[x][2]}}</td>
-        <td width="180px">
+        <td width="200px">
             <button class="w3-blue" onclick=Ir1("/niveles/e/{{cadena[x][0]}}")><i class="fa fa-truck"></i>&nbsp;Editar</button>
         <button class="w3-red" onclick='Confirmar("Desea Borrar el registro?","/niveles/d/{{cadena[x][0]}}")'><i class="fa fa-trash"></i>&nbsp;Eliminar</button></td></tr>
     {% endfor %}    

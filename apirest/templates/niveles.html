@@ -14,7 +14,6 @@
         location.href=cual
        }
         function Confirmar(que,donde){
-            alert("ok")
             if (confirm(que))
               location.href=donde
         }
@@ -88,11 +87,12 @@
 <table class="w3-striped w3-border w3-centered">
     <tr>
 <form name=mio method=POST>
+    <tr><td colspan=2 class="w3-green">EDITANDO...</td></tr>
     <td>Nombre:</td><td><input type=text name=nom id=nom value="{{cadena[0][1]}}"  required></td></tr>
     <td>Apellido:</td><td><input type=text name=ape id=ape value="{{cadena[0][2]}}"  required></td></tr>
-    <td colspan=2><input type="button" value="Grabar" onclick="Va('u')" class="w3-button w3-black">
+    <td colspan=2><br><input type="button" value="Grabar" onclick="Va('u')" class="w3-button w3-round w3-green">
         <input type=hidden name=id value="{{cadena[0][0]}}">
-        <input type="button" value="Regresar" onclick="Ir1('/niveles/l')" class="w3-button w3-black">
+        <input type="button" value="Regresar" onclick="Ir1('/niveles/l')" class="w3-button w3-black w3-round">
     </td></tr>
 </table>
 </form>

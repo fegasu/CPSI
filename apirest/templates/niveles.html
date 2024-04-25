@@ -75,9 +75,9 @@
     </td>
     <td>
         <div style="overflow:auto;height:40%;">
-        <table class="table table-primary table-striped" height=20% style="width:100%;">
+        <table class="table  table-striped" height=20% style="width:100%;">
     {% for x in range(0,can)%}
-        <td style="text-align:left">{{cadena[x][1]}} {{cadena[x][2]}}</td>
+        <td style="text-align:left"><h6><b>{{cadena[x][1]}} {{cadena[x][2]}}</h6></b></td>
         <td width="100px">
             <button class="btn w3-blue" alt="Editar" onclick=Ir1("/niveles/e/{{cadena[x][0]}}")><i class="fa fa-truck"></i></button>
         <button class="btn w3-red" onclick='Confirmar("Desea Borrar el registro?","/niveles/d/{{cadena[x][0]}}")'><i class="fa fa-trash"></i></button></td></tr>

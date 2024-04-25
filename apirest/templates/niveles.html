@@ -57,14 +57,13 @@
     <td>
         <div class="w3-responsive" width=100%%><br>
             <table class="w3-striped  w3-centered">
-                <tr><td colspan=2 style="background-color:#39a900;"><h2>CREANDO REGISTRO</h2></td></tr>
+                <tr><td colspan=2 style="background-color:#39a900;"><h5>CREAR REGISTRO</h5></td></tr>
                 <tr>
             <form name=mio method=POST action="/niveles/i"class="row g-3">
                 <td><label  class="form-label">Nombre:</td>
                     <td><input class="form-control" type="text" id="nom" name="nom"  required></td></tr>
                 <td><label  class="form-label">Apellido:</td>
                     <td><input class="form-control" type="text" id="ape" name="ape"  required></td></tr>
-                <tr><td colspan=2>.</td></tr>
                 <td colspan=2>
                     <div class="d-grid gap-2">
                 <input type="submit" value="Grabar"  class="btn btn-primary w3-round">
@@ -79,8 +78,8 @@
     {% for x in range(0,can)%}
         <td style="text-align:left"><h6><b>{{cadena[x][1]}} {{cadena[x][2]}}</h6></b></td>
         <td width="100px">
-            <button class="btn w3-blue" alt="Editar" onclick=Ir1("/niveles/e/{{cadena[x][0]}}")><i class="fa fa-truck"></i></button>
-        <button class="btn w3-red" onclick='Confirmar("Desea Borrar el registro?","/niveles/d/{{cadena[x][0]}}")'><i class="fa fa-trash"></i></button></td></tr>
+            <button class="btn w3-blue" alt="Editar" onclick=Ir1("/niveles/e/{{cadena[x][0]}}") title="Editar"><i class="fa fa-truck"></i></button>
+        <button class="btn w3-red" onclick='Confirmar("Desea Borrar el registro?","/niveles/d/{{cadena[x][0]}}")' title="Borrar"><i class="fa fa-trash"></i></button></td></tr>
     {% endfor %}    
 
     </tr>
@@ -131,13 +130,13 @@ Atención al empresario: Bogotá +(57) 601 3430101 - Línea gratuita y resto del
     <div class="w3-responsive"><br>
 <table class="w3-striped  w3-centered">
     <tr>
-<form name=mio method=POST>
+<form name=mio action= "/niveles/u" method=POST>
     <tr><td colspan=2 class="w3-green">EDITANDO...</td></tr>
     <td>Nombre:</td><td><input type=text name=nom id=nom value="{{cadena[0][1]}}"  required></td></tr>
     <td>Apellido:</td><td><input type=text name=ape id=ape value="{{cadena[0][2]}}"  required></td></tr>
-    <td colspan=2><br><input type="button" value="Grabar" onclick="Va('u')" class="w3-button w3-round w3-green">
+    <td colspan=2><br><input type="submit" value="Grabar"  class="btn btn-primary w3-round w3-green">
         <input type=hidden name=id value="{{cadena[0][0]}}">
-        <input type="button" value="Regresar" onclick="Ir1('/niveles/l')" class="w3-button w3-black w3-round">
+        <input type="button" value="Regresar" onclick="Ir1('/niveles/l')" class="btn btn-secundary w3-black w3-round">
     </td></tr>
 </table>
 </form>

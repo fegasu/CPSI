@@ -39,7 +39,7 @@ def nivelactualiza():
     }
     u1.Actualiza(datos)
     id=0
-    msgitos="Usuario editado* satisfactoriamente"
+    msgitos="Usuario editado satisfactoriamente"
     return render_template("alertas.html",msgito=msgitos)
 
 

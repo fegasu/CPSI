@@ -72,6 +72,9 @@ def ListarTodos():
     can=len(cadena)
     id=0
     return render_template("niveles.html",N=0,cadena=cadena,can=can)
+@app.route("/niveles/1000",methods=["GET"])
+def acerca():
+    return render_template("acerca.html")
     
 
 if __name__=='__main__':

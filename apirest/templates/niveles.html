@@ -60,9 +60,9 @@
                 <tr><td colspan=2 style="background-color:#39a900;"><h5>CREAR REGISTRO</h5></td></tr>
                 <tr>
             <form name=mio method=POST action="/niveles/i" class="row g-3 "> 
-                <td><label  class="form-label w3-black">Nombre:</td>
+                <td><font color=black>Nombre:</font></td>
                     <td><input class="form-control " type="text" id="nom" name="nom"  required></td></tr>
-                <td><label  class="form-label w3-black">Apellido:</td>
+                <td><font color=black>Apellido:</font></td>
                     <td><input class="form-control" type="text" id="ape" name="ape"  required></td></tr>
                 <td colspan=2>
                     <div class="d-grid gap-2">
@@ -132,8 +132,8 @@ Atención al empresario: Bogotá +(57) 601 3430101 - Línea gratuita y resto del
     <tr>
 <form name=mio action= "/niveles/u" method=POST>
     <tr><td colspan=2 class="w3-green">EDITANDO...</td></tr>
-    <td>Nombre:</td><td><input type=text name=nom id=nom value="{{cadena[0][1]}}"  required></td></tr>
-    <td>Apellido:</td><td><input type=text name=ape id=ape value="{{cadena[0][2]}}"  required></td></tr>
+    <td><font color=black>Nombre:</font></td><td><input type=text name=nom id=nom value="{{cadena[0][1]}}"  required></td></tr>
+    <td><font color=black>Apellido:</font></td><td><input type=text name=ape id=ape value="{{cadena[0][2]}}"  required></td></tr>
     <td colspan=2><br><input type="submit" value="Grabar"  class="btn btn-primary w3-round w3-green">
         <input type=hidden name=id value="{{cadena[0][0]}}">
         <input type="button" value="Regresar" onclick="Ir1('/niveles/l')" class="btn btn-secundary w3-black w3-round">

@@ -1,10 +1,24 @@
 {% extends "base.html" %}
-{% block content %}
-
-<center>
+{% %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link href="{{url_for('static',filename='css/MiEstilo.css')}}" rel="stylesheet">
+<script src="{{url_for('static',filename='js/MiJs.js')}}"></script>
+    <center>
         
         <br><br>
-
+<div style="width:70%;overflow:auto" class="w3-white">
+    <center><img src="{{url_for('static',filename='images/CGMLTI.png')}}" style="border:true;width:100%;border-color:black;height:150px;-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);border: 1px solid #000000;"><br>
+    
+      <div class="w3-bar w3-black">
+        <a href="/niveles/l" class="w3-bar-item w3-button w3-mobile"><img width=20px src="{{url_for('static',filename='images/inicio.webp')}}">&nbsp;Inicio</a>
+        <a href="/niveles/1000" class="w3-bar-item w3-button w3-mobile  w3-right"><i class="fa fa-search"></i>&nbsp;&nbsp;Acerca de...</a>
+      </div>
 {% if N == 0  %}
 <center>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -92,5 +106,17 @@
 
 {%endif%}
 
+</div><center>
+    <div style="width:70%;overflow:auto;align:left;background-color: #39a900;color:black;font-size: 12px;">
+    
+    <p style="padding: 15px 0px 15px 60px;color:black;" class="w3-black"></center><b>
+    Servicio Nacional de Aprendizaje SENA-Centro de Gestión de Mercados, Logística y Tenologías de la Información - Regional Distrito Capital<br>
+    Dirección: Cl 52 N° 13 65 - Tel: +(57) 601 594 1301<br>
+    Conmutador Nacional - Extensiones<br>
+    Atención telefónica: lunes a viernes 7:00 a.m. a 7:00 p.m. - sábados 8:00 a.m. a 1:00 p.m.<br>
+    Atención al ciudadano: Bogotá +(57) 601 7366060 - Línea gratuita y resto del país 018000 910270<br>
+    Atención al empresario: Bogotá +(57) 601 3430101 - Línea gratuita y resto del país 018000 910270<br>
+    </p>
+
+    
 </div>
-{% endblock content %}

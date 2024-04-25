@@ -6,10 +6,10 @@
 
 <table class="w3-table w3-striped w3-border" >   
     <td width=30%>
-        <div class="w3-responsive" width=100%>
+        <div class="card text-center">
             <center>
-            <table class="w3-striped  w3-centered">
-                <tr><td colspan=2 style="background-color:#39a900;"><h5>CREAR REGISTRO</h5></td></tr>
+            <table class="w3-card w3-striped  w3-centered">
+                <tr><td colspan=2 style="background-color:#39a900;color:yellow;"><header><h5>CREAR REGISTRO</h5></header></td></tr>
                 <tr>
             <form name=mio method=POST action="/niveles/i" class="row g-3 "> 
                 <td><font color=black>Nombre:</font></td>
@@ -67,7 +67,8 @@
 {%if N == 2 %}
 <!--EDITAR UN REGISTRO-->
 <center>
-    <div class="w3-responsive"><br>
+<div class="card text-center mx-auto w3-responsive"><br>
+    <div class="card-header">.</div>
 <table class="w3-striped  w3-centered">
     <tr>
 <form name=mio action= "/niveles/u" method=POST>

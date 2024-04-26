@@ -16,6 +16,9 @@ def create_app():
 @ppal.route('/')
 def show():
     return render_template("index.html")
+@ppal.route('/a')
+def acerca():
+    return render_template("acerca.html")
 
 
     return app

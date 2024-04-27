@@ -29,4 +29,24 @@
         document.forms['mio'].submit();    
      
        }
-   
+       $('#tree').tree({
+        dataSource: [ 
+          { 
+            text: 'Planta 1', 
+            children: [ 
+              { text: 'Área 1', 
+               children: [
+                 { text: 'Equipo 1',
+                   children: [
+                     { text: 'Punto 1' },
+                     { text: 'Punto 2' },
+                     { text: 'Punto 3' }
+                   ]
+                 }
+               ] 
+              } 
+            ] 
+          }
+        ]
+      });
+      

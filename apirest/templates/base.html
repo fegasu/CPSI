@@ -17,7 +17,8 @@
   <body>
     {% include 'banner.html' %}
     {% include 'menu.html' %}
-    <div id="content">{% block content %}{% endblock content %}</div>    
+    <div style="width:70%;overflow:auto" class="w3-padding-large w3-round-xxlarge w3-white mx-auto">
+    {% block content %}{% endblock content %}</div>    
       {% include 'footer.html' %}
     </div>
   </body>

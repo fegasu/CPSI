@@ -33,6 +33,7 @@
       <img src="{{url_for('static',filename='images/registrar.png')}}" height=60px></a>
   </div>
 </td>
+</tr>
 <td>
   <div class="card" style='width:100px'>
   <div class="card-footer w3-green">Llamados</div>
@@ -42,15 +43,30 @@
   </div>
 </td>
 <td>
-
   <div class="card" style='width:100px'>
-  <div class="card-footer w3-green">Instructor</div>
-  <div class="card-body">
-    <a href="">
-      <img src="{{url_for('static',filename='images/instructor.png')}}" height=60px></a>
-  </div>
-</td>
-</tr>
+    <div class="card-footer w3-green">Instructor</div>
+    <div class="card-body">
+      <a href="">
+        <img src="{{url_for('static',filename='images/instructor.png')}}" height=60px></a>
+    </div>
+  </td>
+  <td>
+    <div class="card" style='width:100px'>
+      <div class="card-footer w3-green">Aulas</div>
+      <div class="card-body">
+        <a href="">
+          <img src="{{url_for('static',filename='images/aulas.png')}}" height=60px></a>
+      </div>
+    </td>
+    <td>
+      <div class="card" style='width:100px'>
+        <div class="card-footer w3-green">Titulacion</div>
+        <div class="card-body">
+          <a href="">
+            <img src="{{url_for('static',filename='images/titulacion.png')}}" height=60px></a>
+        </div>
+      </td>
+      </tr>
 </table>
 
   {% endblock content %}

@@ -5,13 +5,13 @@ from services.apicnx import Usuario
 from config import configura       
 app=Flask(__name__)
 
-@app.route("/niveles/0",methods=["GET","POST"])
+@app.route("/niveles")
 def index():
-    return render_template("niveles.html",N="0")
+    return render_template("niveles.html")
 
 @app.route("/niveles/<id>",methods=["GET","POST"])
 def nivel(id=0):
-    return render_template("niveles.html",N=id)
+    return render_template("c.html",N=id)
 
 @app.route("/niveles/i",methods=["POST"])
 def nivelInserta():

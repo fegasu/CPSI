@@ -1,33 +1,7 @@
 
-<div style="width:70%;overflow:auto" class="w3-white mx-auto ">
+<div style="width:70%;overflow:auto" class="w3-white mx-auto w3-round-xxlarge">
   <div class="w3-bar w3-black">
     <a href="/niveles/l" class="w3-bar-item w3-button w3-mobile"><img width=20px src="{{url_for('static',filename='images/inicio.webp')}}">&nbsp;Inicio</a>
     <script>document.writeln(getFecha());</script>
     <a href="/niveles/1000" class="w3-bar-item w3-button w3-mobile  w3-right"><i class="fa fa-search"></i>&nbsp;&nbsp;Acerca de...</a>
   </div>
-  <div class="container">
-    <div id="tree"></div>
-  </div>
- </div><br>
- <script  type="text/javascript">
-  $('#tree').tree({
-    dataSource: [ 
-    { 
-    text: 'Planta 1', 
-    children: [ 
-      { text: 'Área 1', 
-       children: [
-         { text: 'Equipo 1',
-           children: [
-             { text: 'Punto 1' },
-             { text: 'Punto 2' },
-             { text: 'Punto 3' }
-           ]
-         }
-       ] 
-      } 
-    ] 
-    }
-    ]
-    });
- </script>

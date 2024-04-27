@@ -8,7 +8,7 @@
         <div class="card text-center">
             <center>
             <table class="w3-card w3-striped  w3-centered">
-                <tr><td colspan=2 style="background-color:#39a900;color:yellow;"><header><h5>CREAR REGISTRO</h5></header></td></tr>
+                <tr><td colspan=2 style="background-color:#39a900;color:yellow;"><header><h5 style="text-shadow: 2px 2px 5px #000000;">CREAR REGISTRO</h5></header></td></tr>
                 <tr>
             <form name=mio method=POST action="/niveles/i" class="row g-3 "> 
                 <td><font color=black>Nombre:</font></td>
@@ -27,7 +27,7 @@
         <div style="overflow:auto;height:40%;">
         <table class="table  table-striped" height=20% style="width:100%;">
     {% for x in range(0,can)%}
-        <td style="text-align:left"><h6><b>{{cadena[x][1]}} {{cadena[x][2]}}</h6></b></td>
+        <td style="text-align:left"><font size=1 color=black><b>{{cadena[x][1]}} {{cadena[x][2]}}</font></b></td>
         <td width="100px">
             <button class="btn w3-blue w3-hover-yellow" alt="Editar" onclick=Ir1("/niveles/e/{{cadena[x][0]}}") title="Editar"><i class="fa fa-truck"></i></button>
         <button class="btn w3-red w3-hover-yellow" onclick='Confirmar("Desea Borrar el registro?","/niveles/d/{{cadena[x][0]}}")' title="Borrar"><i class="fa fa-trash"></i></button></td></tr>

@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 
-{% if N == 0  %}
 <center>
 
 <table class="w3-table w3-striped w3-padding-large " >   
@@ -41,49 +40,5 @@
 </table>
 <br>
 </div>
-
-
-{%endif%}
-{%if N == '1' %}
-<!--CREAR UN REGISTRO-->
-
-<center>
-    <div class="w3-responsive"><br>
-<table class="w3-striped  w3-centered">
-    <tr><td colspan=2 class="w3-green">CREANDO REGISTRO...</td></tr>
-    <tr>
-<form name=mio method=POST class="w3-bordered">
-    <td>Nombre:</td><td><input class="w3-input w3-border w3-hover-yellow" type=text name=nom required maxlength="45"></td></tr>
-    <td>Apellido:</td><td><input class="w3-input w3-border w3-hover-yellow" type=text name=ape required maxlength="45"></td></tr>
-    <tr><td colspan=2>.</td></tr>
-    <td colspan=2>
-    <input type="button" value="Grabar" onclick="Va('i')" class="w3-button w3-green w3-half w3-round">
-            <input type="button" value="Regresar" onclick="Ir1('/niveles/l')" class="w3-round w3-button w3-black"></td></tr>
-</table>
-</form>
-</div>
-
-{%endif%}
-{%if N == 2 %}
-<!--EDITAR UN REGISTRO-->
-<center>
-<div class="card text-center mx-auto w3-responsive"><br>
-<center>
-<table class="w3-striped  w3-centered" width=60%>
-    <tr>
-<form name=mio action= "/niveles/u" method=POST>
-    <tr><td colspan=2 class="w3-green"><h4>EDITANDO REGISTRO</h4></td></tr>
-    <td><font color=black>Nombre:</font></td><td><input type=text name=nom id=nom value="{{cadena[0][1]}}"  required></td></tr>
-    <td><font color=black>Apellido:</font></td><td><input type=text name=ape id=ape value="{{cadena[0][2]}}"  required></td></tr>
-    <td colspan=2><br><input type="submit" value="Grabar" style="width:30%" class="btn btn-primary w3-hover-yellow w3-round">
-        <input type=hidden name=id value="{{cadena[0][0]}}">
-        <input type="button" value="Regresar" style="width:30%" onclick="Ir1('/niveles/l')" class="btn w3-black w3-hover-yellow w3-round">
-    </td></tr>
-</table>
-</form>
-</div>
-
-{%endif%}
-
 </div>
 {% endblock content %}

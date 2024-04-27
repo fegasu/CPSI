@@ -47,7 +47,7 @@ def nivelactualiza():
 def nivelEdita(id):
     u1= Usuario("http://127.0.0.1:5000/usua")
     cadena=u1.ListarUno(id)
-    return render_template("niveles.html",N=2,cadena=cadena)
+    return render_template("EditarUsuario.html",N=2,cadena=cadena)
 @app.route("/niveles/d/<id>",methods=["GET"])
 def nivelBorra(id):
     u1= Usuario("http://127.0.0.1:5000/usua")

@@ -1,7 +1,7 @@
 from flask import Flask, jsonify,request
 import json
 #from services.apicnx import cnxsqlite
-from database.cnxSqlite import cnxsqlite  
+from api.cnxSqlite import cnxsqlite  
 from config import configura 
 app=Flask(__name__)
 @app.route("/")

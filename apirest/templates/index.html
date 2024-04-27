@@ -1,5 +1,47 @@
 {% extends "base.html" %}
 {% block content %}
+<table>
+  <tr><td>
+<div class="card" style='width:100px'>
+  <div class="card-footer w3-green">Usuarios</div>
+  <div class="card-body"><a href="/niveles/l">
+    <img src="{{url_for('static',filename='images/grupo.png')}}" height=50px></a>
+  </div>
+</td>
+<td>
+  <div class="card" style='width:100px'>
+  <div class="card-footer w3-green">Asistencia</div>
+  <div class="card-body">
+    <a href="">
+      <img src="{{url_for('static',filename='images/manos.png')}}" height=50px></a>
+  </div>
+</td>
 
+<td>
+  <div class="card" style='width:100px'>
+  <div class="card-footer w3-green">Reportes</div>
+  <div class="card-body">
+    <a href="">
+      <img src="{{url_for('static',filename='images/reporte.png')}}" height=50px></a>
+  </div>
+</td>
+<td>
+  <div class="card" style='width:100px'>
+  <div class="card-footer w3-green">Novedad</div>
+  <div class="card-body">
+    <a href="">
+      <img src="{{url_for('static',filename='images/registrar.png')}}" height=50px></a>
+  </div>
+</td>
+<td>
+  <div class="card" style='width:100px'>
+  <div class="card-footer w3-green">Llamados</div>
+  <div class="card-body">
+    <a href="">
+      <img src="{{url_for('static',filename='images/editar.png')}}" height=50px></a>
+  </div>
+</td>
+</tr>
+</table>
 
   {% endblock content %}

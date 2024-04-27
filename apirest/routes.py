@@ -5,13 +5,13 @@ from services.apicnx import Usuario
 from config import configura       
 app=Flask(__name__)
 
-@app.route("/niveles")
+@app.route("/niveles/index")
 def index():
-    return render_template("niveles.html")
+    return redirect("/niveles/l",code=302)
 
 @app.route("/niveles/<id>",methods=["GET","POST"])
 def nivel(id=0):
-    return render_template("c.html",N=id)
+    return render_template("niveles.html",N=id)
 
 @app.route("/niveles/i",methods=["POST"])
 def nivelInserta():
@@ -56,14 +56,13 @@ def nivelBorra(id):
     return render_template("alertas.html",msgito=msgitos)
 
 
-@app.route("/niveles/r",methods=["POST"])
+@app.route("/",methods=["GET"])
 def Lista():
     u1= Usuario("http://127.0.0.1:5000/usua")
     cadena=u1.ListarTodos()
     can=len(cadena)
     id="0"
-    return cadena
-    return render_template("niveles.html",N=id,cadena=cadena,can=len(cadena))
+    return render_template("index.html")
 
 @app.route("/niveles/l",methods=["GET"])
 def ListarTodos():

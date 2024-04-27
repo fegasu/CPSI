@@ -15,8 +15,8 @@ def nivel(id=0):
 
 @app.route("/niveles/i",methods=["POST"])
 def nivelInserta():
-    nom=request.form.get('nom')
-    ape=request.form.get('ape')
+    nom=request.form.get('nom').upper()
+    ape=request.form.get('ape').upper()
     u1= Usuario("http://127.0.0.1:5000/usua")
     
     
@@ -35,7 +35,7 @@ def nivelactualiza():
     ape=request.form.get('ape')
     u1= Usuario("http://127.0.0.1:5000/usua")
     datos={
-        "IDUSUARIO":id,"NOMBRE":nom,"APELLIDO":ape
+        "IDUSUARIO":id,"NOMBRE":nom.upper(),"APELLIDO":ape.upper()
     }
     u1.Actualiza(datos)
     id=0

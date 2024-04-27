@@ -1,4 +1,10 @@
 
+    function getFecha(){
+        const d = new Date();
+        let text = d.toString();
+        return text;
+    }
+
     function Ir(cual){
         document.forms['mio'].action="/niveles/"+cual
         document.forms['mio'].submit();

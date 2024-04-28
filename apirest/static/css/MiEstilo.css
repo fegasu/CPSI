@@ -14,4 +14,37 @@ body{
 .sena-hover:hover{
     background-color:#eaf39c;
 }
+.sena-btn {
+    cursor:pointer;    
+    background: url("https://siomi.datasena.com/bt1.jpg") no-repeat right center;  
+     text-align: left;
+     text-align: left;
+  width: 90%;
+  text-align:  left;
+  height: 40px;
+  font-size: 10pt;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: black;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 10px 10px 5px 0px #ABEBC6;
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 25px 0px #ABEBC6;
+  #padding: 10px 10px 10px 10px;
+  # padding: 10px 0;
   
+   margin:10,10,10,10;
+   border:10,10,10,10;
+   width:100%;
+   
+   border-radius: 15px 10px 10px 15px;
+  -moz-border-radius: 15px 10px 10px 15px;
+  -webkit-border-radius: 15px 10px 10px 15px;
+  border: 1px solid #000000;
+  background-color: white;
+  vertical-align: middle;;
+  }
+  .sena-btn:hover{
+    background-color:#eaf39c;
+    background-color:yellow;
+  }

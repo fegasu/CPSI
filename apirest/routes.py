@@ -58,11 +58,25 @@ def nivelBorra(id):
 
 @app.route("/",methods=["GET"])
 def Lista():
-    u1= Usuario("http://127.0.0.1:5000/usua")
-    cadena=u1.ListarTodos()
-    can=len(cadena)
-    id="0"
-    return render_template("index.html")
+    menu=(["Usuarios","Centros","Sedes","Aulas"],["Titulacion","Actividad","Instructor","Coordina"],["Reportes","Regional","Horarios","Acerca de"])
+    menu1=(["grupo.png","cforma.png","sedes.png","aulas.png"],["titulacion.png","actividad.png","instructor.png","coordina.png"],["reporte.png","region.png","horario.png","acerca.png"])
+    n=len(menu)
+    menu=[[
+        {"Titulo":"Usuarios","iconos":"grupo.png","enlace":"/niveles/l"},
+        {"Titulo":"Centros","iconos":"cforma.png","enlace":"#"},
+        {"Titulo":"Sedes","iconos":"sedes.png","enlace":"#"},
+        {"Titulo":"Aulas","iconos":"aulas.png","enlace":"#"}],
+        [{"Titulo":"Titulacion","iconos":"titulacion.png","enlace": " "},
+        {"Titulo":"Actividad","iconos":"actividad.png","enlace":"#"},
+        {"Titulo":"Instructor","iconos":"Instructor.png","enlace":"#"},
+        {"Titulo":"Coordina","iconos":"coordina.png","enlace":"#"}],
+        [{"Titulo":"Reportes","iconos":"reporte.png","enlace":"#"},
+        {"Titulo":"Regional","iconos":"region.png","enlace":"#"},
+        {"Titulo":"Horarios","iconos":"horario.png","enlace":"#"},
+        {"Titulo":"Acerca de","iconos":"acerca.png","enlace":"/niveles/1000"}]
+    ]
+
+    return render_template("index.html",menu=menu)
 
 @app.route("/niveles/l",methods=["GET"])
 def ListarTodos():

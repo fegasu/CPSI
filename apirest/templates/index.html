@@ -1,106 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
+{{menu.length}}
 <table class="mx-auto w3-round-xxlarge">
-  <tr><td>
-<div class="card" style='width:/niveles/100px'>
-  <div class="card-footer w3-green">Usuarios</div>
-  <div class="card-body"><a href="/niveles/l">
-    <img src="{{url_for('static',filename='images/grupo.png')}}" height=60px width=60px></a>
+
+  {% for diccionario in menu %}
+  <tr>
+    {% for item in diccionario %}
+    <td>
+  <div class="card" style='width:100px'>
+  <div class="card-footer " style="background-color:#39A900;color:yellow;text-shadow: 2px 2px 5px #000000;">
+    {{item.Titulo}}
+  </div>
+  <div id=fondito class="card-body"><a href="{{item.enlace}}">
+    <img src="{{url_for('static',filename='images/'+item.iconos)}}" height=60px width=60px></a> 
   </div>   
 </td>
-<td>
-  <div class="card" style='width:100px'>
-  <div class="card-footer w3-green">Centros</div>
-  <div class="card-body">
-    <a href="">
-      <img src="{{url_for('static',filename='images/cforma.png')}}" height=60px></a>
-  </div>
-</td>
-
-<td>
-  <div class="card" style='width:100px'>
-  <div class="card-footer w3-green">Sedes</div>
-  <div class="card-body">
-    <a href="">
-      <img src="{{url_for('static',filename='images/sedes.png')}}" height=60px></a>
-  </div>
-</td>
-<td>
-  <div class="card" style='width:100px'>
-  <div class="card-footer w3-green">Aulas</div>
-  <div class="card-body">
-    <a href="">
-      <img src="{{url_for('static',filename='images/aulas.png')}}" height=60px></a>
-  </div>
-</td>
+{% endfor%}
 </tr>
-<td>
-  <div class="card" style='width:100px'>
-  <div class="card-footer w3-green">Titulacion</div>
-  <div class="card-body">
-    <a href="">
-      <img src="{{url_for('static',filename='images/titulacion.png')}}" height=60px></a>
-  </div>
-</td>
-<td>
-  <div class="card " style='width:100px'>
-    <div class="card-footer w3-green">Actividad</div>
-    <div class="card-body">
-      <a href="">
-        <img src="{{url_for('static',filename='images/aa.png')}}" height=60px></a>
-    </div>
-  </td>
-  <td>
-    <div class="card" style='width:100px'>
-      <div class="card-footer w3-green">Instructor</div>
-      <div class="card-body">
-        <a href="">
-          <img src="{{url_for('static',filename='images/instructor.png')}}" height=60px></a>
-      </div>
-    </td>
-    <td>
-      <div class="card" style='width:100px'>
-        <div class="card-footer w3-green">Horarios</div>
-        <div class="card-body">
-          <a href="">
-            <img src="{{url_for('static',filename='images/horario.png')}}" height=60px></a>
-        </div>
-      </td>
-      </tr>
-      <td>
-        <div class="card" style='width:100px'>
-        <div class="card-footer w3-green">Reportes</div>
-        <div class="card-body">
-          <a href="">
-            <img src="{{url_for('static',filename='images/reporte.png')}}" height=60px></a>
-        </div>
-      </td>
-      <td>
-        <div class="card" style='width:100px'>
-          <div class="card-footer w3-green">Regional</div>
-          <div class="card-body">
-            <a href="">
-              <img src="{{url_for('static',filename='images/region.png')}}" height=60px></a>
-          </div>
-        </td>
-        <td>
-          <div class="card" style='width:100px'>
-            <div class="card-footer w3-green">Coordina</div>
-            <div class="card-body">
-              <a href="">
-                <img src="{{url_for('static',filename='images/coordina.png')}}" height=60px></a>
-            </div>
-          </td>
-          <td>
-            <div class="card" style='width:100px'>
-              <div class="card-footer w3-green">Acerca de</div>
-              <div class="card-body">
-                <a href="/niveles/1000">
-                  <img src="{{url_for('static',filename='images/acerca.png')}}" height=60px></a>
-              </div>
-            </td>
-            
-            </tr>
-      </table>
+{% endfor%}
+</table>
 
   {% endblock content %}

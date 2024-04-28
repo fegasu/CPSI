@@ -5,5 +5,13 @@ body{
 #fondito:hover{
     background-color:#FAF9D4;
 }
-   
+.sena-color{
+    background-color:#39A900;
+}   
+.sena-sombra{
+    text-shadow: 2px 2px 5px #000000;
+}
+.sena-hover:hover{
+    background-color:#eaf39c;
+}
   

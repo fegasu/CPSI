@@ -136,7 +136,7 @@ html {
     gap: 1.125rem;
 }
 
-.sena__ingles-cards {
+.sena__i-cards {
     border-radius: 12px;
     padding: 1.5rem 1.5rem;
     display: flex;
@@ -192,6 +192,7 @@ html {
 .sena__informacion-card-header {
     border-radius: 12px;
     width: 100%;
+    height:150px;
     background-color: var(--alternate-background);
     display: flex;
 }
@@ -200,7 +201,10 @@ html {
     padding: 1.5rem 3rem;
     margin: auto;
     color: var(--color-info);
+    background-color:va(--thumbBG)
     font-weight: bold;
+    height:50px;
+    
 }
 
 
@@ -280,5 +284,25 @@ html {
   --bp-large: 1200px;
   --web-margin: 1366px;
   
+}
+@font-face {
+  font-family: 'Work Sans Regular';
+  src: url('../fonts/WorkSans-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Work Sans Bold';
+  src: url('../fonts/WorkSans-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Work Sans SemiBold';
+  src: url('../fonts/WorkSans-SemiBold.otf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
 }
 

@@ -3,13 +3,14 @@
 <center>
     <div class="sena__informacion-card"><br>
     <center>
+    <div class="sena sena__information-card-title">
+        <h3 class="sena-sombra sena-color" >EDITANDO USUARIO</h3></div>
     <table class="w3-striped  w3-centered sena__informacion-card-header sena__informacion-card-container sena__informacion-card" width=60%>
         <tr>
     <form name=mio action= "/niveles/u" method=POST>
-        <tr><td colspan=2 class="w3-green sena__informacion-card-header">
-            <h4 class="sena-sombra" >EDITANDO REGISTROS</h4></td></tr>
-        <td><font color=black>Nombre:</font></td><td><input type=text name=nom id=nom value="{{cadena[0][1]}}" class="sena-fondo" required></td></tr>
-        <td><font color=black>Apellido:</font></td><td><input type=text name=ape id=ape value="{{cadena[0][2]}}" class="sena-fondo" required></td></tr>
+        
+        <td><font color=black>Nombre:</font></td><td colspan=2><input type=text name=nom id=nom value="{{cadena[0][1]}}" class="sena-fondo" required></td></tr>
+        <td><font color=black>Apellido:</font></td><td colspan=2><input type=text name=ape id=ape value="{{cadena[0][2]}}" class="sena-fondo" required></td></tr>
         <td colspan=2><br><input type="submit" value="Grabar" style="width:30%" class=" w3-round sena-btn">
             <input type=hidden name=id value="{{cadena[0][0]}}">
             <input type="button" value="Regresar" style="width:30%" onclick="Ir1('/niveles/l')" class="sena-btns sena-round">

@@ -272,7 +272,13 @@ html {
   --color-error: #e74c3c;
   --color-warning: #f1c40f;
   --color-info: #ffffff;
-  
+  --primary-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  --primary-font-family: 'Work Sans Regular', sans-serif;
+  --secondary-font-family: 'Work Sans Bold', sans-serif;
+  --bp-small: 480px;
+  --bp-medium: 767px;
+  --bp-large: 1200px;
+  --web-margin: 1366px;
   
 }
 

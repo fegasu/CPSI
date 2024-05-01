@@ -19,7 +19,7 @@ def ListaUsuario():
 def ListaUnUsuario(id):
     sql="select * from USUA where IDUSUA="+str(id)
     con=cnxsqlite()
-    todo=con.Consultar("./usuarios.db",sql)
+    todo=con.ConsultarUno("./usuarios.db",sql)
     return json.dumps(todo)
 
 @app.route("/usua/i",methods = ['POST'])
@@ -48,6 +48,12 @@ def BorrarUsuario(id):
     con=cnxsqlite()
     todo=con.Ejecutar("./usuarios.db",sql)
     return "OK"
-
+@app.route("/usua/menus",methods=['GET'])
+def VerMenu():
+    sql="select * from MODULOS"
+    con=cnxsqlite()
+    todo=con.ConsultarJson("./usuarios.db",sql)
+    return jsonify(todo)
+    
 if __name__=='__main__':
     app.run(debug=True,port=configura['PUERTOREST'],host='0.0.0.0')

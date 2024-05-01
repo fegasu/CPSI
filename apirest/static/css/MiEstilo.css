@@ -127,6 +127,12 @@ html {
   .sena-round{
     border-radius:4px
   }
+  .sena_m10{
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+  
+  }
   .sena-card{
     border-radius: 10px 10px 55px 53px;
   -moz-border-radius: 10px 10px 55px 53px;

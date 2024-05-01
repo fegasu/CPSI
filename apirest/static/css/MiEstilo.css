@@ -52,6 +52,9 @@ html {
     background-color:#eaf39c;
     background-color:yellow;
   }
+  .sena-navbar{
+    background-color:rgb(1, 1, 32);
+  }
   .sena-btn {
   cursor:pointer;    
   background: url("https://siomi.datasena.com/bt1.jpg") no-repeat right center;  
@@ -124,16 +127,38 @@ html {
   .sena-round{
     border-radius:4px
   }
-.sena-card{
-  border-radius: 10px 10px 55px 53px;
--moz-border-radius: 10px 10px 55px 53px;
--webkit-border-radius: 10px 10px 55px 53px;
-border: 1px solid #000000;
--webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-}
-  main {
+  .sena-card{
+    border-radius: 10px 10px 55px 53px;
+  -moz-border-radius: 10px 10px 55px 53px;
+  -webkit-border-radius: 10px 10px 55px 53px;
+  border: 1px solid #000000;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  }
+  .sena-card1{
+    border-radius: 47px 49px 10px 10px;
+    -moz-border-radius: 47px 49px 10px 10px;
+    -webkit-border-radius: 47px 49px 10px 10px;
+    border: 1px solid #000000;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  }  
+  .sena-card2{
+    margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  margin-left: 20px;
+    border-radius: 13px 13px 13px 13px;
+    -moz-border-radius: 13px 13px 13px 13px;
+    -webkit-border-radius: 13px 13px 13px 13px;
+    border: 1px solid #000000;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  }
+      main {
     padding: 0.75rem;
 }
 

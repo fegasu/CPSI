@@ -20,6 +20,24 @@ html {
    .sena-fondo:hover{
     background-color:#f0ec84;
 }
+.sena-text-yellow{
+  color:yellow;
+}
+.sena-text-white{
+  color:white;
+}
+.sena-text-red{
+  color:red;
+}
+
+.sena-img:hover{
+  -webkit-transform: scale(1.4);
+  -moz-transform: scale(1.4);
+  -o-transform: scale(1.4);
+  -ms-transform: scale(1.4);
+  transform: scale(1.4)
+  
+}
 .sena-xlargo{
   width:100px;
 }

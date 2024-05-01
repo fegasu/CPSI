@@ -8,11 +8,11 @@
     {% for item in diccionario %}
     <td>
   <div class="sena-card2" >
-  <div class="sena-color sena-sombra sena_m10" style="color:yellow;">
+  <div class="sena-color sena-sombra sena_m10 sena-text-yellow">
     {{item.Titulo}}
   </div>
-  <div class="card-body sena-hover"><a href="{{item.enlace}}">
-    <img src="{{url_for('static',filename='images/'+item.iconos)}}" height=60px width=60px></a> 
+  <div class="card-body "><a href="{{item.enlace}}">
+    <img class="sena-img" loading="lazy" src="{{url_for('static',filename='images/'+item.iconos)}}" height=60px width=60px></a> 
   </div>   
 </td>
 {% endfor%}

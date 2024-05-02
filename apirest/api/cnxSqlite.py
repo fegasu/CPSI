@@ -21,16 +21,20 @@ class cnxsqlite:
         return todo  
     def ConsultarJson(self,bd,sql):
         con = sqlite3.connect(bd)
-        todo={}
+        todo=[]
         cur = con.cursor()
         res=cur.execute(sql)
-        nombres_columnas = [str(descripcion[0]) for descripcion in cur.description]
+        nombres_columnas = [descripcion[0] for descripcion in cur.description]
+        print(nombres_columnas)
         primer_resultado = res.fetchall()
+    
         for i,valor in enumerate(primer_resultado):
-            nombrecol=nombres_columnas[i]
-            todo[nombrecol]=valor
+            aux1=valor
+            aux2= nombres_columnas
+            aux3=dict(zip(aux2,aux1))   
+            todo.append(aux3)
         con.close() 
-        return todo  
+        return list(todo)  
     def Ejecutar(self,bd,sql):
         con = sqlite3.connect(bd)
         cur = con.cursor()

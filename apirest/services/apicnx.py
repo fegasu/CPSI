@@ -18,6 +18,13 @@ class Usuario:
             return(data1)
         else:
             return False  
+    def ListarJson(self):    
+        self.res=requests.get(self.url+"/menus")
+        data1=json.loads(self.res.content)
+        if data1!=[]:
+            return(data1)
+        else:
+            return False  
     def Inserte(self,data):
             response = requests.post(self.url+"/i", json=data)
     def Borra(self,cual):

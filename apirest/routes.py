@@ -2,9 +2,10 @@ from flask import Flask, jsonify,request,redirect, url_for
 import json,requests
 from flask import render_template
 from services.apicnx import Usuario   
-from config import configura       
-app=Flask(__name__)
+from config import configura 
+import pyautogui      
 
+app=Flask(__name__)
 @app.route("/niveles/index")
 def index():
     return redirect("/niveles/l",code=302)
@@ -72,6 +73,7 @@ def ListarTodos():
     return render_template("niveles.html",N=0,cadena=cadena,can=can)
 @app.route("/niveles/1000",methods=["GET"])
 def acerca():
+    #pyautogui.confirm(text="Mensaje",title="xxxx",buttons=["OK","CANCEL"])
     return render_template("acerca.html")
     
 

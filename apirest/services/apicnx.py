@@ -18,8 +18,8 @@ class Usuario:
             return(data1)
         else:
             return False  
-    def ListarJson(self):    
-        self.res=requests.get(self.url+"/menus")
+    def ListarJson(self,clave="/menus"):    
+        self.res=requests.get(self.url+clave)
         data1=json.loads(self.res.content)
         if data1!=[]:
             return(data1)

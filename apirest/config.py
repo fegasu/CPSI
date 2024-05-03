@@ -7,5 +7,5 @@ configura={
     "PUERTOAPP":8000,
     "MODULO":"salud",
     "SMBD":"SQLITE",
-    "DB":"usuarios.db"
+    "DB":"configura.db"
 }

@@ -6,5 +6,6 @@ configura={
     "PUERTOREST":5000,
     "PUERTOAPP":8000,
     "MODULO":"salud",
-    "SMBD":"SQLITE"
+    "SMBD":"SQLITE",
+    "DB":"usuarios.db"
 }

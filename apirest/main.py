@@ -3,6 +3,7 @@ import json
 #from services.apicnx import cnxsqlite
 from api.cnxSqlite import cnxsqlite  
 from config import configura 
+bd=configura['DB']
 app=Flask(__name__)
 @app.route("/")
 def inicio():
@@ -13,13 +14,13 @@ def inicio():
 def ListaUsuario():
     sql="select * from USUA" 
     con=cnxsqlite()   
-    todo=con.Consultar("./usuarios.db",sql)
+    todo=con.Consultar(bd,sql)
     return json.dumps(todo)
 @app.route("/usua/<id>")
 def ListaUnUsuario(id):
     sql="select * from USUA where IDUSUA="+str(id)
     con=cnxsqlite()
-    todo=con.ConsultarUno("./usuarios.db",sql)
+    todo=con.ConsultarUno(bd,sql)
     return json.dumps(todo)
 
 @app.route("/usua/i",methods = ['POST'])
@@ -29,7 +30,7 @@ def CrearUsuario():
     nom=datos['NOMBRE']
     sql="insert into USUA(NOMBRE,APELLIDO) values('"+nom+"','"+ape+"')"
     con=cnxsqlite()   
-    todo=con.Ejecutar("./usuarios.db",sql)
+    todo=con.Ejecutar(bd,sql)
     return "OK"
 @app.route("/usua/u",methods = ['PUT'])
 def EditaUsuario(): 
@@ -39,20 +40,20 @@ def EditaUsuario():
     nom=datos['NOMBRE']
     sql="update USUA set NOMBRE='"+nom+"',APELLIDO='"+ape+"' where IDUSUA="+str(id)
     con=cnxsqlite()
-    todo=con.Ejecutar("./usuarios.db",sql)
+    todo=con.Ejecutar(bd,sql)
 
     return "OK"
 @app.route("/usua/d/<id>",methods = ['DELETE'])
 def BorrarUsuario(id): 
     sql="delete from USUA where IDUSUA="+str(id)
     con=cnxsqlite()
-    todo=con.Ejecutar("./usuarios.db",sql)
+    todo=con.Ejecutar(bd,sql)
     return "OK"
 @app.route("/usua/menus",methods=['GET'])
 def VerMenu():
     sql="select * from MODULOS"
     con=cnxsqlite()
-    todo=con.ConsultarJson("./usuarios.db",sql)
+    todo=con.ConsultarJson(bd,sql)
     return jsonify(todo)
     
 if __name__=='__main__':

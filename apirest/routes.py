@@ -3,7 +3,6 @@ import json,requests
 from flask import render_template
 from services.apicnx import Usuario   
 from config import configura 
-import pyautogui      
 
 app=Flask(__name__)
 @app.route("/niveles/index")

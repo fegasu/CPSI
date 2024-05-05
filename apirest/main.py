@@ -69,6 +69,12 @@ def VerMenu():
     con=cnxsqlite()
     todo=con.ConsultarJson(sql)
     return jsonify(todo)
+@app.route("/ppa/centros",methods=['GET'])
+def ListaCentros():
+    sql="select * from CENTROS" 
+    con=cnxsqlite()   
+    todo=con.ConsultarJson(sql)
+    return json.dumps(todo)
     
 if __name__=='__main__':
     app.run(debug=True,port=configura['PUERTOREST'],host='0.0.0.0')

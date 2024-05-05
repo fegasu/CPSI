@@ -69,6 +69,12 @@ def ListarTodos():
     can=len(cadena)
     id=0
     return render_template("pusuarios.html",N=0,cadena=cadena)
+@app.route("/centros",methods=["GET"])
+def ListarCentros():
+    #cadena = requests.get(configura['SERVER_API']+"/ppa/centros")    
+    u1= Usuario()
+    cadena=u1.ListarJson("/ppa/centros")
+    return render_template("pcentros.html",cadena=cadena)
 @app.route("/niveles/1000",methods=["GET"])
 def acerca():
     #pyautogui.confirm(text="Mensaje",title="xxxx",buttons=["OK","CANCEL"])

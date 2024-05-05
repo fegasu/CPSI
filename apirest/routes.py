@@ -75,6 +75,13 @@ def ListarCentros():
     u1= Usuario()
     cadena=u1.ListarJson("/ppa/centros")
     return render_template("pcentros.html",cadena=cadena)
+@app.route("/centros/e/<id>",methods=["GET"])
+def nivelEditaCentros(id):
+    u1= Usuario()
+    cadena=u1.ListarJson("/ppa/centros/"+str(id))
+    return render_template("editarCentros.html",cadena=cadena)
+    
+
 @app.route("/niveles/1000",methods=["GET"])
 def acerca():
     #pyautogui.confirm(text="Mensaje",title="xxxx",buttons=["OK","CANCEL"])

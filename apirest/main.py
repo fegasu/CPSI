@@ -75,6 +75,12 @@ def ListaCentros():
     con=cnxsqlite()   
     todo=con.ConsultarJson(sql)
     return json.dumps(todo)
+@app.route("/ppa/centros/<int:id>",methods=['GET'])
+def ListaCentrosUno(id):
+    sql="select * from CENTROS WHERE IDCENTRO=" + str(id)
+    con=cnxsqlite()   
+    todo=con.ConsultarJson(sql)
+    return json.dumps(todo)
     
 if __name__=='__main__':
     app.run(debug=True,port=configura['PUERTOREST'],host='0.0.0.0')

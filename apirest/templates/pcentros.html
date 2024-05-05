@@ -34,7 +34,7 @@
     {% for item in cadena %}
         <td style="text-align:left"><font size=1 color=black><b>{{item.NOMBRE}}</font></b></td>
         <td width="100px">
-            <button class="btn w3-blue w3-hover-yellow" alt="Editar" onclick=Ir1("/niveles/e/{{item.IDCENTRO}}") title="Editar"><i class="fa fa-truck"></i></button>
+            <button class="btn w3-blue w3-hover-yellow" alt="Editar" onclick=Ir1("/centros/e/{{item.IDCENTRO}}") title="Editar"><i class="fa fa-truck"></i></button>
         <button class="btn w3-red w3-hover-yellow" onclick='Confirmar("Desea Borrar el registro?","/niveles/d/{{item.IDUSUA}}")' title="Borrar"><i class="fa fa-trash"></i></button></td></tr>
     {% endfor %}    
 

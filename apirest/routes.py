@@ -8,18 +8,22 @@ app=Flask(__name__)
 app.secret_key="*a6#45$bb"   
 #session['bd']=configura['DB']
 @app.route("/niveles/i",methods=["POST"])
-def nivelInserta():
-    nom=request.form.get('nom').upper()
-    ape=request.form.get('ape').upper()
-    #u1= Usuario()    
-    datos={
-        "NOMBRE":nom,"APELLIDO":ape
-    }
-    #u1.Inserte(datos)
-    response = requests.post(configura['SERVER_API']+"/usua/i", json=datos)
-    id=0
-    msgitos="Usuario creado satisfactoriamente"
+def creausuario():
+    try:
+        nom=request.form.get('nom')
+        ape=request.form.get('ape')
+        
+        datos={
+            "NOMBRE":nom.upper(),
+            "APELLIDO":ape.upper()
+        }
+        response = requests.post(configura['SERVER_API']+"/usua/i", json=datos)
+        id=0
+        msgitos="Centro editado satisfactoriamente"
+    except Exception as e:
+        msgitos="** Error"+response
     return render_template("alertas.html",msgito=msgitos)
+
 
 @app.route("/niveles/u",methods=["POST"])
 def nivelactualiza():
@@ -29,7 +33,7 @@ def nivelactualiza():
         ape=request.form.get('ape')
         
         datos={
-            "IDUSUARIO":id,"NOMBRE":nom.upper(),"APELLIDO":ape.upper()
+        "IDUSUARIO":id,"NOMBRE":nom.upper(),"APELLIDO":ape.upper()
         }
         response = requests.put(configura['SERVER_API']+"/usua/u", json=datos)
         id=0
@@ -81,6 +85,29 @@ def nivelEditaCentros(id):
     cadena=u1.ListarJson("/ppa/centros/"+str(id))
     return render_template("editarCentros.html",cadena=cadena)
     
+@app.route("/centros/u",methods=["POST"])
+def centroactualiza():
+    try:
+        id=request.form.get('id')
+        nom=request.form.get('nom')
+        
+        datos={
+            "IDUSUARIO":id,"NOMBRE":nom.upper()
+        }
+        response = requests.put(configura['SERVER_API']+"/ppa/centros/u", json=datos)
+        id=0
+        msgitos="Centro editado satisfactoriamente"
+    except Exception as e:
+        msgitos="** Error"+response
+    return render_template("alertas.html",msgito=msgitos)
+
+@app.route("/centrod/d/<id>",methods=["GET"])
+def BorraCentros(id):
+    
+    response = requests.delete(configura['SERVER_API']+"/usua/d/"+id)
+    
+    msgitos="Usuario borrado satisfactoriamente"
+    return render_template("alertas.html",msgito=msgitos)
 
 @app.route("/niveles/1000",methods=["GET"])
 def acerca():

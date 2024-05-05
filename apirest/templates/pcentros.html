@@ -14,7 +14,7 @@
                 <tr><td colspan=2>
                     <h5 class="sena-sombra w3-green sena-p100 " >CREAR REGISTRO</h5></header></td></tr>
                 <tr>
-            <form name=mio method=POST action="/niveles/i" class="row g-3 "> 
+            <form name=mio method=POST action="/centros/i" class="row g-3 "> 
                 <td><font color=black>Nombre :</font></td>
                     <td><input class="sena-fondo" type="text" id="nom" name="nom"  placeholder="Ingrese el nombre  del usuario" required></td></tr>
                 <td>Apellido:</font></td>
@@ -35,7 +35,7 @@
         <td style="text-align:left"><font size=1 color=black><b>{{item.NOMBRE}}</font></b></td>
         <td width="100px">
             <button class="btn w3-blue w3-hover-yellow" alt="Editar" onclick=Ir1("/centros/e/{{item.IDCENTRO}}") title="Editar"><i class="fa fa-truck"></i></button>
-        <button class="btn w3-red w3-hover-yellow" onclick='Confirmar("Desea Borrar el registro?","/niveles/d/{{item.IDUSUA}}")' title="Borrar"><i class="fa fa-trash"></i></button></td></tr>
+        <button class="btn w3-red w3-hover-yellow" onclick='Confirmar("Desea Borrar el registro?","/centros/d/{{item.IDUSUA}}")' title="Borrar"><i class="fa fa-trash"></i></button></td></tr>
     {% endfor %}    
 
     </tr>

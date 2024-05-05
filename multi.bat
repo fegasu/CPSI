@@ -1,7 +1,7 @@
 @echo off
 cd apirest
-start python main.py
-start python routes.py
+start python main.py >errorapi.txt
+start python routes.py >errorapp.txt
 cd ..
 
 cls

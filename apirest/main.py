@@ -81,6 +81,38 @@ def ListaCentrosUno(id):
     con=cnxsqlite()   
     todo=con.ConsultarJson(sql)
     return json.dumps(todo)
+@app.route("/ppa/centros/u",methods = ['PUT'])
+def EditaCentros(): 
+    datos=request.get_json()
+    id=datos['IDUSUARIO']
+    nom=datos['NOMBRE']
+    sql="update CENTROS set NOMBRE='"+nom+"' where IDCENTRO="+str(id)
+    print(sql)
+    con=cnxsqlite()
+    todo=con.Ejecutar(sql)
+    return "Centro editado satisfactoriamente"
+
+@app.route("/centros/d/<int:id>",methods = ['DELETE'])
+def BorrarCentros(id): 
+    #datos=request.get_json()
+    try:
+        sql="delete from CENTROS where IDCENTRO=?"
+        con = sqlite3.connect(bd)
+        cur = con.cursor()
+        cur.execute(sql,(id,))
+        con.commit()
+        con.close()
+    except Exception as e:
+        return str(e)+" "+sql
+@app.route("/centros/i",methods = ['POST'])
+def CrearCentro(): 
+    datos=request.get_json()  
+    nom=datos['NOMBRE']
+    sql="insert into CENTROS(NOMBRE) values('"+nom+"')"
+    print(sql)
+    con=cnxsqlite()   
+    todo=con.Ejecutar(sql)
+    return "OK"
     
 if __name__=='__main__':
     app.run(debug=True,port=configura['PUERTOREST'],host='0.0.0.0')

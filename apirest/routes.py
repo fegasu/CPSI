@@ -59,7 +59,6 @@ def nivelBorra(id):
 def Lista():
     u1= Usuario()
     cadena=u1.ListarJson("/ppa/menus")
-    print(cadena)
     return render_template("index.html",cadena=cadena)
     
 

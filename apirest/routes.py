@@ -5,7 +5,7 @@ from services.apicnx import Usuario
 from config import configura 
 
 app=Flask(__name__)
-
+app.secret_key="*a6#45$bb"   
 #session['bd']=configura['DB']
 @app.route("/niveles/i",methods=["POST"])
 def nivelInserta():
@@ -78,5 +78,4 @@ def acerca():
 
 if __name__=='__main__':
     app.run(debug=True,port=8000) 
-    app.secret_key="*a6#45$bb"   
     

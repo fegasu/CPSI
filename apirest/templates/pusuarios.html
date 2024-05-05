@@ -15,10 +15,10 @@
                     <h5 class="sena-sombra w3-green sena-p100 " >CREAR REGISTRO</h5></header></td></tr>
                 <tr>
             <form name=mio method=POST action="/niveles/i" class="row g-3 "> 
-                <td><font color=black>Nombre:</font></td>
-                    <td><input class="sena-fondo" type="text" id="nom" name="nom"  required></td></tr>
+                <td><font color=black>Nombre :</font></td>
+                    <td><input class="sena-fondo" type="text" id="nom" name="nom"  placeholder="Ingrese el nombre  del usuario" required></td></tr>
                 <td>Apellido:</font></td>
-                    <td><input class="sena-fondo" type="text" id="ape" name="ape"  required><br></td></tr>
+                    <td><input class="sena-fondo" type="text" id="ape" name="ape" placeholder="Ingrese el apellido  del usuario"  required><br></td></tr>
                 </table>
                 <br>
                     <input type="submit" value="Grabar"  class="sena-btn sena-p6">
@@ -31,11 +31,11 @@
     <td>
         <div class="sena-p100">
         <table class="table  sena__information-card-text table-striped sena-p100" height=20% width=100%>
-    {% for x in range(0,can)%}
-        <td style="text-align:left"><font size=1 color=black><b>{{cadena[x][1]}} {{cadena[x][2]}}</font></b></td>
+    {% for item in cadena %}
+        <td style="text-align:left"><font size=1 color=black><b>{{item.APELLIDO}} {{item.NOMBRE}}</font></b></td>
         <td width="100px">
-            <button class="btn w3-blue w3-hover-yellow" alt="Editar" onclick=Ir1("/niveles/e/{{cadena[x][0]}}") title="Editar"><i class="fa fa-truck"></i></button>
-        <button class="btn w3-red w3-hover-yellow" onclick='Confirmar("Desea Borrar el registro?","/niveles/d/{{cadena[x][0]}}")' title="Borrar"><i class="fa fa-trash"></i></button></td></tr>
+            <button class="btn w3-blue w3-hover-yellow" alt="Editar" onclick=Ir1("/niveles/e/{{item.IDUSUA}}") title="Editar"><i class="fa fa-truck"></i></button>
+        <button class="btn w3-red w3-hover-yellow" onclick='Confirmar("Desea Borrar el registro?","/niveles/d/{{item.IDUSUA}}")' title="Borrar"><i class="fa fa-trash"></i></button></td></tr>
     {% endfor %}    
 
     </tr>

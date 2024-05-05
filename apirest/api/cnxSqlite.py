@@ -1,14 +1,19 @@
 import sqlite3
+from config import configura   
 class cnxsqlite:
-    def Consultar(self,bd,sql):
-        con = sqlite3.connect(bd)
+    def __init__(self) -> None:
+        self.bd=configura['DB']
+        self.rutapi=configura['SERVER_NAME']+":"+str(configura['PUERTOREST'])
+        
+    def Consultar(self,sql):
+        con = sqlite3.connect(self.bd)
         cur = con.cursor()
         res=cur.execute(sql)
         todo=res.fetchall()
         con.close() 
         return todo   
-    def ConsultarUno(self,bd,sql):
-        con = sqlite3.connect(bd)
+    def ConsultarUno(self,sql):
+        con = sqlite3.connect(self.bd)
         todo={}
         cur = con.cursor()
         res=cur.execute(sql)
@@ -19,8 +24,8 @@ class cnxsqlite:
             todo[nombrecol]=valor
         con.close() 
         return todo  
-    def ConsultarJson(self,bd,sql):
-        con = sqlite3.connect(bd)
+    def ConsultarJson(self,sql):
+        con = sqlite3.connect(self.bd)
         todo=[]
         cur = con.cursor()
         res=cur.execute(sql)
@@ -35,8 +40,8 @@ class cnxsqlite:
             todo.append(aux3)
         con.close() 
         return list(todo)  
-    def Ejecutar(self,bd,sql):
-        con = sqlite3.connect(bd)
+    def Ejecutar(self,sql):
+        con = sqlite3.connect(self.bd)
         cur = con.cursor()
         res=cur.execute(sql)
         con.commit()

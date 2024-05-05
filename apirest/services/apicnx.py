@@ -1,33 +1,36 @@
 import json,requests
-from config import configura   
+from config import configura 
 class Usuario:
-    url=None
+
     res=None
     data=None
-    def __init__(self,murl=configura['SERVER_NAME']):
-        self.url=murl
+    def __init__(self):
+        
+        self.bd=configura['DB']
+        self.url=configura['SERVER_NAME']+":"+str(configura['PUERTOREST'])
 
-    def ListarTodos(self):
-        self.res=requests.get(self.url+"/to")
+    def ListarTodos(self,clave="/to"):
+        self.res=requests.get(self.url+clave)
         data1=json.loads(self.res.content)
         return data1
-    def ListarUno(self,cual=0):    
-        self.res=requests.get(self.url+"/"+str(cual))
+    def ListarUno_a(self,cual):    
+        self.res=requests.get(self.url+"/ppa/"+str(cual))
         data1=json.loads(self.res.content)
         if data1!=[]:
             return(data1)
         else:
             return False  
-    def ListarJson(self,clave="/menus"):    
+    def ListarJson(self,clave):    
         self.res=requests.get(self.url+clave)
         data1=json.loads(self.res.content)
         if data1!=[]:
             return(data1)
         else:
             return False  
-    def Inserte(self,data):
-            response = requests.post(self.url+"/i", json=data)
-    def Borra(self,cual):
-        response = requests.delete(self.url+"/d/"+str(cual))
-    def Actualiza(self,data):
-        response = requests.put(self.url+"/u", json=data)
+    def Inserte(self,data,clave="/i"):
+        print(self.url+clave)
+        response = requests.post(self.url+clave, json=data)
+    def Borra(self,cual,clave):
+        response = requests.delete(self.url+clave+str(cual))
+    def Actualiza(self,data,clave="/u"):
+        response = requests.put(self.url+clave, json=data)

@@ -3,24 +3,30 @@ import json
 #from services.apicnx import cnxsqlite
 from api.cnxSqlite import cnxsqlite  
 from config import configura 
+import sqlite3
 bd=configura['DB']
+#session['bd']=configura['DB']
+rutapi=configura['SERVER_NAME']+":"+str(configura['SERVER_NAME'])
+print("* Base de datos:",bd)
+
 app=Flask(__name__)
 @app.route("/")
 def inicio():
-    return "Hola"
-@app.route("/usua/cc")
+    return "CENTRO DE PRODUCCION DE SOLUCIONES INTELIGENTES - CPSI -"
 
-@app.route("/usua/to")
+@app.route("/ppa")
+@app.route("/ppa/l")
 def ListaUsuario():
     sql="select * from USUA" 
     con=cnxsqlite()   
-    todo=con.Consultar(bd,sql)
+    todo=con.ConsultarJson(sql)
     return json.dumps(todo)
+@app.route("/ppa/<id>")
 @app.route("/usua/<id>")
 def ListaUnUsuario(id):
     sql="select * from USUA where IDUSUA="+str(id)
     con=cnxsqlite()
-    todo=con.ConsultarUno(bd,sql)
+    todo=con.ConsultarJson(sql)
     return json.dumps(todo)
 
 @app.route("/usua/i",methods = ['POST'])
@@ -29,8 +35,9 @@ def CrearUsuario():
     ape=datos['APELLIDO']
     nom=datos['NOMBRE']
     sql="insert into USUA(NOMBRE,APELLIDO) values('"+nom+"','"+ape+"')"
+    print(sql)
     con=cnxsqlite()   
-    todo=con.Ejecutar(bd,sql)
+    todo=con.Ejecutar(sql)
     return "OK"
 @app.route("/usua/u",methods = ['PUT'])
 def EditaUsuario(): 
@@ -39,21 +46,28 @@ def EditaUsuario():
     ape=datos['APELLIDO']
     nom=datos['NOMBRE']
     sql="update USUA set NOMBRE='"+nom+"',APELLIDO='"+ape+"' where IDUSUA="+str(id)
+    print(sql)
     con=cnxsqlite()
-    todo=con.Ejecutar(bd,sql)
-
-    return "OK"
-@app.route("/usua/d/<id>",methods = ['DELETE'])
+    todo=con.Ejecutar(sql)
+    return "Usuario editado satisfactoriamente"
+@app.route("/usua/d/<int:id>",methods = ['DELETE'])
 def BorrarUsuario(id): 
-    sql="delete from USUA where IDUSUA="+str(id)
-    con=cnxsqlite()
-    todo=con.Ejecutar(bd,sql)
-    return "OK"
-@app.route("/usua/menus",methods=['GET'])
+    #datos=request.get_json()
+    try:
+        sql="delete from USUA where IDUSUA=?"
+        con = sqlite3.connect(bd)
+        cur = con.cursor()
+        cur.execute(sql,(id,))
+        con.commit()
+        con.close()
+    except Exception as e:
+        return str(e)+" "+sql
+        
+@app.route("/ppa/menus",methods=['GET'])
 def VerMenu():
     sql="select * from MODULOS"
     con=cnxsqlite()
-    todo=con.ConsultarJson(bd,sql)
+    todo=con.ConsultarJson(sql)
     return jsonify(todo)
     
 if __name__=='__main__':

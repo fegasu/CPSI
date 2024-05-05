@@ -1,7 +1,7 @@
 from flask import Flask, jsonify,request,redirect, url_for,session
 import json,requests
 from flask import render_template
-from services.apicnx import Usuario   
+from services.apicnx import *   
 from config import configura 
 
 app=Flask(__name__)
@@ -115,11 +115,11 @@ def acerca():
     return render_template("acerca.html")
 @app.route("/sedes",methods=["GET"])
 def ListaSedes():
-    u1= Usuario()
-    centros=u1.ListarJson("/ppa/centros")
+    centros=ListarJson("/ppa/centros")
+    sedes=ListarJson("/ppa/sedes")
     #centros = requests.get(configura['SERVER_API']+"/ppa/centros")
     
-    return render_template("psedes.html",centros=centros)
+    return render_template("psedes.html",centros=centros,sedes=sedes)
 
 if __name__=='__main__':
     app.run(debug=True,port=8000) 

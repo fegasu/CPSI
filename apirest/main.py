@@ -113,6 +113,12 @@ def CrearCentro():
     con=cnxsqlite()   
     todo=con.Ejecutar(sql)
     return "OK"
+@app.route("/ppa/sedes")
+def ListaSedes():
+    sql="select * from SEDES" 
+    con=cnxsqlite()   
+    todo=con.ConsultarJson(sql)
+    return json.dumps(todo)
     
 if __name__=='__main__':
     app.run(debug=True,port=configura['PUERTOREST'],host='0.0.0.0')

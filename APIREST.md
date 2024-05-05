@@ -15,7 +15,7 @@ Pasos a seguir para la practica CONSUMIR SERVICIOS APIRESTS:
 <li>Instale los requerimientos necesarios <a href="#">requeri.bat</a> &oacute; escriba el comando: <a href="">pip install -r requirements.txt</a></li>
 
 <li>Inicie el servidor web y la API con el archivo <a href="#">multi.bat</a> desde el ambiente virtual</li>
-<li>Ingrese al navegador y escriba la url http://127.0.0.1:8000/niveles/l
+<li>Ingrese al navegador y escriba la url http://127.0.0.1:8000
 </ul>
 
  

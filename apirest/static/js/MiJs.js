@@ -8,9 +8,12 @@
     function Ir(cual){
         document.forms['mio'].action="/niveles/"+cual
         document.forms['mio'].submit();
-     
-     
-       }function Ir1(cual){
+       }
+       function Irc(formula,cual){
+        document.forms[formula].action=cual;
+        document.forms[formula].submit();
+       }
+       function Ir1(cual){
         location.href=cual
        }
         function Confirmar(que,donde){

@@ -120,6 +120,13 @@ def ListaSedes():
     #centros = requests.get(configura['SERVER_API']+"/ppa/centros")
     
     return render_template("psedes.html",centros=centros,sedes=sedes)
+@app.route("/sedes/s",methods=["GET","POST"])
+def ListaSedes1():
+    centros=ListarJson("/ppa/centros")
+    sedes=ListarJson("/ppa/sedes")
+    #centros = requests.get(configura['SERVER_API']+"/ppa/centros")
+    
+    return render_template("psedes1.html",centros=centros,sedes=sedes)
 
 if __name__=='__main__':
     app.run(debug=True,port=8000) 

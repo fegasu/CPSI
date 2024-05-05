@@ -1,4 +1,4 @@
-from flask import Flask, jsonify,request,redirect, url_for
+from flask import Flask, jsonify,request,redirect, url_for,session
 import json,requests
 from flask import render_template
 from services.apicnx import Usuario   
@@ -6,7 +6,7 @@ from config import configura
 
 app=Flask(__name__)
 
-
+#session['bd']=configura['DB']
 @app.route("/niveles/i",methods=["POST"])
 def nivelInserta():
     nom=request.form.get('nom').upper()

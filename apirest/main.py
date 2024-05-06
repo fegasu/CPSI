@@ -77,7 +77,11 @@ def ListaCentros():
     return json.dumps(todo)
 @app.route("/ppa/centros/<int:id>",methods=['GET'])
 def ListaCentrosUno(id):
-    sql="select * from CENTROS WHERE IDCENTRO=" + str(id)
+    if id>0:
+        sql="select * from CENTROS WHERE IDCENTRO=" + str(id)
+    else:
+                sql="select * from CENTROS"
+
     con=cnxsqlite()   
     todo=con.ConsultarJson(sql)
     return json.dumps(todo)
@@ -113,9 +117,12 @@ def CrearCentro():
     con=cnxsqlite()   
     todo=con.Ejecutar(sql)
     return "OK"
-@app.route("/ppa/sedes")
-def ListaSedes():
-    sql="select * from SEDES" 
+@app.route("/ppa/sedes/<id>")
+def ListaSedes(id):
+    if id==0:
+        sql="select * from SEDES" 
+    else:
+        sql="select * from SEDES where IDCENTRO="+id
     con=cnxsqlite()   
     todo=con.ConsultarJson(sql)
     return json.dumps(todo)

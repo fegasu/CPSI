@@ -7,7 +7,8 @@
                 <font color=white>SEDES DEL CENTRO DE FORMACION</font></h3>
         </div>  
         <div class="sena__informacion-card-container">  
-<table class="w3-striped w3-padding-large sena-p100" >   
+<table class="w3-striped w3-padding-large sena-p100" >  
+    {% if N=="0" %} 
     <td width=50%>
             <center>
             <table border=1 class="sena__information-card-text w3-striped   sena-p100">
@@ -19,7 +20,7 @@
                     <td><input class="sena-fondo sena-p100" type="text" id="nom" name="nom"  placeholder="Ingrese el nombre  de la sede" required></td></tr>
                 <td>Centro de Formaci&oacute;n:</font></td>
                 <td><select id=micentro>
-                {% for tipo in centros %}
+                {% for tipo in centros0 %}
                         <option value="{{tipo.IDCENTRO}}">{{tipo.NOMBRE}}</option> 
                 {% endfor %}       
                 </select>
@@ -33,11 +34,14 @@
             </form>
     </td>
     <td>&nbsp;&nbsp;</td>
+{%endif%}
     <td width=50%>
-        <form  name=mio1 method=GET action="/sedes/s" class="row g-3 ">
+        **********************{{N}}<br>
+        {% if N=="0" %}
+        <form  name=mio method=GET action="/sedes/1" class="row g-3 ">
         <div class="sena-p100">
         <table class="table  sena__information-card-text table-striped sena-p100" height=20% width=100%>
-    <td>Centro:</td><td><select onchange=Irc("mio1","/sedes/s") class="sena-p100" name=idcentro>
+    <td>Centro:</td><td><select onchange=Irc("mio","/sedes/1",this) class="sena-p100" name=idcentro>
         <option>Elija un centro</option>
         {% for tipo in centros %}
                         <option value="{{tipo.IDCENTRO}}">{{tipo.NOMBRE}}</option> 
@@ -45,6 +49,20 @@
     </select></td></tr>
 
     </tr>
+    {% endif %}
+    {% if N=="1" %}
+    <form  name=mio method=GET action="/sedes" class="row g-3 ">
+    <input type=hidden id=N name="N" value="2">
+    <div class="sena-p100">
+    <table class="table  sena__information-card-text table-striped sena-p100" height=20% width=100%>
+<td>Centro:</td><td>
+    {% for tipo in centros %}
+                    {{tipo.NOMBRE}}
+            {% endfor %}  
+</td></tr>
+
+</tr>
+{% endif %}
 </FORM></table>
 </div>
 </tr>

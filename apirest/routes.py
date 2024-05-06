@@ -113,20 +113,23 @@ def BorraCentros(id):
 def acerca():
     #pyautogui.confirm(text="Mensaje",title="xxxx",buttons=["OK","CANCEL"])
     return render_template("acerca.html")
-@app.route("/sedes",methods=["GET"])
-def ListaSedes():
-    centros=ListarJson("/ppa/centros")
-    sedes=ListarJson("/ppa/sedes")
-    #centros = requests.get(configura['SERVER_API']+"/ppa/centros")
+@app.route("/sedes/<N>/<id>",methods=["GET","POST"])
+def ListaSedes(N,id):
+    centros0=ListarJson("/ppa/centros/0")
+    centros=ListarJson("/ppa/centros/"+id)
     
-    return render_template("psedes.html",centros=centros,sedes=sedes)
+    sedes=ListarJson("/ppa/sedes/"+id)
+
+
+ 
+    return render_template("psedes.html",centros=centros,sedes=sedes,N=N,centros0=centros0)
 @app.route("/sedes/s",methods=["GET","POST"])
 def ListaSedes1():
     centros=ListarJson("/ppa/centros")
     sedes=ListarJson("/ppa/sedes")
     #centros = requests.get(configura['SERVER_API']+"/ppa/centros")
     
-    return render_template("psedes1.html",centros=centros,sedes=sedes)
+    return render_template("psedes1.html",centros=centros,sedes=sedes,N=0)
 
 if __name__=='__main__':
     app.run(debug=True,port=8000) 

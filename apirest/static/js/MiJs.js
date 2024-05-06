@@ -9,8 +9,8 @@
         document.forms['mio'].action="/niveles/"+cual
         document.forms['mio'].submit();
        }
-       function Irc(formula,cual){
-        document.forms[formula].action=cual;
+       function Irc(formula,cual,que){
+        document.forms[formula].action=cual+"/"+que.value;
         document.forms[formula].submit();
        }
        function Ir1(cual){

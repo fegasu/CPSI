@@ -2,21 +2,21 @@
 {% block content %}
 <center>
     <div class="sena-card">
-        <div class="bilinguismo__informacion-card-header">
-            <h3 class="bilinguismo__information-card-title sena-color sena-sombra">
+        <div>
+            <h3 class="sena__information-card-title sena-color sena-sombra">
                 <font color=white>SEDES DEL CENTRO DE FORMACION</font></h3>
         </div>  
         <div class="sena__informacion-card-container">  
 <table class="w3-striped w3-padding-large sena-p100" >  
     {% if N=="0" %} 
-    <td width=50%>
+    <td class="sena-p4">
             <center>
             <table border=1 class="sena__information-card-text w3-striped   sena-p100">
                 <tr><td colspan=2>
                     <h5 class="sena-sombra w3-green sena-p100 " >CREAR SEDE</h5></header></td></tr>
                 <tr>
             <form name=mio method=POST action="/centros/i" class="row g-3 "> 
-                <td width=50%><font color=black>Nombre :</font></td>
+                <td width=40%><font color=black>Nombre :</font></td>
                     <td><input class="sena-fondo sena-p100" type="text" id="nom" name="nom"  placeholder="Ingrese el nombre  de la sede" required></td></tr>
                 <td>Centro de Formaci&oacute;n:</font></td>
                 <td><select id=micentro>
@@ -36,7 +36,7 @@
     <td>&nbsp;&nbsp;</td>
 {%endif%}
     <td width=50%>
-        **********************{{N}}<br>
+        **********************{{N}}-{{sedes}} <br>
         {% if N=="0" %}
         <form  name=mio method=GET action="/sedes/1" class="row g-3 ">
         <div class="sena-p100">
@@ -53,16 +53,39 @@
     {% if N=="1" %}
     <form  name=mio method=GET action="/sedes" class="row g-3 ">
     <div class="sena-p100">
-        <button onclick="IrF('/sedes/0/0')">Regresar</button>
+        <button class="sena-btn sena-p3" onclick="IrF('/sedes/0/0')">Regresar</button><hr>
     <table class="table  sena__information-card-text table-striped sena-p100" height=20% width=100%>
-<td>Centro:</td><td>
+<td colspan=2>Centro: 
     {% for tipo in centros %}
                     {{tipo.NOMBRE}}
             {% endfor %}  
 </td></tr>
 
 </tr>
+
+    {% for tipo in sedes%} 
+    <td class="sena-p95">{{tipo.NOMBRE}}</td>
+<td class="sena-p2"><button class="btn w3-blue w3-hover-yellow" alt="Editar" onclick=IrF("/sedes/2/{{tipo.IDSEDE}}") title="Editar"><i class="fa fa-truck"></i></button>
+    <button class="btn w3-red w3-hover-yellow" onclick='Confirmar("Desea Borrar el registro?","")' title="Borrar"><i class="fa fa-trash"></i></button></td></tr>
+</td></tr>
+    {%endfor %}
 {% endif %}
+
+{% if N=="2" %}
+<form  name=mio method=GET action="/sedes" class="row g-3 ">
+<div class="sena-p100">
+    <button class="btn btn-success sena-p3" onclick="IrF('/sedes/0/0')">Regresar</button><hr>
+<table class="table  sena__information-card-text table-striped sena-p100" height=20% width=100%>
+{% for tipo in sedes %}
+<input type=hidden name=idcentro value={{tipo.IDCENTRO}}>
+<input type=hidden name=idcentro value={{tipo.IDSEDE}}>
+<td>Centro:</td><td>{{tipo.CENTRO}}</td></tr>
+<td>Sede:</td>
+<td><input class="sena-p100" type=text name=nom value="{{tipo.NOMBRE}}"></td></tr>
+{% endfor %}
+<td colspan=2><button class="sena-btn sena-p4">Guardar</button></td>
+{% endif %}
+
 </FORM></table>
 </div>
 </tr>

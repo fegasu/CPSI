@@ -118,7 +118,10 @@ def ListaSedes(N,id):
     centros0=ListarJson("/ppa/centros/0")
     centros=ListarJson("/ppa/centros/"+id)
     
-    sedes=ListarJson("/ppa/sedes/"+id)
+    if N=="2":
+        sedes=ListarJson("/ppa/sedes/e/"+id)
+    else:
+        sedes=ListarJson("/ppa/sedes/"+id)
 
 
  

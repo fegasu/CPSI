@@ -118,11 +118,17 @@ def CrearCentro():
     todo=con.Ejecutar(sql)
     return "OK"
 @app.route("/ppa/sedes/<id>")
-def ListaSedes(id):
+def ListaSedesPorCentro(id):
     if id==0:
         sql="select * from SEDES" 
     else:
         sql="select * from SEDES where IDCENTRO="+id
+    con=cnxsqlite()   
+    todo=con.ConsultarJson(sql)
+    return json.dumps(todo)
+@app.route("/ppa/sedes/e/<id>")
+def ListaSedes(id):
+    sql="select s.*,c.IDCENTRO,c.NOMBRE CENTRO from SEDES s,CENTROS c where s.IDCENTRO=c.IDCENTRO and IDSEDE="+id
     con=cnxsqlite()   
     todo=con.ConsultarJson(sql)
     return json.dumps(todo)

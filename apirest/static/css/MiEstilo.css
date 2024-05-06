@@ -1,6 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 html {
     --scrollbarBG: #f1f5f7;
     --thumbBG: #39A900;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: "Roboto", sans-serif;
   }
   body::-webkit-scrollbar {
     width: 21px;
@@ -70,8 +76,9 @@ html {
 .sena-p100{
   width:100%;
 }
-.sena-select{
+select{
   background-color:white;
+  font-family: "Roboto", sans-serif;
 }
 .sena-fondo{
     background-color:white;
@@ -205,6 +212,13 @@ html {
     -webkit-border-radius: 13px 13px 13px 13px;
     border: 1px solid #000000;
   
+  padding: 10px 10px 10px 10px;
+  }  
+  .sena-card-none{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  margin-left: 20px;
   padding: 10px 10px 10px 10px;
   }
       main {

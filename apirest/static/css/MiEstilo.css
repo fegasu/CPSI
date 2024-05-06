@@ -76,8 +76,12 @@ html {
 .sena-p100{
   width:100%;
 }
+.select-izquierda{
+  align:left;
+}
 select{
   background-color:white;
+  font-weight: bold;
   font-family: "Roboto", sans-serif;
 }
 .sena-fondo{

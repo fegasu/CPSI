@@ -6,18 +6,17 @@
             <h3 class="sena__information-card-title sena-color sena-sombra">
                 <font color=white>SEDES DEL CENTRO DE FORMACION</font></h3>
         </div>  
-        <div class="sena__informacion-card-container">  
-<table class="w3-striped w3-padding-large sena-p100" >  
-    {% if N=="0" %} 
-    <td class="sena-p4">
-            <center>
-            <table border=1 class="sena__information-card-text w3-striped   sena-p100">
+<div class="sena-card2">  
+    <table class="sena-p100" >  
+                {% if N=="0" %} 
+    <td width=50%>
+            <table border=0 class="sena-p100">
                 <tr><td colspan=2>
                     <h5 class="sena-sombra w3-green sena-p100 " >CREAR SEDE</h5></header></td></tr>
                 <tr>
-            <form name=mio method=POST action="/centros/i" class="row g-3 "> 
+            <form name=mio method=POST action="/centros/i"> 
                 <td width=40%><font color=black>Nombre :</font></td>
-                    <td><input class="sena-fondo sena-p100" type="text" id="nom" name="nom"  placeholder="Ingrese el nombre  de la sede" required></td></tr>
+                    <td><input class="sena-fondo sena-60" type="text" id="nom" name="nom"  placeholder="Ingrese el nombre  de la sede" required></td></tr>
                 <td>Centro de Formaci&oacute;n:</font></td>
                 <td><select id=micentro>
                 {% for tipo in centros0 %}
@@ -26,16 +25,16 @@
                 </select>
                 </td></tr>
                 </table>
-                <br>
+            </div>
+                            <br>
                     <input type="submit" value="Grabar"  class="sena-btn sena-p6">
 
             
             
             </form>
     </td>
-    <td>&nbsp;&nbsp;</td>
+
 {%endif%}
-    <td width=50%>
         **********************{{N}}-{{sedes}} <br>
         {% if N=="0" %}
         <form  name=mio method=GET action="/sedes/1" class="row g-3 ">
@@ -48,9 +47,9 @@
                 {% endfor %}  
     </select></td></tr>
 
-    </tr>
     {% endif %}
     {% if N=="1" %}
+    <td>
     <form  name=mio method=GET action="/sedes" class="row g-3 ">
     <div class="sena-p100">
         <button class="sena-btn sena-p3" onclick="IrF('/sedes/0/0')">Regresar</button><hr>

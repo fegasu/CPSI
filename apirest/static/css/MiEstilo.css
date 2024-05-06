@@ -70,6 +70,9 @@ html {
 .sena-p100{
   width:100%;
 }
+.sena-select{
+  background-color:white;
+}
 .sena-fondo{
     background-color:white;
 }
@@ -180,6 +183,7 @@ html {
   -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  padding: 10px 10px 10px 10px;
   }
   .sena-card1{
     border-radius: 47px 49px 10px 10px;
@@ -189,6 +193,7 @@ html {
   -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  padding: 10px 10px 10px 10px;
   }  
   .sena-card2{
     margin-top: 10px;
@@ -199,9 +204,8 @@ html {
     -moz-border-radius: 13px 13px 13px 13px;
     -webkit-border-radius: 13px 13px 13px 13px;
     border: 1px solid #000000;
-  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  
+  padding: 10px 10px 10px 10px;
   }
       main {
     padding: 0.75rem;

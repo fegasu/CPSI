@@ -99,9 +99,9 @@ def centroactualiza():
         msgitos="Centro editado satisfactoriamente"
     except Exception as e:
         msgitos="** Error"+response
-    return render_template("alertas.html",msgito=msgitos)
+    return render_template("alertas.html",msgito=msgitos,regreso="/centros")
 
-@app.route("/centrod/d/<id>",methods=["GET"])
+@app.route("/centro/d/<id>",methods=["GET"])
 def BorraCentros(id):
     
     response = requests.delete(configura['SERVER_API']+"/usua/d/"+id)
@@ -142,7 +142,7 @@ def EditaSedes():
         msgitos="Sede editada satisfactoriamente"
     except Exception as e:
         msgitos="** Error"+response
-    return render_template("alertas.html",msgito=msgitos)
+    return render_template("alertas.html",msgito=msgitos,regreso="/sedes/0/0")
 @app.route("/sedes/i",methods=["GET","POST"])
 def CreaSedes():
     
@@ -155,15 +155,25 @@ def CreaSedes():
     print("++++++++>",datos)
     response = requests.post(configura['SERVER_API']+"/ppa/sedes/i", json=datos)
     msgitos="Sede Creada satisfactoriamente"
-    return render_template("alertas.html",msgito=msgitos)
+    return render_template("alertas.html",msgito=msgitos,regreso="/sedes/0/0")
 @app.route("/sedes/d/<id>",methods=["POST"])
 def BorraSede(id):
     
     response = requests.delete(configura['SERVER_API']+"/ppa/sedes/d/"+id)
     
     msgitos="Sede borrada satisfactoriamente"
-    return render_template("alertas.html",msgito=msgitos)
+    return render_template("alertas.html",msgito=msgitos,regreso="/sedes/0/0")
 
+@app.route("/Aulas/<N>/<id>",methods=["GET","POST"])
+def ListaAulas(N,id):
+    centros0=ListarJson("/ppa/centros/0")
+    centros=ListarJson("/ppa/centros/"+id)
+    
+    if N=="2":
+        sedes=ListarJson("/ppa/sedes/e/"+id)
+    else:
+        sedes=ListarJson("/ppa/sedes/"+id)
+    return render_template("aulas.html",N=N)
 
 if __name__=='__main__':
     app.run(debug=True,port=8000) 

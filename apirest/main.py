@@ -132,6 +132,26 @@ def ListaSedes(id):
     con=cnxsqlite()   
     todo=con.ConsultarJson(sql)
     return json.dumps(todo)
+@app.route("/ppa/sedes/u",methods = ['PUT'])
+def EditaSedes():
+    datos=request.get_json()
+    nom=datos['NOMBRE']
+    idsede=datos['IDSEDE']
+    sql="update SEDES set NOMBRE='"+nom+"' where IDSEDE="+str(idsede)
+    print(sql)
+    con=cnxsqlite()
+    todo=con.Ejecutar(sql)
+    return "Centro editado satisfactoriamente"
+@app.route("/ppa/sedes/i",methods = ['POST'])
+def NuevaSede():
+    datos=request.get_json()
+    nom=datos['NOMBRE']
+    idcentro=datos['IDCENTRO']
+    sql="insert into SEDES(NOMBRE,IDCENTRO) values('"+nom+"',"+str(idcentro)+")"
+    print(sql)
+    con=cnxsqlite()
+    todo=con.Ejecutar(sql)
+    return "Centro creado satisfactoriamente"
     
 if __name__=='__main__':
     app.run(debug=True,port=configura['PUERTOREST'],host='0.0.0.0')

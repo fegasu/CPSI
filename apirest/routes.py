@@ -122,17 +122,41 @@ def ListaSedes(N,id):
         sedes=ListarJson("/ppa/sedes/e/"+id)
     else:
         sedes=ListarJson("/ppa/sedes/"+id)
+    
+    
+    
 
 
  
     return render_template("psedes.html",centros=centros,sedes=sedes,N=N,centros0=centros0)
-@app.route("/sedes/s",methods=["GET","POST"])
-def ListaSedes1():
-    centros=ListarJson("/ppa/centros")
-    sedes=ListarJson("/ppa/sedes")
-    #centros = requests.get(configura['SERVER_API']+"/ppa/centros")
-    
-    return render_template("psedes1.html",centros=centros,sedes=sedes,N=0)
+@app.route("/sedes/u",methods=["GET","POST"])
+def EditaSedes():
+    try:
+        id=request.form.get('idsede')
+        nom=request.form.get('nom')
+        
+        datos={
+            "IDSEDE":id,"NOMBRE":nom.upper()
+        }
+        response = requests.put(configura['SERVER_API']+"/ppa/sedes/u", json=datos)
+        msgitos="Sede editada satisfactoriamente"
+    except Exception as e:
+        msgitos="** Error"+response
+    return render_template("alertas.html",msgito=msgitos)
+@app.route("/sedes/i",methods=["GET","POST"])
+def CreaSedes():
+    try:
+        id=request.form.get('idcentro')
+        nom=request.form.get('nom')
+        
+        datos={
+            "IDCENTRO":id,"NOMBRE":nom.upper()
+        }
+        response = requests.put(configura['SERVER_API']+"/ppa/sedes/i", json=datos)
+        msgitos="Sede Creada satisfactoriamente"
+    except Exception as e:
+        msgitos="** Error"+response
+    return render_template("alertas.html",msgito=msgitos)
 
 if __name__=='__main__':
     app.run(debug=True,port=8000) 

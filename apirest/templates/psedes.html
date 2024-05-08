@@ -14,11 +14,11 @@
                 <tr><td colspan=2>
                     <h5 class="sena-sombra w3-green sena-p100 " >CREAR SEDE</h5></header></td></tr>
                 <tr>
-            <form name=mio method=POST action="/centros/i"> 
+            <form name=mio method=POST action="/sedes/i"> 
                 <td width=40%><font color=black>Nombre :</font></td>
                     <td><input class="sena-fondo sena-p9" type="text" id="nom" name="nom"  placeholder="Ingrese el nombre  de la sede" required></td></tr>
                 <td>Centro de Formaci&oacute;n:</font></td>
-                <td><select class="sena-fondo sena-p9" id=micentro>
+                <td><select class="sena-fondo sena-p9" name=idcentro>
                 {% for tipo in centros0 %}
                         <option value="{{tipo.IDCENTRO}}">{{tipo.NOMBRE}}</option> 
                 {% endfor %}       
@@ -28,7 +28,7 @@
                 </table>
             </div>
                             <br>
-                    <input type="submit" value="Crear Nueva Sede"  class="sena-btn sena-p6"><hr>
+                            <button class="sena-btn sena-p4" onclick='IrF("/sedes/i")'>Guardar</button><hr>
 
                 </div>
             
@@ -75,18 +75,18 @@
 {% endif %}
 
 {% if N=="2" %}
-<form  name=mio method=GET action="/sedes" class="row g-3 ">
+<form  name=mio method=POST action="/sedes/u" class="row g-3 ">
 <div class="sena-p100 " style="align:left;"> 
    <button class="btn btn-success sena-p2" onclick="IrF('/sedes/0/0')">Regresar</button><hr>
 <table class="table  sena__information-card-text table-striped sena-p100" height=20% width=100%>
 {% for tipo in sedes %}
 <input type=hidden name=idcentro value={{tipo.IDCENTRO}}>
-<input type=hidden name=idcentro value={{tipo.IDSEDE}}>
+<input type=hidden name=idsede value={{tipo.IDSEDE}}>
 <td>Centro:</td><td><b>{{tipo.CENTRO}}</b></td></tr>
 <td>Sede:</td>
-<td><input class="sena-p100" type=text name=nom value="{{tipo.NOMBRE}}"></td></tr>
+<td><input class="sena-p100" type=text name=nom value="{{tipo.NOMBRE}}" requerid></td></tr>
+<td colspan=2><button class="sena-btn sena-p4" onclick='IrF("/sedes/u")'>Guardar</button></td>
 {% endfor %}
-<td colspan=2><button class="sena-btn sena-p4">Guardar</button></td>
 {% endif %}
 
 </FORM></table>

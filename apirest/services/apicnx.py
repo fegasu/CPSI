@@ -56,10 +56,10 @@ def ListarJson(clave):
         return(data1)
     else:
         return False  
-# def Inserte(data,clave="/i"):
-#     print(url+clave)
-#     response = requests.post(url+clave, json=data)
-# def Borra(cual,clave):
-#     response = requests.delete(url+clave+str(cual))
-# def Actualiza(data,clave="/u"):
-#     response = requests.put(url+clave, json=data)
+def InserteAPI(data,clave):
+    print(url+clave)
+    response = requests.post(url+clave, json=data)
+def BorraAPI(cual,clave):
+    response = requests.delete(url+clave+str(cual))
+def ActualizaAPI(data,clave=):
+    response = requests.put(url+clave, json=data)

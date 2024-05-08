@@ -21,8 +21,13 @@
         location.href=cual
        }
         function Confirmar(que,donde){
-            if (confirm(que))
-              location.href=donde
+            if (confirm(que)){
+                //alert(donde);
+                //location.href=donde;
+                IrF(donde);
+
+            }
+              
         }
        function Va(tipo){
         

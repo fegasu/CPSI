@@ -145,18 +145,25 @@ def EditaSedes():
     return render_template("alertas.html",msgito=msgitos)
 @app.route("/sedes/i",methods=["GET","POST"])
 def CreaSedes():
-    try:
-        id=request.form.get('idcentro')
-        nom=request.form.get('nom')
-        
-        datos={
-            "IDCENTRO":id,"NOMBRE":nom.upper()
-        }
-        response = requests.put(configura['SERVER_API']+"/ppa/sedes/i", json=datos)
-        msgitos="Sede Creada satisfactoriamente"
-    except Exception as e:
-        msgitos="** Error"+response
+    
+    id=request.form.get('idcentro')
+    nom=request.form.get('nom')
+    
+    datos={
+        "IDCENTRO":id,"NOMBRE":nom
+    }
+    print("++++++++>",datos)
+    response = requests.post(configura['SERVER_API']+"/ppa/sedes/i", json=datos)
+    msgitos="Sede Creada satisfactoriamente"
     return render_template("alertas.html",msgito=msgitos)
+@app.route("/sedes/d/<id>",methods=["POST"])
+def BorraSede(id):
+    
+    response = requests.delete(configura['SERVER_API']+"/ppa/sedes/d/"+id)
+    
+    msgitos="Sede borrada satisfactoriamente"
+    return render_template("alertas.html",msgito=msgitos)
+
 
 if __name__=='__main__':
     app.run(debug=True,port=8000) 

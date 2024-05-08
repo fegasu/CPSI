@@ -8,6 +8,8 @@ bd=configura['DB']
 #session['bd']=configura['DB']
 rutapi=configura['SERVER_NAME']+":"+str(configura['SERVER_NAME'])
 print("* Base de datos:",bd)
+if configura['SMBD']=="SQLITE":
+    import sqlite3    
 
 app=Flask(__name__)
 @app.route("/")

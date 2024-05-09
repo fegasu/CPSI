@@ -56,10 +56,11 @@ def EditaUsuario():
 def BorrarUsuario(id): 
     #datos=request.get_json()
     try:
-        sql="delete from USUA where IDUSUA=?"
+        sql=f"delete from USUA where IDUSUA={id}"
+        
         con = sqlite3.connect(bd)
         cur = con.cursor()
-        cur.execute(sql,(id,))
+        cur.execute(sql)
         con.commit()
         con.close()
     except Exception as e:

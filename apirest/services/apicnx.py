@@ -60,6 +60,10 @@ def InserteAPI(data,clave):
     print(url+clave)
     response = requests.post(url+clave, json=data)
 def BorraAPI(cual,clave):
-    response = requests.delete(url+clave+str(cual))
-def ActualizaAPI(data,clave=):
+    try:
+        response = requests.delete(url+clave+str(cual))
+    except Exception as e:
+        ValueError('Ocurrio un erro'+e)
+
+def ActualizaAPI(data,clave):
     response = requests.put(url+clave, json=data)

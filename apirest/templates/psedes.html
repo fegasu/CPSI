@@ -2,12 +2,12 @@
 {% block content %}
 
 <center>
-    <div class="sena-card">
+    <div class="sena-card3">
         <div>
-            <h3 class="sena__information-card-title sena-color sena-sombra">
+            <h3 class="sena-color sena-sombra">
                 <font color=white>SEDES DEL CENTRO DE FORMACION</font></h3>
         </div>  
-<div class="sena-card2">  
+<div class="sena-card-none">  
     <table class="sena-p100" >  
                 {% if N=="0" %} 
     <td width=50%>
@@ -57,7 +57,7 @@
     <td>
     <form  name=mio method=POST action="" class="row g-3 ">
     <div class="sena-p100">
-        <button class="sena-btn sena-p3" onclick="IrF('/sedes/0/0')">Regresar</button><hr>
+        <button class="btn" onclick="IrF('/sedes/0/0')"><img src="{{url_for('static',filename='images/back.jpg')}}" width=50px>&nbsp;<font size=4>Regresar</font></button><hr>
     <table class="table  sena__information-card-text table-striped sena-p100" height=20% width=100%>
 <td colspan=2>Centro: 
     {% for tipo in centros %}

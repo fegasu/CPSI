@@ -228,6 +228,9 @@ select{
 -webkit-border-radius: 19px 19px 19px 19px;
 border: 1px solid #000000;
   padding: 10px 10px 10px 10px;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.04);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.04);
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.04);
   }  
   .sena-card-none{
   margin-top: 10px;

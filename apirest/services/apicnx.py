@@ -38,17 +38,17 @@ class Usuario:
 bd=configura['DB']
 url=configura['SERVER_NAME']+":"+str(configura['PUERTOREST'])
 
-def ListarTodos(clave="/to"):
-    res=requests.get(url+clave)
-    data1=json.loads(res.content)
-    return data1
-def ListarUno_a(cual):    
-    res=requests.get(url+"/ppa/"+str(cual))
-    data1=json.loads(res.content)
-    if data1!=[]:
-        return(data1)
-    else:
-        return False  
+# def ListarTodos(clave="/to"):
+#     res=requests.get(url+clave)
+#     data1=json.loads(res.content)
+#     return data1
+# def ListarUno_a(cual):    
+#     res=requests.get(url+"/ppa/"+str(cual))
+#     data1=json.loads(res.content)
+#     if data1!=[]:
+#         return(data1)
+#     else:
+#         return False  
 def ListarJson(clave):    
     res=requests.get(url+clave)
     data1=json.loads(res.content)
@@ -56,10 +56,14 @@ def ListarJson(clave):
         return(data1)
     else:
         return False  
-def Inserte(data,clave="/i"):
+def InserteAPI(data,clave):
     print(url+clave)
     response = requests.post(url+clave, json=data)
-def Borra(cual,clave):
-    response = requests.delete(url+clave+str(cual))
-def Actualiza(data,clave="/u"):
+def BorraAPI(cual,clave):
+    try:
+        response = requests.delete(url+clave+str(cual))
+    except Exception as e:
+        ValueError('Ocurrio un erro'+e)
+
+def ActualizaAPI(data,clave):
     response = requests.put(url+clave, json=data)

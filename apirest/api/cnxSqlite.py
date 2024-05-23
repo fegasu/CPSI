@@ -1,5 +1,7 @@
 import sqlite3
 from config import configura   
+# if configura['SMBD']=="SQLITE":
+#     cnx=
 class cnxsqlite:
     def __init__(self) -> None:
         self.bd=configura['DB']

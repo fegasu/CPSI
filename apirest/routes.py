@@ -49,13 +49,11 @@ def nivelEdita(id):
     cadena=u1.ListarUno_a(id)
     return render_template("EditarUsuario.html",cadena=cadena)
     
-@app.route("/niveles/d/<id>",methods=["GET"])
+@app.route("/niveles/d/<id>",methods=["POST"])
 def nivelBorra(id):
-    
-    response = requests.delete(configura['SERVER_API']+"/usua/d/"+id)
-    
+    BorraAPI(id,"/usua/d/")
     msgitos="Usuario borrado satisfactoriamente"
-    return render_template("alertas.html",msgito=msgitos)
+    return render_template("alertas.html",msgito=msgitos,regresa="/niveles/l")
 
 
 @app.route("/",methods=["GET"])
@@ -99,14 +97,14 @@ def centroactualiza():
         msgitos="Centro editado satisfactoriamente"
     except Exception as e:
         msgitos="** Error"+response
-    return render_template("alertas.html",msgito=msgitos)
+    return render_template("alertas.html",msgito=msgitos,regreso="/centros")
 
-@app.route("/centrod/d/<id>",methods=["GET"])
+@app.route("/centro/d/<id>",methods=["POST"])
 def BorraCentros(id):
     
-    response = requests.delete(configura['SERVER_API']+"/usua/d/"+id)
-    
-    msgitos="Usuario borrado satisfactoriamente"
+    #response = requests.delete(configura['SERVER_API']+"/usua/d/"+id)
+    BorraAPI(id,"/ppa/centros/d/")
+    msgitos="Centro borrado satisfactoriamente"
     return render_template("alertas.html",msgito=msgitos)
 
 @app.route("/niveles/1000",methods=["GET"])
@@ -138,25 +136,46 @@ def EditaSedes():
         datos={
             "IDSEDE":id,"NOMBRE":nom.upper()
         }
-        response = requests.put(configura['SERVER_API']+"/ppa/sedes/u", json=datos)
+        ActualizaAPI(datos,"/ppa/sedes/u")
+        # response = requests.put(configura['SERVER_API']+"/ppa/sedes/u", json=datos)
+        
         msgitos="Sede editada satisfactoriamente"
     except Exception as e:
         msgitos="** Error"+response
-    return render_template("alertas.html",msgito=msgitos)
+    return render_template("alertas.html",msgito=msgitos,regreso="/sedes/0/0")
 @app.route("/sedes/i",methods=["GET","POST"])
 def CreaSedes():
-    try:
-        id=request.form.get('idcentro')
-        nom=request.form.get('nom')
-        
-        datos={
-            "IDCENTRO":id,"NOMBRE":nom.upper()
-        }
-        response = requests.put(configura['SERVER_API']+"/ppa/sedes/i", json=datos)
-        msgitos="Sede Creada satisfactoriamente"
-    except Exception as e:
-        msgitos="** Error"+response
-    return render_template("alertas.html",msgito=msgitos)
+    
+    id=request.form.get('idcentro')
+    nom=request.form.get('nom')
+    
+    datos={
+        "IDCENTRO":id,"NOMBRE":nom
+    }
+    print("++++++++>",datos)
+    InserteAPI(datos,"/ppa/sedes/i")
+    # response = requests.post(configura['SERVER_API']+"/ppa/sedes/i", json=datos)
+    msgitos="Sede Creada satisfactoriamente"
+    return render_template("alertas.html",msgito=msgitos,regreso="/sedes/0/0")
+@app.route("/sedes/d/<id>",methods=["POST"])
+def BorraSede(id):
+    
+    BorraAPI(id,"/ppa/sedes/d/")
+    # response = requests.delete(configura['SERVER_API']+"/ppa/sedes/d/"+id)
+    
+    msgitos="Sede borrada satisfactoriamente"
+    return render_template("alertas.html",msgito=msgitos,regreso="/sedes/0/0")
+
+@app.route("/Aulas/<N>/<id>",methods=["GET","POST"])
+def ListaAulas(N,id):
+    centros0=ListarJson("/ppa/centros/0")
+    centros=ListarJson("/ppa/centros/"+id)
+    
+    if N=="2":
+        sedes=ListarJson("/ppa/sedes/e/"+id)
+    else:
+        sedes=ListarJson("/ppa/sedes/"+id)
+    return render_template("aulas.html",N=N)
 
 if __name__=='__main__':
     app.run(debug=True,port=8000) 

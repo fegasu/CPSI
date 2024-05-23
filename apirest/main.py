@@ -8,6 +8,8 @@ bd=configura['DB']
 #session['bd']=configura['DB']
 rutapi=configura['SERVER_NAME']+":"+str(configura['SERVER_NAME'])
 print("* Base de datos:",bd)
+if configura['SMBD']=="SQLITE":
+    import sqlite3    
 
 app=Flask(__name__)
 @app.route("/")
@@ -54,10 +56,11 @@ def EditaUsuario():
 def BorrarUsuario(id): 
     #datos=request.get_json()
     try:
-        sql="delete from USUA where IDUSUA=?"
+        sql=f"delete from USUA where IDUSUA={id}"
+        
         con = sqlite3.connect(bd)
         cur = con.cursor()
-        cur.execute(sql,(id,))
+        cur.execute(sql)
         con.commit()
         con.close()
     except Exception as e:
@@ -145,13 +148,27 @@ def EditaSedes():
 @app.route("/ppa/sedes/i",methods = ['POST'])
 def NuevaSede():
     datos=request.get_json()
+    print(".....>",datos)
     nom=datos['NOMBRE']
     idcentro=datos['IDCENTRO']
-    sql="insert into SEDES(NOMBRE,IDCENTRO) values('"+nom+"',"+str(idcentro)+")"
+    
+    sql="insert into SEDES(NOMBRE,IDCENTRO) values('"+nom+"',"+idcentro+")"
     print(sql)
     con=cnxsqlite()
     todo=con.Ejecutar(sql)
     return "Centro creado satisfactoriamente"
-    
+@app.route("/ppa/sedes/d/<int:id>",methods = ['DELETE'])
+def BorrarSede(id): 
+    #datos=request.get_json()
+    try:
+        sql=f"delete from SEDES where IDSEDE={id}"
+        con = sqlite3.connect(bd)
+        cur = con.cursor()
+        cur.execute(sql)
+        con.commit()
+        con.close()
+    except Exception as e:
+        return str(e)+" "+sql
+    return "OK"
 if __name__=='__main__':
     app.run(debug=True,port=configura['PUERTOREST'],host='0.0.0.0')

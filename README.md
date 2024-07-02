@@ -6,4 +6,6 @@
 <a href="https://github.com/fegasu/CPSI/blob/main/APIREST.md">CONSUMIR SERVICIOS APIRESTS</a><br>
 <a href="https://docs.google.com/presentation/d/e/2PACX-1vSTzLSx6Wo2IrYrcESQlpIe0vFapdvG0cGtbQF4he1RptdsjKZWBMAjplsGresQsw/pub?start=false&loop=false&delayms=3000">PRESENTACION BLUEPRINT</a><br>
 <a href="https://ecampuzano.notion.site/Crear-una-API-Flask-con-Blueprints-y-MongoDB-ab1c48df22734de6928c6a7e01914de2">EJEMPLO BLUEPRINT</a>
+
+<a href="https://docs.google.com/presentation/d/141KStvDKXOzaU81sUbsCAuKbCWqpe4Fv/edit?usp=sharing&ouid=104204113553695993324&rtpof=true&sd=true">CAPA DE PERSISTENCIA</a>
  

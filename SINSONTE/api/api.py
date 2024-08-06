@@ -11,7 +11,6 @@ def ConsultarJson(sql):
         cur = con.cursor()  
         res=cur.execute(sql)
         nombres_columnas = [descripcion[0] for descripcion in cur.description]
-        print("*******>",nombres_columnas)
         primer_resultado = res.fetchall()
     
         for i,valor in enumerate(primer_resultado):
@@ -21,7 +20,6 @@ def ConsultarJson(sql):
             todo.append(aux3)
         con.close() 
         return list(todo)  
-
 
     
 app=Flask(__name__)
@@ -40,11 +38,16 @@ def ListaUnaUnidad(id):
     todo=ConsultarJson(sql)
     return json.dumps(todo)
 
-@app.route("/t/<id>")
+@app.route("/t/d/<id>",methods=['DELETE'])
 def EliminaUnidad(id):
     sql="delete from UNIDAD where IDUNIDAD="+str(id)
-    todo=ConsultarJson(sql)
-    return json.dumps(todo)
+    con = sqlite3.connect("api\sinsonte.db")
+    cur = con.cursor()
+    cur.execute(sql)
+    con.commit()
+    con.close()
+    return "200"
+        
 
 if __name__=='__main__':
     app.run(debug=True,port=8000,host='0.0.0.0')

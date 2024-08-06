@@ -16,6 +16,9 @@ def inilogocio():
 @app.route("/menu")
 def menup():
     return render_template("menu.html")
+@app.route("/unidad")
+def x():
+    return render_template("unidad.html")
 
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0',port=5000)

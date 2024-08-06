@@ -26,8 +26,14 @@ def Unidad():
     N=0
     return render_template("unidad.html",N=N,url=configura['PUERTOREST'],cadena=cadena)
 @app.route("/u/d/<id>")
-def BorraUnidad(id):
+def BorraUnidad3(id):
     N=3
+    return render_template("unidad.html",N=N,url=configura['PUERTOREST'])
+@app.route("/u/d31/<id>")
+def BorraUnidad31(id):
+    N=31
+    u1=Usuario()
+    u1.BorraAPI(id,'/t/d/')
     return render_template("unidad.html",N=N,url=configura['PUERTOREST'])
 
 if __name__ == '__main__':

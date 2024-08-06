@@ -5,9 +5,9 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <body>
   
-
+{% if N==0%}
   <div class="w3-container">
-  <h2>UNIDADES HABITACIONALES {{N}}</h2>
+  <h2>UNIDADES HABITACIONALES </h2>
   {% for tipo in cadena %}
   <ul class="w3-ul w3-card-4">
     <li class="w3-bar">
@@ -16,7 +16,7 @@
         <span class="w3-large">{{tipo.nombre}}</span><br>
         <a href="" class="w3-button w3-round w3-border"><img src="{{url_for('static',filename='image/apto.png')}}"  width=25px alt="Apartamentos"></a>
         <a href="" class="w3-button w3-round w3-border"><img src="{{url_for('static',filename='image/editar.png')}}"  width=25px></a>
-        <a href="{{url}}/t/d/{{tipo.idunidad}}" class="w3-button w3-round w3-border"><img src="{{url_for('static',filename='image/borrar.png')}}"  width=25px></a>
+        <a href="/u/d/{{tipo.idunidad}}" class="w3-button w3-round w3-border"><img src="{{url_for('static',filename='image/borrar.png')}}"  width=25px></a>
         <a href="" class="w3-button w3-round w3-border"><img src="{{url_for('static',filename='image/mas.png')}}"  width=25px></a>
         <a href="" class="w3-button w3-round w3-border"><img src="{{url_for('static',filename='image/upload.png')}}"  width=25px></a>
         
@@ -25,6 +25,13 @@
   </ul>
 {% endfor %}
 </div>
-
+{%endif%}
+{% if N==3%}
+borrar
+<script>
+  if (confirm("Desea Borrar?")== true)
+      location.href="/u/d/5";
+</script>
+{%endif%}
 </body>
 </html>

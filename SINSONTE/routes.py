@@ -23,14 +23,12 @@ def menup():
 def Unidad():
     u1=Usuario()
     cadena=u1.ListarJson("/t")
-    return render_template("unidad.html",url=configura['PUERTOREST'],cadena=cadena)
-@app.route("/u/d/<id>")
-def BorraUnidad(id):
-    u1=Usuario()
-    u1.BorraAPI(id,'/t/d')
-    cadena=u1.ListarJson("/t")
     N=0
     return render_template("unidad.html",N=N,url=configura['PUERTOREST'],cadena=cadena)
+@app.route("/u/d/<id>")
+def BorraUnidad(id):
+    N=3
+    return render_template("unidad.html",N=N,url=configura['PUERTOREST'])
 
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0',port=5000)

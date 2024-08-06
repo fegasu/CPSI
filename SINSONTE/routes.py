@@ -1,6 +1,9 @@
 
 from flask import Flask,render_template,request
+import requests
 from flask_cors import CORS
+from api.apicnx import *
+from api.config import configura
 def create_app():
     app=Flask(__name__)
     CORS(app)
@@ -17,8 +20,10 @@ def inilogocio():
 def menup():
     return render_template("menu.html")
 @app.route("/unidad")
-def x():
-    return render_template("unidad.html")
+def Unidad():
+    u1=Usuario()
+    cadena=u1.ListarJson("/t")
+    return render_template("unidad.html",cadena=cadena)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',port=5000)
+    app.run(debug=True,host='0.0.0.0',port=5000)

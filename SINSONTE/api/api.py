@@ -29,14 +29,20 @@ app=Flask(__name__)
 def Inicio():
     return "SINSONTE"
 @app.route("/t")
-def ListaUsuario():
+def ListaUnidad():
     sql="select * from unidad"
     todo=ConsultarJson(sql)    
     return json.dumps(todo)
 
 @app.route("/t/<id>")
-def ListaUnUsuario(id):
+def ListaUnaUnidad(id):
     sql="select * from UNIDAD where IDUNIDAD="+str(id)
+    todo=ConsultarJson(sql)
+    return json.dumps(todo)
+
+@app.route("/t/<id>")
+def EliminaUnidad(id):
+    sql="delete from UNIDAD where IDUNIDAD="+str(id)
     todo=ConsultarJson(sql)
     return json.dumps(todo)
 

@@ -78,6 +78,11 @@ def ActualizaUnaUnidad():
     finally:
         con.close()
     return "200"
+@app.route("/a/<id>")
+def ListaAptos(id):
+    sql="select * from apartamento where idunidad="+str(id)
+    todo=ConsultarJson(sql)    
+    return json.dumps(todo)
         
 
 if __name__=='__main__':

@@ -90,6 +90,23 @@ def GuardaUnidad():
     cadena=u1.ActualizaAPI(datos,"/t/u")
     return render_template("unidad.html",N=N)
 
+@app.route("/ap/<id>")
+def ListarAptos(id):
+    u1=Usuario()
+    cadena=u1.ListarJson("/a/"+str(id))
+    N=0
+    if cadena==None:
+        cadena=[]
+        v=0
+    else:
+        v=1
+
+    if cadena==None:
+        return render_template("aptos.html",N=N,url=configura['PUERTOREST'],V=v)
+    else:
+        return render_template("aptos.html",N=N,url=configura['PUERTOREST'],cadena=list(cadena),V=v)
+    
+
 
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0',port=5000)

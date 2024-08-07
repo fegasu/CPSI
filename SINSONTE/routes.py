@@ -54,6 +54,11 @@ def BorraUnidad31():
     else:
         v=1
     return render_template("unidad.html",N=N,url=configura['PUERTOREST'],cadena=cadena,V=v,msg="Borrado")
+@app.route("/u/i")
+def NuevaUnidad():
+    N=1
+    
+    return render_template("unidad.html",N=N)
 
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0',port=5000)

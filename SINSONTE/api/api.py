@@ -47,18 +47,37 @@ def EliminaUnidad(id):
     con.commit()
     con.close()
     return "200"
-@app.route("/t/i/",methods=['POST'])
+@app.route("/t/i",methods=['POST',])
 def InsertaUnidad():
-    datos=request.get_json()
-    nom=datos['nom']
-    sql="insert into UNIDAD(nombre) values('"+nom+"')"
-    con = sqlite3.connect("api\sinsonte.db")
-    cur = con.cursor()
-    cur.execute(sql)
-    con.commit()
-    con.close()
+    datos = request.get_json()
+    nom = datos.get('nombre')
+    sql = "INSERT INTO UNIDAD (nombre) VALUES (?)"
+    try:
+        con = sqlite3.connect("api/sinsonte.db")
+        cur = con.cursor()
+        cur.execute(sql, (nom,))
+        con.commit()
+    except sqlite3.Error as e:
+        return f"Database error: {e}", 500
+    finally:
+        con.close()
     return "200"
-
+@app.route("/t/u",methods=['PUT',])
+def ActualizaUnaUnidad():
+    datos = request.get_json()    
+    id = datos['id']
+    nom = datos['nombre']
+    sql = "update unidad set nombre=? where idunidad=?"
+    try:
+        con = sqlite3.connect("api/sinsonte.db")
+        cur = con.cursor()
+        cur.execute(sql, (nom,id,))
+        con.commit()
+    except sqlite3.Error as e:
+        return f"Database error: {e}", 500
+    finally:
+        con.close()
+    return "200"
         
 
 if __name__=='__main__':

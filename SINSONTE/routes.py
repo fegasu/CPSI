@@ -71,6 +71,12 @@ def SalvaNuevaUnidad():
     # response = requests.post("/t/i", json=datos)
     # return render_template("unidad.html",N=N)
     # return "200"
+@app.route("/u/u/<id>")
+def ActualizaUnidad(id):
+    N=2 
+    u1=Usuario()  
+    cadena=u1.ListarJson("/t/"+str(id))
+    return render_template("unidad.html",N=N,id=id,cadena=cadena)
 
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0',port=5000)

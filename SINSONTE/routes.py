@@ -42,7 +42,7 @@ def BorraUnidad3(id):
     return render_template("unidad.html",N=N,url=configura['PUERTOREST'],ID=id)
 @app.route("/u/d31",methods=["POST","DELETE"])
 def BorraUnidad31():
-    N=0
+    N=31
     u1=Usuario()
     id=request.form['idu']
     u1.BorraAPI(id,'/t/d/')
@@ -67,7 +67,7 @@ def SalvaNuevaUnidad():
     }
     u1=Usuario()
     u1.InserteAPI(datos,'/t/i')
-    return redirect("/unidad")
+    return  render_template("unidad.html",N=N)
     # response = requests.post("/t/i", json=datos)
     # return render_template("unidad.html",N=N)
     # return "200"

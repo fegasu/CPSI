@@ -77,6 +77,18 @@ def ActualizaUnidad(id):
     u1=Usuario()  
     cadena=u1.ListarJson("/t/"+str(id))
     return render_template("unidad.html",N=N,id=id,cadena=cadena)
+@app.route("/u/uu",methods=['POST'])
+def GuardaUnidad():
+    id=request.form.get('idunidad')
+    nom=request.form.get('nomunidad')
+    datos={
+        "id":id,
+        "nombre":nom.upper()
+    }
+    N=21 
+    u1=Usuario()  
+    cadena=u1.ActualizaAPI(datos,"/t/u")
+    return redirect("/unidad")
 
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0',port=5000)

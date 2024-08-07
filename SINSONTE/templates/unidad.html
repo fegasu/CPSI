@@ -50,12 +50,13 @@
 {% if N==2%}
 {% for item in cadena %}
 {{cadena.nombre}}
-<form action="/u/ii" method="POST">
+<form action="/u/uu" method="POST">
   <center>
     <div class="card" style="width: 40%;">
       <div class="card-body">
 <div class="mb-3">
   <label for="exampleFormControlTextarea1" class="form-label">Nombre de la Unidad Residencial</label>
+  <input type=hidden name=idunidad value={{item.idunidad}}>
   <textarea class="form-control" name="nomunidad" rows="3">{{item.nombre}}</textarea>
   <input type=submit class="btn btn-danger" value="Grabar">
   <a href="/unidad" class="btn btn-success"> Regresar</a

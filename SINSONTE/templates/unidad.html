@@ -4,10 +4,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <body>
-  
+  <div class="alert">
+    {{msg}}
+  </div>  
 {% if N==0%}
   <div class="w3-container">
   <h2>UNIDADES HABITACIONALES </h2>
+  <a href="" class="w3-button w3-round w3-border"><img src="{{url_for('static',filename='image/mas.png')}}"  width=25px>NUEVO</a>
+        
+{%if V>0 %}
   {% for tipo in cadena %}
   <ul class="w3-ul w3-card-4">
     <li class="w3-bar">
@@ -17,21 +22,32 @@
         <a href="" class="w3-button w3-round w3-border"><img src="{{url_for('static',filename='image/apto.png')}}"  width=25px alt="Apartamentos"></a>
         <a href="" class="w3-button w3-round w3-border"><img src="{{url_for('static',filename='image/editar.png')}}"  width=25px></a>
         <a href="/u/d/{{tipo.idunidad}}" class="w3-button w3-round w3-border"><img src="{{url_for('static',filename='image/borrar.png')}}"  width=25px></a>
-        <a href="" class="w3-button w3-round w3-border"><img src="{{url_for('static',filename='image/mas.png')}}"  width=25px></a>
         <a href="" class="w3-button w3-round w3-border"><img src="{{url_for('static',filename='image/upload.png')}}"  width=25px></a>
         
       </div>
     </li>
   </ul>
 {% endfor %}
+{%endif%}
 </div>
+
 {%endif%}
 {% if N==3%}
-borrar
-<script>
-  if (confirm("Desea Borrar?")== true)
-      location.href="/u/d31/5";
-</script>
+<center>
+<div class="card" style="width: 40%;">
+  <div class="card-body">
+<form action="/u/d31" method=post>
+<h2><strong>DESEA BORRAR EL REGISTRO?</strong></h2><br>
+<input type=hidden value={{ID}} name=idu>
+<input class="btn btn-danger" type=submit value="ACEPTAR" >
+<a href="/unidad" class="btn btn-success">CANCELAR</a>
+</form>
+</div>
+</div>
+
 {%endif%}
 </body>
 </html>
+<link href="{{url_for('static',filename='css/bootstrap.min.css')}}" rel="stylesheet">
+<link href="{{url_for('static',filename='css/MiEstilo.css')}}" rel="stylesheet">
+

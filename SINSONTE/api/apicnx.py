@@ -11,7 +11,7 @@ class Usuario:
         if data1!=[]:
             return(data1)
         else:
-            return False  
+            return None  
     def InserteAPI(self,data,clave):
         print(self.url+clave)
         response = requests.post(self.url+clave, json=data)

@@ -47,6 +47,18 @@ def EliminaUnidad(id):
     con.commit()
     con.close()
     return "200"
+@app.route("/t/i/",methods=['POST'])
+def InsertaUnidad():
+    datos=request.get_json()
+    nom=datos['nom']
+    sql="insert into UNIDAD(nombre) values('"+nom+"')"
+    con = sqlite3.connect("api\sinsonte.db")
+    cur = con.cursor()
+    cur.execute(sql)
+    con.commit()
+    con.close()
+    return "200"
+
         
 
 if __name__=='__main__':

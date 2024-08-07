@@ -23,18 +23,37 @@ def menup():
 def Unidad():
     u1=Usuario()
     cadena=u1.ListarJson("/t")
+    print(cadena)
+    if cadena==None:
+        cadena=[]
+        v=0
+    else:
+        v=1
     N=0
-    return render_template("unidad.html",N=N,url=configura['PUERTOREST'],cadena=cadena)
+    if cadena==None:
+        return render_template("unidad.html",N=N,url=configura['PUERTOREST'],V=v)
+    else:
+        return render_template("unidad.html",N=N,url=configura['PUERTOREST'],cadena=list(cadena),V=v)
+        
 @app.route("/u/d/<id>")
 def BorraUnidad3(id):
+    print("*****>",id)
     N=3
-    return render_template("unidad.html",N=N,url=configura['PUERTOREST'])
-@app.route("/u/d31/<id>")
-def BorraUnidad31(id):
-    N=31
+    return render_template("unidad.html",N=N,url=configura['PUERTOREST'],ID=id)
+@app.route("/u/d31",methods=["POST","DELETE"])
+def BorraUnidad31():
+    N=0
     u1=Usuario()
+    id=request.form['idu']
     u1.BorraAPI(id,'/t/d/')
-    return render_template("unidad.html",N=N,url=configura['PUERTOREST'])
+    
+    cadena=u1.ListarJson("/t")
+    if cadena==None:
+        cadena=[]
+        v=0
+    else:
+        v=1
+    return render_template("unidad.html",N=N,url=configura['PUERTOREST'],cadena=cadena,V=v,msg="Borrado")
 
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0',port=5000)

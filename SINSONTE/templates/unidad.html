@@ -66,6 +66,18 @@
 </form>
 {%endfor%}
 {%endif%}
+{% if N==21%}
+
+<div class="alert">
+  <h1>REGISTRO ACTUALIZADO CORRECTAMENTE</h1>
+</div>  
+<script>
+  function Ir(){
+    location.href="/unidad";
+  }
+    setTimeout("Ir()",4000);
+</script>
+{%endif%}
 
 {% if N==3%}
 <center>

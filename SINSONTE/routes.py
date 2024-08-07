@@ -88,7 +88,8 @@ def GuardaUnidad():
     N=21 
     u1=Usuario()  
     cadena=u1.ActualizaAPI(datos,"/t/u")
-    return redirect("/unidad")
+    return render_template("unidad.html",N=N)
+
 
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0',port=5000)

@@ -8,7 +8,7 @@
 {% if N==0%}
   <div class="w3-container">
   <h2>APARTAMENTOS</h2>
-  <a href="/u/i" class="w3-button w3-round w3-border">☰  NUEVO</a>
+  <a href="/u/i" class="w3-button w3-round w3-border">🞧  NUEVO</a>
   <a href="/unidad" class="w3-button w3-round w3-border">⮜ REGRESAR</a>
         
 {%if V>0 %}
@@ -18,10 +18,9 @@
       <img src="{{url_for('static',filename='image/apto.png')}}" class="w3-bar-item" style="width:105px;">
       <div class="w3-bar-item">
         <span class="w3-large"><h1>{{tipo.nombre}}</h1></span><br>
-        <a href="#" class="w3-button w3-round w3-border"><img src="{{url_for('static',filename='image/grupo.png')}}"  width=35px alt="grupo familiar"></a>
-        <a href="/u/u/{{tipo.idunidad}}" class="w3-button w3-round w3-border"><img src="{{url_for('static',filename='image/editar.png')}}"  width=25px></a>
-        <a href="/u/d/{{tipo.idunidad}}" class="w3-button w3-round w3-border"><img src="{{url_for('static',filename='image/borrar.png')}}"  width=25px></a>
-        <a href="" class="w3-button w3-round w3-border"><img src="{{url_for('static',filename='image/upload.png')}}"  width=25px></a>
+        <a href="#" class="w3-button w3-round w3-border"><h3>👪</h3></a>
+        <a href="/u/u/{{tipo.idunidad}}" class="w3-button w3-round w3-border"><img src="{{url_for('static',filename='image/editar.png')}}"  width=30px></a>
+        <a href="/u/d/{{tipo.idunidad}}" class="w3-button w3-round w3-border"><img src="{{url_for('static',filename='image/borrar.png')}}"  width=30px></a>
         
       </div>
     </li>

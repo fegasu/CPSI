@@ -1,5 +1,5 @@
 
-from flask import Flask,render_template,request
+from flask import Flask,render_template,request,redirect
 import requests
 from flask_cors import CORS
 from api.apicnx import *
@@ -56,9 +56,21 @@ def BorraUnidad31():
     return render_template("unidad.html",N=N,url=configura['PUERTOREST'],cadena=cadena,V=v,msg="Borrado")
 @app.route("/u/i")
 def NuevaUnidad():
-    N=1
-    
+    N=1   
     return render_template("unidad.html",N=N)
+@app.route("/u/ii",methods=["POST"])
+def SalvaNuevaUnidad():
+    N=11
+    nom=request.form.get('nomunidad')
+    datos={
+        "nombre":nom.upper()
+    }
+    u1=Usuario()
+    u1.InserteAPI(datos,'/t/i')
+    return redirect("/unidad")
+    # response = requests.post("/t/i", json=datos)
+    # return render_template("unidad.html",N=N)
+    # return "200"
 
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0',port=5000)

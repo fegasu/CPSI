@@ -10,7 +10,7 @@
 {% if N==0%}
   <div class="w3-container">
   <h2>UNIDADES HABITACIONALES </h2>
-  <a href="" class="w3-button w3-round w3-border"><img src="{{url_for('static',filename='image/mas.png')}}"  width=25px>NUEVO</a>
+  <a href="/u/i" class="w3-button w3-round w3-border"><img src="{{url_for('static',filename='image/mas.png')}}"  width=25px>NUEVO</a>
         
 {%if V>0 %}
   {% for tipo in cadena %}
@@ -32,8 +32,15 @@
 </div>
 
 {%endif%}
-{% if N==3%}
-
+{% if N==1%}
+<form action="" method=post>
+<div class="mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label">Nombre de la Unidad Residencial</label>
+  <textarea class="form-control" id="nomunidad" rows="3"></textarea>
+  <input type=submit class="btn btn-danger" value="Grabar">
+  <a href="/unidad" class="btn btn-success"> Regresar</a
+</div>
+</form>
 {%endif%}
 
 {% if N==3%}

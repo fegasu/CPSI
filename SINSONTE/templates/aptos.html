@@ -17,7 +17,7 @@
     <li class="w3-bar">
       <img src="{{url_for('static',filename='image/apto.png')}}" class="w3-bar-item" style="width:105px;">
       <div class="w3-bar-item">
-        <span class="w3-large"><h1>{{tipo.nombre}}-{{tipo.contacto}}</h1></span><br>
+        <span class="w3-large"><h1>{{tipo.torre}}-{{tipo.apt}}-{{tipo.contacto}}</h1></span><br>
         <a href="#" class="w3-button w3-round w3-border" title="Grupo Familiar"><h3>👪</h3></a>
         <a href="/u/u/{{tipo.idunidad}}" class="w3-button w3-round w3-border" title="Editar"><h3>✎</h3></a>
         <a href="/u/d/{{tipo.idunidad}}" class="w3-button w3-round w3-border" title="Eliminar el registro"><img src="{{url_for('static',filename='image/borrar.png')}}"  width=30px></a>

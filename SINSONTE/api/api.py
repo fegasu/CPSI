@@ -81,6 +81,7 @@ def ActualizaUnaUnidad():
 @app.route("/a/<id>")
 def ListaAptos(id):
     sql="select * from apartamento where idunidad="+str(id)
+    sql="select a.idapartamento,a.nombre apt,u.nombre torre,a.contacto from apartamento a join unidad u using(idunidad) where idunidad="+str(id)
     todo=ConsultarJson(sql)    
     return json.dumps(todo)
         

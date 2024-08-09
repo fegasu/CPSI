@@ -1,0 +1,1 @@
+x=pd.read_excel(MASIVA.xlsx”,shee_name=0)

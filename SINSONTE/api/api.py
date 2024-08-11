@@ -6,7 +6,7 @@ bd="sinsonte.db"
 
 
 def ConsultarJson(sql):
-        con = sqlite3.connect("api\sinsonte.db")
+        con = sqlite3.connect("api/sinsonte.db")
         todo=[]     
         cur = con.cursor()  
         res=cur.execute(sql)
@@ -41,7 +41,7 @@ def ListaUnaUnidad(id):
 @app.route("/t/d/<id>",methods=['DELETE'])
 def EliminaUnidad(id):
     sql="delete from UNIDAD where IDUNIDAD="+str(id)
-    con = sqlite3.connect("api\sinsonte.db")
+    con = sqlite3.connect("api/sinsonte.db")
     cur = con.cursor()
     cur.execute(sql)
     con.commit()
@@ -80,8 +80,9 @@ def ActualizaUnaUnidad():
     return "200"
 @app.route("/a/<id>")
 def ListaAptos(id):
-    sql="select * from apartamento where idunidad="+str(id)
-    sql="select a.idapartamento,a.nombre apt,u.nombre torre,a.contacto from apartamento a join unidad u using(idunidad) where idunidad="+str(id)
+    
+    sql="select a.idapartamento,a.nomapto apt,u.nomunidad torre,a.contacto from apartamento a join unidad u using(nomunidad) where u.idunidad="+str(id)
+    # sql="select a.idapartamento,a.nomapto apt,u.nomunidad torre,a.contacto from apartamento a join unidad u using(nomunidad) where where u.idunidad="+str(id)
     todo=ConsultarJson(sql)    
     return json.dumps(todo)
         

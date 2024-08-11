@@ -94,6 +94,7 @@ def GuardaUnidad():
 def ListarAptos(id):
     u1=Usuario()
     cadena=u1.ListarJson("/a/"+str(id))
+
     N=0
     if cadena==None:
         cadena=[]

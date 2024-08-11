@@ -8,7 +8,10 @@
 {% if N==0%}
   <div class="w3-container">
   <h2>UNIDADES HABITACIONALES </h2>
-  <a href="/u/i" class="w3-button w3-round w3-border">☰ NUEVO</a>
+  <a href="/logo1" class="w3-button w3-round w3-border">
+    <img src="{{url_for('static',filename='image/home.png')}}"  width=25px title="Inicio"></a>
+  <a href="/u/i" class="w3-button w3-round w3-border">
+    <img src="{{url_for('static',filename='image/new.png')}}"  width=45px title="Nuevo"></a>
   <a href="/u/i" class="w3-button w3-round w3-border">CARGA MASIVA</a>
         
 {%if V>0 %}
@@ -18,7 +21,8 @@
       <img src="{{url_for('static',filename='image/bloque.png')}}" class="w3-bar-item" style="width:105px;">
       <div class="w3-bar-item">
         <span class="w3-large">{{tipo.nombre}}</span><br>
-        <a href="/ap/{{tipo.idunidad}}" class="w3-button w3-round w3-border"><img src="{{url_for('static',filename='image/apto.png')}}"  width=25px title="Apartamentos"></a>
+        <a href="/ap/{{tipo.idunidad}}" class="w3-button w3-round w3-border">
+          <img src="{{url_for('static',filename='image/apto.png')}}"  width=25px title="Apartamentos"></a>
         <a href="/u/u/{{tipo.idunidad}}" class="w3-button w3-round w3-border"><img src="{{url_for('static',filename='image/editar.png')}}"  width=25px title="Editar"></a>
         <a href="/u/d/{{tipo.idunidad}}" class="w3-button w3-round w3-border"><img src="{{url_for('static',filename='image/borrar.png')}}"  width=25px title="Eliminar registro"></a>
         

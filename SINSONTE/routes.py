@@ -16,6 +16,9 @@ def inicio():
 @app.route("/logo")
 def inilogocio():
     return render_template("banner.html")
+@app.route("/logo1")
+def inilogocio1():
+    return render_template("banner1.html")
 @app.route("/menu")
 def menup():
     return render_template("menu.html")

@@ -1,5 +1,6 @@
 from peewee import Model, TextField, CharField, IntegerField, ForeignKeyField, BooleanField
 from playhouse.sqlite_ext import SqliteExtDatabase
+import sqlite3
 
 # Assuming you're using SQLite, replace with your database of choice if needed
 db = SqliteExtDatabase('./my_database.db')
@@ -49,8 +50,4 @@ class RAP_ACTIVIDAD(BaseModel):
 class FICHAS_ACTIVIDAD(BaseModel):
     idfichas = ForeignKeyField(FICHA, null=True, backref='fichas_actividades', on_delete='SET NULL')
     idactividad = ForeignKeyField(ACTIVIDAD, null=True, backref='fichas_actividades', on_delete='SET NULL')
-
-# Connect to the database
 db.connect()
-# Create tables
-db.create_tables([COORDINACION, AREA, TITULACION, FICHA, NCL, RAP, ACTIVIDAD, RAP_ACTIVIDAD, FICHAS_ACTIVIDAD])

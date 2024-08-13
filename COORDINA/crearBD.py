@@ -1,4 +1,4 @@
-from modelos import model
+from modelos import modelo
 # Connect to the database
 
 # Create tables

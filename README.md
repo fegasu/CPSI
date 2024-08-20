@@ -10,7 +10,7 @@
 <li><a href="https://ecampuzano.notion.site/Crear-una-API-Flask-con-Blueprints-y-MongoDB-ab1c48df22734de6928c6a7e01914de2">EJEMPLO BLUEPRINT</a></li>
 
 <li><a href="https://docs.google.com/presentation/d/e/2PACX-1vTc_6H2AzaWIW1Hh5M3a5u8uYf_AvnHKsRf7LNTR7kpLC5KB1pg6al53u4Kdt3MSw/pub?start=false&loop=false&delayms=3000">CAPA DE PERSISTENCIA</a></li>
-<li><a href="https://docs.google.com/presentation/d/e/2PACX-1vTc_6H2AzaWIW1Hh5M3a5u8uYf_AvnHKsRf7LNTR7kpLC5KB1pg6al53u4Kdt3MSw/pub?start=false&loop=false&delayms=3000">NOVEDADES AMBIENTE DE FORMACION</a></li>
+<li><a href="https://github.com/fegasu/CPSI/tree/main/NOVEDADES">NOVEDADES AMBIENTE DE FORMACION</a></li>
 
 </ul>
  

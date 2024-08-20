@@ -18,7 +18,7 @@
         <mxCell id="wxJOrW_Wo2imXkOnGC0c-3" value="Inicio" style="shape=umlBoundary;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
           <mxGeometry x="160" y="70" width="100" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="wxJOrW_Wo2imXkOnGC0c-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.002;entryY=0.481;entryDx=0;entryDy=0;entryPerimeter=0;shape=flexArrow;" edge="1" parent="1" source="wxJOrW_Wo2imXkOnGC0c-1" target="wxJOrW_Wo2imXkOnGC0c-3">
+        <mxCell id="wxJOrW_Wo2imXkOnGC0c-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.002;entryY=0.481;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="wxJOrW_Wo2imXkOnGC0c-1" target="wxJOrW_Wo2imXkOnGC0c-3">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="wxJOrW_Wo2imXkOnGC0c-5" value="Novedades&lt;div&gt;Abiertas&lt;/div&gt;" style="ellipse;shape=umlControl;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">

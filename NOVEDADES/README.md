@@ -5,8 +5,6 @@
 <br>
 <ul>
 <li>
-<a href="https://github.com/fegasu/CPSI/">ADMINISTRACION DE NOVEDADES</a></li>
-
 <li><a href="https://github.com/fegasu/CPSI/tree/main/NOVEDADES">ANALISIS</a></li>
 <li><a href="https://github.com/fegasu/CPSI/tree/main/NOVEDADES/DISE%C3%91O">DISEÑO</a></li>
 

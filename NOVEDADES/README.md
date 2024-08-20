@@ -5,7 +5,7 @@
 <br>
 <ul>
 <li>
-<li><a href="https://github.com/fegasu/CPSI/tree/main/NOVEDADES">ANALISIS</a></li>
+<li><a href="https://github.com/fegasu/CPSI/tree/main/NOVEDADES/ANALISIS">ANALISIS</a></li>
 <li><a href="https://github.com/fegasu/CPSI/tree/main/NOVEDADES/DISE%C3%91O">DISEÑO</a></li>
 
 </ul>

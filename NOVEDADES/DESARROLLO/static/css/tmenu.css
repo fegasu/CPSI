@@ -28,7 +28,15 @@ ul, #myUL {
     -webkit-transform: rotate(90deg); /* Safari */'
     transform: rotate(90deg);  
   }
-  
+  .caret-sombra-red{
+    text-shadow: 1px 1px 2px black;color:red;
+  }
+  .nested {
+    display: none;
+  }
+  .caret-sombra-green{
+    text-shadow: 1px 1px 2px black;color:rgb(0, 255, 0);
+  }
   .nested {
     display: none;
   }

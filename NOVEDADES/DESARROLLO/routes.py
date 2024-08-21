@@ -19,7 +19,7 @@ def banner():
     return render_template("banner.html")
 @app.route("/centro")
 def centro():
-    return redirect("http://www.sena.edu.co")
+    return render_template("centro.html")
 @app.route("/footer")
 def footer():
     return render_template("footer.html")

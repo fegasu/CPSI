@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+</style>
+</head>
+<body >
+    <br><br><br><br><br><br>
+    <div class="card" style="width: 26rem;border:1;border-radius: 10px 10px 10px 10px;
+-moz-border-radius: 10px 10px 10px 10px;
+-webkit-border-radius: 10px 10px 10px 10px;
+border: 1px solid #000000;-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);">
+        <div class="card-body">
+          <h5 class="card-title" style="text-shadow: 1px 1px 2px black;color:red;">REPORTE DE NOVEDADES AMBIENTE DE FORMACION</h5><hr>
+<h3>
+    <br>
+
+<ul id="myUL">
+  <li><span class="caret">📁 MENU PRINCIPAL</span>
+    <ul class="nested">
+      <li><span class="caret">&#10133; NOVEDADES</span>
+        <ul class="nested">
+          <li>&#x1F5CE; <a href="http://siomi.datasena.com" target=centro>ABIERTAS</a>  </li>
+          <li>&#128462; EN PROCESO</li>
+          <li>&#128462; CERRADA</li>
+    </ul>
+  </li>
+          <li><span class="caret">&#10133; EQUIPAMIENTO</span>
+            <ul class="nested">
+              <li>&#x1F5CE; ELEMENTOS DEL AMBIENTE</li>
+              <li>&#x1F5F9; NUEVO ELEMENTO</li>
+            </ul>
+          </li>
+  </li>  
+        <li><span class="caret">&#10133; CARGA MASIVA</span>
+            <ul class="nested">
+              <li>&#x1F5CE; ELEMENTOS</li>
+            </ul>
+          </li>
+  
+        <li><span class="caret">&#10133; CONFIGURACION</span>
+            <ul class="nested">
+              <li>&#x1F5CE; CUENTADANTE</li>
+            </ul>
+          </li>
+        </ul>
+  </li>  
+    </ul>
+  </li>
+</ul>
+</div>
+</div>
+<script>
+var toggler = document.getElementsByClassName("caret");
+var i;
+
+for (i = 0; i < toggler.length; i++) {
+  toggler[i].addEventListener("click", function() {
+    this.parentElement.querySelector(".nested").classList.toggle("active");
+    this.classList.toggle("caret-down");
+  });
+}
+</script>
+
+</body>
+</html>
+<link href="{{url_for('static',filename='css/bootstrap.min.css')}}" rel="stylesheet">
+<link href="{{url_for('static',filename='css/tmenu.css')}}" rel="stylesheet">
+<link href="{{url_for('static',filename='css/Estilo.css')}}" rel="stylesheet">
+<script src="{{url_for('static',filename='js/tmenu.js')}}"></script>
+
+

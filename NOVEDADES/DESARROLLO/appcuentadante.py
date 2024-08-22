@@ -79,8 +79,8 @@ def novedadp():
     msg="NOVEDADES EN PROCESO"
     
     if cadena==False:
-        return render_template("novedades.html",cadena=cadena,hay=0)
-    return render_template("novedades.html",cadena=cadena,hay=1)
+        return render_template("novedades.html",cadena=cadena,hay=0,msg=msg)
+    return render_template("novedades.html",cadena=cadena,hay=1,msg=msg)
 
 @app.route("/novedadc")
 def novedadc():
@@ -90,8 +90,8 @@ def novedadc():
     msg="NOVEDADES CERRADAS"
     
     if cadena==False:
-        return render_template("novedades.html",cadena=cadena,hay=0)
-    return render_template("novedades.html",cadena=cadena,hay=1)
+        return render_template("novedades.html",cadena=cadena,hay=0,msg=msg)
+    return render_template("novedades.html",cadena=cadena,hay=1,msg=msg)
 
 
 if __name__ == '__main__':

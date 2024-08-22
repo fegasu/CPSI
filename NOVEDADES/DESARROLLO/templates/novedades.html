@@ -1,11 +1,13 @@
 <center>
     <h2 class="caret-sombra-red">NOVEDADES ABIERTAS</h2>
 <div class="container">
-<table class="table  table-striped" BORDER=1>
-    <th>ESTACION</th>
-    <th>FECHA</th>
-    <th>DESCRIPCION</th>
-    <th>F</th></tr>
+<table class="table table-striped" style="width:80%;-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);" BORDER=1>
+    <th><b>ESTACION</b></th>
+    <th><b>FECHA</b></th>
+    <th><b>DESCRIPCION</b></th>
+    <th><b>F</b></th></tr>
     {% if hay == 1  %}
     {% for datos in cadena %}
     <td>{{datos.AMBIENTE}}-1</td>

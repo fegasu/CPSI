@@ -75,10 +75,11 @@ def novedada():
 def novedadp():
     u1=Usuario()
     cadena=u1.ListarJson("/ln/p/1")
-    llenos=1
+    
     if cadena==False:
         return render_template("novedades.html",cadena=cadena,hay=0)
     return render_template("novedades.html",cadena=cadena,hay=1)
+
 @app.route("/novedadc")
 def novedadc():
     u1=Usuario()

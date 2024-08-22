@@ -20,7 +20,62 @@ def listar():
     
     cur = con.cursor()
     
-    sql="select * from novedades n, ambiente a  where estado=0 and a.idambiente=n.idambiente"
+    sql="select * from vambiente"
+    res=cur.execute(sql)
+    todo=res.fetchall()
+    con.close() 
+    return json.dumps(todo)
+@app.route("/ln/<ambi>")
+def listarOne(ambi):    
+    try:
+        con = sqlite3.connect("nov.db")
+    except:
+        return("Ocurrio un error")
+    
+    cur = con.cursor()
+    
+    sql="select * from vambiente where idambiente="+ambi
+    res=cur.execute(sql)
+    todo=res.fetchone()
+    con.close() 
+    return json.dumps(todo)
+@app.route("/ln/<estado>/<amb>")
+def listarNovXamb(estado,amb):    
+    try:
+        con = sqlite3.connect("nov.db")
+    except:
+        return("Ocurrio un error")
+    estado=estado.upper()
+    if estado=="A":
+        estado="ABIERTA"
+    elif estado=="P":
+        estado="PROCESO"
+    elif estado=="C":
+        estado="CERRADA"
+    cur = con.cursor()
+    if amb !="0":
+        sql="select * from vambiente where estado='"+estado+"' and idambiente="+amb
+    else:
+        sql="select * from vambiente where estado='"+estado+"'"
+    print(sql)    
+    res=cur.execute(sql)
+    todo=res.fetchall()
+    con.close() 
+    return json.dumps(todo)
+@app.route("/e/<amb>")
+def equiparesumen(amb):    
+    try:
+        con = sqlite3.connect("nov.db")
+    except:
+        return("Ocurrio un error")
+    
+    cur = con.cursor()
+    if amb !="0":
+        sql="select * from EQUIRESUMEN where  idambiente="+amb
+    else:
+       sql="select * from EQUIRESUMEN" 
+    
+        
     res=cur.execute(sql)
     todo=res.fetchall()
     con.close() 

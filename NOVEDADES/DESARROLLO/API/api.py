@@ -90,6 +90,21 @@ def equiparesumen(amb):
     
     todo=ConsultarJson(sql)
     return(todo)
+@app.route("/e/a/<amb>")
+def equipamiento(amb):    
+    try:
+        con = sqlite3.connect("nov.db")
+    except:
+        return("Ocurrio un error")
+    
+    cur = con.cursor()
+    if amb !="0":
+        sql="select * from VEQUIPAMIENTO where  idambiente="+amb
+    else:
+       sql="select * from VEQUIPAMIENTO" 
+    
+    todo=ConsultarJson(sql)
+    return(todo)
  
   
 if __name__ == '__main__':

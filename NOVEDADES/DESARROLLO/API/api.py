@@ -88,11 +88,8 @@ def equiparesumen(amb):
     else:
        sql="select * from EQUIRESUMEN" 
     
-        
-    res=cur.execute(sql)
-    todo=res.fetchall()
-    con.close() 
-    return json.dumps(todo)
+    todo=ConsultarJson(sql)
+    return(todo)
  
   
 if __name__ == '__main__':

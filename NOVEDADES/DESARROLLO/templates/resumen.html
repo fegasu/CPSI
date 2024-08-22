@@ -1,0 +1,27 @@
+<center>
+    <h2 class="caret-sombra-red">{{msg}}</h2>
+<div class="container">
+<table class="table table-striped" style="width:60%;-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);" BORDER=1>
+    <th><b>TIPO</b></th>
+    <th><b>CANTIDAD</b></th>
+    </tr>
+    {% if hay == 1  %}
+    {% for datos in cadena %}
+    
+    <td>{{datos.TIPO}}</td>
+    <td>{{datos.CANTIDAD}}</td>
+    </td>
+    
+ </tr>
+ {%endfor%}
+ {%endif%}
+ 
+</table>
+</div>
+
+<link href="{{url_for('static',filename='css/bootstrap.min.css')}}" rel="stylesheet">
+<link href="{{url_for('static',filename='css/tmenu.css')}}" rel="stylesheet">
+<link href="{{url_for('static',filename='css/Estilo.css')}}" rel="stylesheet">
+<script src="{{url_for('static',filename='js/tmenu.js')}}"></script>

@@ -93,6 +93,17 @@ def novedadc():
         return render_template("novedades.html",cadena=cadena,hay=0,msg=msg)
     return render_template("novedades.html",cadena=cadena,hay=1,msg=msg)
 
+@app.route("/r/<amb>")
+def resumen(amb):
+    u1=Usuario()
+    cadena=u1.ListarJson("/e/1")
+    llenos=1
+    msg="RESUMEN EQUIPAMIENTO DEL AMBIENTE"
+    
+    if cadena==False:
+        return render_template("resumen.html",cadena=cadena,hay=0,msg=msg)
+    return render_template("resumen.html",cadena=cadena,hay=1,msg=msg)
+
 
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0',port=5000)

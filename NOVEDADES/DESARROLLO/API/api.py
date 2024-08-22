@@ -77,12 +77,6 @@ def listarNovXamb(estado,amb):
     return(todo)
 @app.route("/e/<amb>")
 def equiparesumen(amb):    
-    try:
-        con = sqlite3.connect("nov.db")
-    except:
-        return("Ocurrio un error")
-    
-    cur = con.cursor()
     if amb !="0":
         sql="select * from EQUIRESUMEN where  idambiente="+amb
     else:
@@ -92,12 +86,6 @@ def equiparesumen(amb):
     return(todo)
 @app.route("/e/a/<amb>")
 def equipamiento(amb):    
-    try:
-        con = sqlite3.connect("nov.db")
-    except:
-        return("Ocurrio un error")
-    
-    cur = con.cursor()
     if amb !="0":
         sql="select * from VEQUIPAMIENTO where  idambiente="+amb
     else:

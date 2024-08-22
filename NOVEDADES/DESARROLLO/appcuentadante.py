@@ -99,7 +99,11 @@ def resumen(amb):
     cadena=u1.ListarJson("/e/1")
     llenos=1
     msg="RESUMEN EQUIPAMIENTO DEL AMBIENTE"
-@app.route("/e/a/<amb>")
+    if cadena==False:
+        return render_template("resumen.html",cadena=cadena,hay=0,msg=msg)
+    return render_template("resumen.html",cadena=cadena,hay=1,msg=msg)
+
+@app.route("/r/a/<amb>")
 def equipamiento(amb):
     u1=Usuario()
     cadena=u1.ListarJson("/e/a/1")

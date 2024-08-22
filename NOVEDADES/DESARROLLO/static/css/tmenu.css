@@ -13,6 +13,8 @@ ul, #myUL {
     -moz-user-select: none; /* Firefox 2+ */
     -ms-user-select: none; /* IE 10+ */
     user-select: none;
+    font-size: 14pt;
+    font-weight: bold;
   }
   
   .caret::before {
@@ -20,19 +22,25 @@ ul, #myUL {
     color: black;
     display: inline-block;
     margin-right: 6px;
+    font-size: 12pt;
+    font-weight: bold;
   }
   
   .caret-down::before {
     content: "";
     -ms-transform: rotate(90deg); /* IE 9 */
     -webkit-transform: rotate(90deg); /* Safari */'
-    transform: rotate(90deg);  
+    transform: rotate(90deg);
+    font-size: 14pt;
+  font-weight: bold;  
   }
   .caret-sombra-red{
     text-shadow: 1px 1px 2px black;color:red;
   }
   .nested {
     display: none;
+    font-size: 14pt;
+  font-weight: bold;
   }
   .caret-sombra-green{
     text-shadow: 1px 1px 2px black;color:rgb(0, 255, 0);

@@ -68,13 +68,15 @@ def novedada():
     u1=Usuario()
     cadena=u1.ListarJson("/ln/a/1")
     llenos=1
+    msg="NOVEDADES ABIERTAS"
     if cadena==False:
-        return render_template("novedades.html",cadena=cadena,hay=0)
-    return render_template("novedades.html",cadena=cadena,hay=1)
+        return render_template("novedades.html",cadena=cadena,hay=0,msg=msg)
+    return render_template("novedades.html",cadena=cadena,hay=1,msg=msg)
 @app.route("/novedadp")
 def novedadp():
     u1=Usuario()
     cadena=u1.ListarJson("/ln/p/1")
+    msg="NOVEDADES EN PROCESO"
     
     if cadena==False:
         return render_template("novedades.html",cadena=cadena,hay=0)
@@ -85,6 +87,8 @@ def novedadc():
     u1=Usuario()
     cadena=u1.ListarJson("/ln/c/1")
     llenos=1
+    msg="NOVEDADES CERRADAS"
+    
     if cadena==False:
         return render_template("novedades.html",cadena=cadena,hay=0)
     return render_template("novedades.html",cadena=cadena,hay=1)

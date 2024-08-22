@@ -1,0 +1,26 @@
+<center>
+    <h2 class="caret-sombra-red">NOVEDADES ABIERTAS</h2>
+<div class="container">
+<table class="table  table-striped" BORDER=1>
+    <th>ESTACION</th>
+    <th>FECHA</th>
+    <th>DESCRIPCION</th>
+    <th>F</th></tr>
+    {% if hay == 1  %}
+    {% for datos in cadena %}
+    <td>{{datos.AMBIENTE}}-1</td>
+    <td>{{datos.FECHA}}</td>
+    <td>{{datos.DESCRIPCION}}</td>
+    <td><a href="">E</a></td>
+    
+ </tr>
+ {%endfor%}
+ {%endif%}
+ 
+</table>
+</div>
+
+<link href="{{url_for('static',filename='css/bootstrap.min.css')}}" rel="stylesheet">
+<link href="{{url_for('static',filename='css/tmenu.css')}}" rel="stylesheet">
+<link href="{{url_for('static',filename='css/Estilo.css')}}" rel="stylesheet">
+<script src="{{url_for('static',filename='js/tmenu.js')}}"></script>

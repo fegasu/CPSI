@@ -10,6 +10,23 @@ def create_app():
     return app
 
 app = create_app() # CREATE THE FLASK APP
+app.bd="nov.db"
+def ConsultarJson(sql):
+        con = sqlite3.connect(app.bd)
+        todo=[]
+        cur = con.cursor()
+        res=cur.execute(sql)
+        nombres_columnas = [descripcion[0] for descripcion in cur.description]
+        print(nombres_columnas)
+        primer_resultado = res.fetchall()
+    
+        for i,valor in enumerate(primer_resultado):
+            aux1=valor
+            aux2= nombres_columnas
+            aux3=dict(zip(aux2,aux1))   
+            todo.append(aux3)
+        con.close() 
+        return list(todo)  
 
 @app.route("/ln")
 def listar():    
@@ -21,10 +38,10 @@ def listar():
     cur = con.cursor()
     
     sql="select * from vambiente"
-    res=cur.execute(sql)
-    todo=res.fetchall()
-    con.close() 
-    return json.dumps(todo)
+    todo=ConsultarJson(sql)
+    return(todo)
+     
+    # return json.dumps(todo)
 @app.route("/ln/<ambi>")
 def listarOne(ambi):    
     try:
@@ -35,10 +52,8 @@ def listarOne(ambi):
     cur = con.cursor()
     
     sql="select * from vambiente where idambiente="+ambi
-    res=cur.execute(sql)
-    todo=res.fetchone()
-    con.close() 
-    return json.dumps(todo)
+    todo=ConsultarJson(sql)
+    return(todo)
 @app.route("/ln/<estado>/<amb>")
 def listarNovXamb(estado,amb):    
     try:
@@ -58,10 +73,8 @@ def listarNovXamb(estado,amb):
     else:
         sql="select * from vambiente where estado='"+estado+"'"
     print(sql)    
-    res=cur.execute(sql)
-    todo=res.fetchall()
-    con.close() 
-    return json.dumps(todo)
+    todo=ConsultarJson(sql)
+    return(todo)
 @app.route("/e/<amb>")
 def equiparesumen(amb):    
     try:
@@ -80,7 +93,7 @@ def equiparesumen(amb):
     todo=res.fetchall()
     con.close() 
     return json.dumps(todo)
-    
-
+ 
+  
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0',port=8000)

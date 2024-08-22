@@ -11,6 +11,14 @@
     margin-left: -100px; */
 
 }
+table{
+  font-size: 12pt;
+  font-weight: bold;
+}
+table.th{
+  font-size: 14pt;
+  font-weight: bold;
+}
 caja{
   width:50%;
 }

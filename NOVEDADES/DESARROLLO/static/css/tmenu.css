@@ -39,7 +39,7 @@ ul, #myUL {
   }
   .nested {
     display: none;
-    font-size: 14pt;
+    font-size: 10pt;
   font-weight: bold;
   }
   .caret-sombra-green{

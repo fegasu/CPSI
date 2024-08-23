@@ -14,12 +14,6 @@ app.bd="nov.db"
 
 @app.route("/ln")
 def listar():    
-    try:
-        con = sqlite3.connect("nov.db")
-    except:
-        return("Ocurrio un error")
-    
-    cur = con.cursor()
     
     sql="select * from vambiente"
     u1=Usuario(app.bd)
@@ -30,7 +24,7 @@ def listar():
 @app.route("/ln/<ambi>")
 def listarOne(ambi):    
     
-    sql="select * from vambiente where idambiente="+ambi
+    sql="select * from vambiente where idambiente="+ambi+" and padre is null"
     u1=Usuario(app.bd)
     todo=u1.ConsultarJson(sql)
     return(todo)
@@ -46,7 +40,8 @@ def listarNovXamb(estado,amb):
         estado="CERRADA"
     
     if amb !="0":
-        sql="select * from vambiente where estado='"+estado+"' and idambiente="+amb
+        sql="select * from vambiente where estado='"+estado+"' and idambiente="+amb+" and padre is null"
+        print(sql)
     else:
         sql="select * from vambiente where estado='"+estado+"'"
     print(sql)    
@@ -75,7 +70,7 @@ def equipamiento(amb):
     return(todo)
 @app.route("/n/<nove>")
 def actualizanov(nove):    
-    sql="select * from VNOVEDADUNO where  idnovedades="+nove    
+    sql="select * from VNOVEDADUNO where  idnovedades="+nove+" and padre is null"    
     u1=Usuario(app.bd)
     todo=u1.ConsultarJson(sql)
     return(todo)

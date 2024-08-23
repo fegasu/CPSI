@@ -7,8 +7,8 @@
 box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);" BORDER=1>
 {%for dato in cadena%}
 <td>FECHA</td><td>{{dato.FECHA}}</td></tr>
-<td>DESCRIPCION</td><td ><textarea cols=60 rows=6 name=descripcion>{{dato.DESCRIPCION}}</textarea></td></tr> 
-<td>RESPUESTA</td><td><textarea cols=60 rows=6  name=respuesta></textarea></td></tr> 
+<td>DESCRIPCION</td><td ><textarea cols=60 rows=4 name=descripcion>{{dato.DESCRIPCION}}</textarea></td></tr> 
+<td>RESPUESTA</td><td><textarea cols=60 rows=4  name=respuesta></textarea></td></tr> 
 {%endfor%}
 </table>
 <a href="/novedada" class="btn btn-outline-primary btn-sm" style="width:20%;" target="centro">RESPONDER</a>

@@ -3,7 +3,7 @@ import requests
 from flask_cors import CORS
 import sqlite3
 import json
-
+from  services.adaptador import *
 def create_app():
     app=Flask(__name__)
     CORS(app)
@@ -11,22 +11,6 @@ def create_app():
 
 app = create_app() # CREATE THE FLASK APP
 app.bd="nov.db"
-def ConsultarJson(sql):
-        con = sqlite3.connect(app.bd)
-        todo=[]
-        cur = con.cursor()
-        res=cur.execute(sql)
-        nombres_columnas = [descripcion[0] for descripcion in cur.description]
-        print(nombres_columnas)
-        primer_resultado = res.fetchall()
-    
-        for i,valor in enumerate(primer_resultado):
-            aux1=valor
-            aux2= nombres_columnas
-            aux3=dict(zip(aux2,aux1))   
-            todo.append(aux3)
-        con.close() 
-        return list(todo)  
 
 @app.route("/ln")
 def listar():    
@@ -38,28 +22,21 @@ def listar():
     cur = con.cursor()
     
     sql="select * from vambiente"
-    todo=ConsultarJson(sql)
+    u1=Usuario(app.bd)
+    todo=u1.ConsultarJson(sql)
     return(todo)
      
     # return json.dumps(todo)
 @app.route("/ln/<ambi>")
 def listarOne(ambi):    
-    try:
-        con = sqlite3.connect("nov.db")
-    except:
-        return("Ocurrio un error")
-    
-    cur = con.cursor()
     
     sql="select * from vambiente where idambiente="+ambi
-    todo=ConsultarJson(sql)
+    u1=Usuario(app.bd)
+    todo=u1.ConsultarJson(sql)
     return(todo)
 @app.route("/ln/<estado>/<amb>")
 def listarNovXamb(estado,amb):    
-    try:
-        con = sqlite3.connect("nov.db")
-    except:
-        return("Ocurrio un error")
+    
     estado=estado.upper()
     if estado=="A":
         estado="ABIERTA"
@@ -67,13 +44,14 @@ def listarNovXamb(estado,amb):
         estado="PROCESO"
     elif estado=="C":
         estado="CERRADA"
-    cur = con.cursor()
+    
     if amb !="0":
         sql="select * from vambiente where estado='"+estado+"' and idambiente="+amb
     else:
         sql="select * from vambiente where estado='"+estado+"'"
     print(sql)    
-    todo=ConsultarJson(sql)
+    u1=Usuario(app.bd)
+    todo=u1.ConsultarJson(sql)
     return(todo)
 @app.route("/e/<amb>")
 def equiparesumen(amb):    
@@ -82,7 +60,8 @@ def equiparesumen(amb):
     else:
        sql="select * from EQUIRESUMEN" 
     
-    todo=ConsultarJson(sql)
+    u1=Usuario(app.bd)
+    todo=u1.ConsultarJson(sql)
     return(todo)
 @app.route("/e/a/<amb>")
 def equipamiento(amb):    
@@ -91,7 +70,8 @@ def equipamiento(amb):
     else:
        sql="select * from VEQUIPAMIENTO" 
     
-    todo=ConsultarJson(sql)
+    u1=Usuario(app.bd)
+    todo=u1.ConsultarJson(sql)
     return(todo)
  
   

@@ -1,30 +1,41 @@
+import sqlite3
+configura={
+    "STATIC_FOLDERS":"static",
+    "TEMPLATE_FOLDER":"templates",
+    "DEBUG":True,
+    "SERVER_NAME":"http://127.0.0.1",
+    "SERVER_API":"http://127.0.0.1:5000",
+    "PUERTOREST":5000,
+    "PUERTOAPP":8000,
+    "MODULO":"salud",
+    "SMBD":"SQLITE",
+    "DB":"./nov.db"
+}
 class Usuario:
     
     res=None
     data=None
-    def __init__(self):
+    def __init__(self,bd):
+        self.bd=bd
         
-        self.bd=configura['DB']
-        self.url=configura['SERVER_NAME']+":"+str(configura['PUERTOREST'])
-
-    def ListarTodos(self,clave="/to"):
-        self.res=requests.get(self.url+clave)
-        data1=json.loads(self.res.content)
-        return data1
-    def ListarUno_a(self,cual):    
-        self.res=requests.get(self.url+"/ppa/"+str(cual))
-        data1=json.loads(self.res.content)
-        if data1!=[]:
-            return(data1)
-        else:
-            return False  
-    def ListarJson(self,clave):    
-        self.res=requests.get(self.url+clave)
-        data1=json.loads(self.res.content)
-        if data1!=[]:
-            return(data1)
-        else:
-            return False  
+        
+    def ConsultarJson(self,sql):
+            con = sqlite3.connect(self.bd)
+            todo=[]
+            cur = con.cursor()
+            res=cur.execute(sql)
+            nombres_columnas = [descripcion[0] for descripcion in cur.description]
+            print(nombres_columnas)
+            primer_resultado = res.fetchall()
+        
+            for i,valor in enumerate(primer_resultado):
+                aux1=valor
+                aux2= nombres_columnas
+                aux3=dict(zip(aux2,aux1))   
+                todo.append(aux3)
+            con.close() 
+            return list(todo)  
+  
     def Inserte(self,data,clave="/i"):
         print(self.url+clave)
         response = requests.post(self.url+clave, json=data)
@@ -33,8 +44,7 @@ class Usuario:
     def Actualiza(self,data,clave="/u"):
         response = requests.put(self.url+clave, json=data)
 ############################################################
-bd=configura['DB']
-url=configura['SERVER_NAME']+":"+str(configura['PUERTOREST'])
+
 
 # def ListarTodos(clave="/to"):
 #     res=requests.get(url+clave)

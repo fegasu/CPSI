@@ -113,6 +113,17 @@ def equipamiento(amb):
     if cadena==False:
         return render_template("equipamiento.html",cadena=cadena,hay=0,msg=msg)
     return render_template("equipamiento.html",cadena=cadena,hay=1,msg=msg)
+@app.route("/res/<nov>")
+def respuestanov(nov):
+    u1=Usuario()
+    cadena=u1.ListarJson("/n/"+nov)
+    llenos=1
+    msg=" RESPUESTA A NOVEDAD"
+    
+    # if cadena==False:
+    # return render_template("novprocesa.html",msg=msg)
+    # return render_template("novprocesa.html",msg=msg)
+    return render_template("novprocesa.html",cadena=cadena,msg=msg)
 
 
 if __name__ == '__main__':

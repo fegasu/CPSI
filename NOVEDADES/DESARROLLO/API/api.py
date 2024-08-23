@@ -73,6 +73,12 @@ def equipamiento(amb):
     u1=Usuario(app.bd)
     todo=u1.ConsultarJson(sql)
     return(todo)
+@app.route("/n/<nove>")
+def actualizanov(nove):    
+    sql="select * from VNOVEDADUNO where  idnovedades="+nove    
+    u1=Usuario(app.bd)
+    todo=u1.ConsultarJson(sql)
+    return(todo)
  
   
 if __name__ == '__main__':

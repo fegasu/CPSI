@@ -54,3 +54,17 @@ ul, #myUL {
   .active {
     display: block;
   }
+
+  body::-webkit-scrollbar {
+    width: 18px;               /* width of the entire scrollbar */
+  }
+  
+  body::-webkit-scrollbar-track {
+    background: white;        /* color of the tracking area */
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background-color: rgb(114, 113, 113);    /* color of the scroll thumb */
+    border-radius: 10px;       /* roundness of the scroll thumb */
+    border: 5px solid rgba(4, 156, 80, 0.123);  /* creates padding around scroll thumb */
+  }

@@ -136,6 +136,17 @@ def respuestanov(nov):
         return render_template("novprocesa.html",cadena=cadena,msg=msg)
     return render_template("novprocesa.html",cadena=cadena,msg=msg)
     return render_template("novprocesa.html",cadena=cadena,msg=msg)
+@app.route("/res/g/<nov>",methods=['POST'])
+def salvarespuestanov(nov):
+    # u1=Usuario()
+    # cadena=u1.ListarJson("/n/"+nov)
+    # llenos=1
+    msg=" RESPUESTA A LA NOVEDAD GRABADA CORRECTAMENTE..."
+    
+    # if cadena==False:
+    #     return render_template("alertas.html",msg=msg)
+    return render_template("alertas.html",msgito=msg,regreso="/centro")
+
 
 
 if __name__ == '__main__':

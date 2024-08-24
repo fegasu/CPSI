@@ -1,25 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-
-</style>
-</head>
-<body >
+{% extends "base.html" %}
+{% block content %}
     <br><br><br><br><br><br>
-    <center><h2 class="caret-sombra-red">NOVEDADES EN EL AMBIENTE DE FORMACION</h2></center>
-    <div class="card w3-margin" style="margin-right: 1rem;width: 22rem;border:1;border-radius: 10px 10px 10px 10px;
+    <center><h3 class="caret-sombra-red">NOVEDADES EN EL AMBIENTE DE FORMACION -CUENTADANTE-</h3></center>
+    <div class="w3-margin" style="margin-right: 1rem;width: 22rem;border:1;border-radius: 10px 10px 10px 10px;
 -moz-border-radius: 10px 10px 10px 10px;
 -webkit-border-radius: 10px 10px 10px 10px;
 border: 2px solid #000000;-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);">
-        <div class="card-body">
+box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);padding-left:20px; ">
+
 <h3>
-    <br>
 <ul id="myUL">
-  <li><span class="caret">📁 MENU PRINCIPAL</span><hr>
+  <li><span class="caret">📁 MENÚ PRINCIPAL</span>
     <ul class="nested">
       <li><span class="caret">&#10133; NOVEDADES</span>
         <ul class="nested"> 
@@ -69,13 +61,5 @@ for (i = 0; i < toggler.length; i++) {
 }
 </script>
 
-</body>
-</html>
-<link href="{{url_for('static',filename='css/bootstrap.min.css')}}" rel="stylesheet">
-<link href="{{url_for('static',filename='css/tmenu.css')}}" rel="stylesheet">
-<link href="{{url_for('static',filename='css/Estilo.css')}}" rel="stylesheet">
-<script src="{{url_for('static',filename='js/tmenu.js')}}"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-
+{% endblock content %}
 

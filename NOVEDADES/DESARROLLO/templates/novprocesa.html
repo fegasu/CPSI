@@ -1,3 +1,5 @@
+{% extends "base.html" %}
+{% block content %}
 <center>
     <h2 class="caret-sombra-red">{{msg}}</h2>
     <center>
@@ -16,7 +18,4 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);" BORDER=1>
 </form>
 </div>
 
-<link href="{{url_for('static',filename='css/bootstrap.min.css')}}" rel="stylesheet">
-<link href="{{url_for('static',filename='css/tmenu.css')}}" rel="stylesheet">
-<link href="{{url_for('static',filename='css/Estilo.css')}}" rel="stylesheet">
-<script src="{{url_for('static',filename='js/tmenu.js')}}"></script>
+{% endblock content %}

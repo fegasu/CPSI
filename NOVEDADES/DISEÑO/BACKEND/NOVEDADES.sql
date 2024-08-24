@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS "NOVEDADES" (
 	"FECHA" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	"DESCRIPCION" TEXT,
 	"ESTADO"	INTEGER DEFAULT 0,
-	"PADRE"	INTEGER,
+	"PADRE"	INTEGER DEFAULT 0,
 	FOREIGN KEY("idAMBIENTE") REFERENCES "AMBIENTE"("idAMBIENTE"),
 	FOREIGN KEY("PADRE") REFERENCES "NOVEDADES"("idNOVEDADES"),
 	PRIMARY KEY("idNOVEDADES")
@@ -70,6 +70,24 @@ join ambiente a
 using(idambiente)
 join usuario c
 on(a.idcuentadante=c.idusuario) 
+DROP VIEW "main"."VNOVEDAD";
+CREATE VIEW VNOVEDAD AS
+select n.idnovedades,
+n.idambiente,
+a.idcuentadante,
+a.nombre AMBIENTE,
+N.PADRE,
+n.estado,
+n.fecha,n.descripcion,CASE 
+WHEN n.estado=0 THEN 'ABIERTA'
+WHEN n.estado=1 THEN 'PROCESO'
+WHEN n.estado=2 THEN 'CERRADA' END ESTADOS,c.nombre CUENTADANTE 
+from novedades n
+join ambiente a  
+using(idambiente)
+join usuario c
+on(a.idcuentadante=c.idusuario)
+
 
 
 DROP VIEW "main"."EQUIRESUMEN";
@@ -100,3 +118,5 @@ JOIN  AMBIENTE A
 USING(IDAMBIENTE)
 JOIN USUARIO U
 ON U.IDUSUARIO=A.IDCUENTADANTE;
+
+

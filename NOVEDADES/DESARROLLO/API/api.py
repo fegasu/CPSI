@@ -28,9 +28,7 @@ def listarOne(ambi):
     u1=Usuario(app.bd)
     todo=u1.ConsultarJson(sql)
     return(todo)
-@app.route("/ln/<estado>/<amb>")
-def listarNovXamb(estado,amb):    
-    
+def FEstado(estado):
     estado=estado.upper()
     if estado=="A":
         estado="ABIERTA"
@@ -38,9 +36,21 @@ def listarNovXamb(estado,amb):
         estado="PROCESO"
     elif estado=="C":
         estado="CERRADA"
+    return estado
     
+@app.route("/ln/<estado>/<amb>")
+def listarNovXamb(estado,amb):    
+    
+    # estado=estado.upper()
+    # if estado=="A":
+    #     estado="ABIERTA"
+    # elif estado=="P":
+    #     estado="PROCESO"
+    # elif estado=="C":
+    #     estado="CERRADA"
+    estado=FEstado(estado)
     if amb !="0":
-        sql="select * from vambiente where estado='"+estado+"' and idambiente="+amb+" and padre is null"
+        sql="select * from VNOVEDAD where estados='"+estado+"' and idambiente="+amb+" and padre=idnovedades"
         print(sql)
     else:
         sql="select * from vambiente where estado='"+estado+"'"
@@ -48,6 +58,13 @@ def listarNovXamb(estado,amb):
     u1=Usuario(app.bd)
     todo=u1.ConsultarJson(sql)
     return(todo)
+@app.route("/ln/l/<novedad>")
+def listarNovedad(novedad): 
+     sql="select * from VNOVEDAD where padre="+novedad
+     u1=Usuario(app.bd)
+     todo=u1.ConsultarJson(sql)
+     return(todo)     
+
 @app.route("/e/<amb>")
 def equiparesumen(amb):    
     if amb !="0":
@@ -70,7 +87,7 @@ def equipamiento(amb):
     return(todo)
 @app.route("/n/<nove>")
 def actualizanov(nove):    
-    sql="select * from VNOVEDADUNO where  idnovedades="+nove+" and padre is null"    
+    sql="select * from VNOVEDADUNO where  idnovedades="+nove    
     u1=Usuario(app.bd)
     todo=u1.ConsultarJson(sql)
     return(todo)

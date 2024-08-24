@@ -81,6 +81,18 @@ def novedadp():
     if cadena==False:
         return render_template("novedades.html",cadena=cadena,hay=0,msg=msg)
     return render_template("novedades.html",cadena=cadena,hay=1,msg=msg)
+@app.route("/lr/l/<id>")
+def lnovedadp(id):
+    
+    u1=Usuario()
+    cadena=u1.ListarJson("/ln/l/"+id)
+    
+    msg="REGISTRO DE LA NOVEDAD"
+    
+
+    if cadena==False:
+        return render_template("lnovedades.html",cadena=cadena,hay=0,msg=msg)
+    return render_template("lnovedades.html",cadena=cadena,hay=1,msg=msg)
 
 @app.route("/novedadc")
 def novedadc():
@@ -120,9 +132,9 @@ def respuestanov(nov):
     llenos=1
     msg=" RESPUESTA A NOVEDAD"
     
-    # if cadena==False:
-    # return render_template("novprocesa.html",msg=msg)
-    # return render_template("novprocesa.html",msg=msg)
+    if cadena==False:
+        return render_template("novprocesa.html",cadena=cadena,msg=msg)
+    return render_template("novprocesa.html",cadena=cadena,msg=msg)
     return render_template("novprocesa.html",cadena=cadena,msg=msg)
 
 

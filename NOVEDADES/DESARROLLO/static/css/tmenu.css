@@ -16,7 +16,9 @@ ul, #myUL {
     font-size: 12pt;
     font-weight: bold;
   }
-  
+  a{
+    text-decoration:none;
+  }
   .caret::before {
     content: &#128448;";
     color: black;

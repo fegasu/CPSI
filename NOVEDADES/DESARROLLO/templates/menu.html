@@ -22,29 +22,32 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);">
   <li><span class="caret">📁 MENU PRINCIPAL</span><hr>
     <ul class="nested">
       <li><span class="caret">&#10133; NOVEDADES</span>
-        <ul class="nested">
-          <li>&#x1F5CE; <a href="/novedada" target=centro>ABIERTAS</a>  </li>
-          <li>&#128462;  <a href="/novedadp" target=centro>EN PROCESO</a></li>
-          <li>&#128462; <a href="/novedadc" target=centro>CERRADA</a></li>
+        <ul class="nested"> 
+          <li><i class='far  fa-window-restore'></i>
+            <a href="/novedada" target=centro>ABIERTAS</a>  </li>
+          <li><i class='far fa-window-restore'></i>
+          <a href="/novedadp" target=centro>EN PROCESO</a></li>
+          <li><i class='far  fa-window-restore'></i>
+            <a href="/novedadc" target=centro>CERRADA</a></li>
     </ul>
   </li>
           <li><span class="caret">&#10133; EQUIPAMIENTO</span>
             <ul class="nested">
-              <li>&#x1F5CE; <a href="/r/1" target=centro>RESUMEN DEL AMBIENTE</a></li>
-              <li>&#x1F5CE; <a href="/r/a/1" target=centro>ELEMENTOS DEL AMBIENTE</a></li>
+              <li><i class='far fa-window-maximize'></i> <a href="/r/1" target=centro>RESUMEN DEL AMBIENTE</a></li>
+              <li><i class='far fa-window-maximize'></i> <a href="/r/a/1" target=centro>ELEMENTOS DEL AMBIENTE</a></li>
               <li>&#x1F5F9; NUEVO ELEMENTO</li>
             </ul>
           </li>
   </li>  
         <li><span class="caret">&#10133; CARGA MASIVA</span>
             <ul class="nested">
-              <li>&#x1F5CE; ELEMENTOS</li>
+              <li><i class='fas fa-power-off'></i> ELEMENTOS</li>
             </ul>
           </li>
   
         <li><span class="caret">&#10133; CONFIGURACION</span>
             <ul class="nested">
-              <li>&#x1F5CE; CUENTADANTE</li>
+              <li><i class='fas fa-wrench'></i> CUENTADANTE</li>
             </ul>
           </li>
         </ul>
@@ -72,5 +75,7 @@ for (i = 0; i < toggler.length; i++) {
 <link href="{{url_for('static',filename='css/tmenu.css')}}" rel="stylesheet">
 <link href="{{url_for('static',filename='css/Estilo.css')}}" rel="stylesheet">
 <script src="{{url_for('static',filename='js/tmenu.js')}}"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 
 

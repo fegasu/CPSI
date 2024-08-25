@@ -87,7 +87,7 @@ def lnovedadp(id):
     u1=Usuario()
     cadena=u1.ListarJson("/ln/l/"+id)
     
-    msg="REGISTRO DE LA NOVEDAD"
+    msg="TRAMITES REALIZADAS DE LA NOVEDAD"
     
 
     if cadena==False:

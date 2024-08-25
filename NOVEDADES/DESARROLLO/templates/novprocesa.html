@@ -11,11 +11,12 @@
                 if(paso==1){
                     respuesta = document.getElementById('respuesta').value;
                     if(respuesta.length>0){
+                        document.getElementById('respuesta').value=document.getElementById('respuesta').value+"[PROCESO]"
                     formulario.setAttribute('action','/n/i');  
                     formulario.submit();   
                     }  
                     else{
-                        document.getElementById('respuesta').value="NOVEDAD PROCESADA POR EL CUENTADANTE"
+                        document.getElementById('respuesta').value="NOVEDAD PROCESADA POR EL CUENTADANTE [PROCESO]"
                     formulario.setAttribute('action','/n/i');  
                     formulario.submit();
                     }            
@@ -24,12 +25,13 @@
                 if(paso==2){
                     respuesta = document.getElementById('respuesta').value;
                     if(respuesta.length>0){
+                    document.getElementById('respuesta').value=document.getElementById('respuesta').value+"[CERRADA]"
                     formulario.setAttribute('action','/n/d');
                     formulario.submit();
                     }
                     else
                        //alert("Escriba una respuesta")
-                       document.getElementById('respuesta').value="NOVEDAD CERRADA POR EL CUENTADANTE"
+                       document.getElementById('respuesta').value="NOVEDAD CERRADA POR EL CUENTADANTE[CERRADA]"
                        formulario.setAttribute('action','/n/d');
                        formulario.submit();
                     }

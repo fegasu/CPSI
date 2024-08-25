@@ -9,18 +9,34 @@
             function Ir(paso){
                 let formulario = document.getElementById('mio');
                 if(paso==1){
-                    
-                    formulario.setAttribute('action','/n/i');                   
+                    respuesta = document.getElementById('respuesta').value;
+                    if(respuesta.length>0){
+                    formulario.setAttribute('action','/n/i');  
+                    formulario.submit();   
+                    }  
+                    else{
+                        document.getElementById('respuesta').value="NOVEDAD PROCESADA POR EL CUENTADANTE"
+                    formulario.setAttribute('action','/n/i');  
+                    formulario.submit();
+                    }            
                     }
                 
                 if(paso==2){
-                    
+                    respuesta = document.getElementById('respuesta').value;
+                    if(respuesta.length>0){
                     formulario.setAttribute('action','/n/d');
+                    formulario.submit();
                     }
-                formulario.submit();
+                    else
+                       //alert("Escriba una respuesta")
+                       document.getElementById('respuesta').value="NOVEDAD CERRADA POR EL CUENTADANTE"
+                       formulario.setAttribute('action','/n/d');
+                       formulario.submit();
+                    }
+                
                 }
             </script>
-                <form id=mio method=post action="/n/i">
+                <form class="needs-validation" id=mio method=post action="/n/d" >
             <table class="table table-striped table-bordered border=1 tabla" style="width:60%;-" BORDER=1>
             
             <td>
@@ -30,16 +46,18 @@
                     <input type="hidden" name="CUENTADANTE" value="{{dato.IDCUENTADANTE}}">
                 
                 <label class="form-label">FECHA</label></td><td>{{dato.FECHA}}</td></tr>
-            <td><label class="form-label">DESCRIPCION</label></td><td ><textarea class="form-control" cols=60 rows=4 name=descripcion disabled >{{dato.DESCRIPCION}}</textarea></td></tr> 
-            <td><label class="form-label">RESPUESTA</label></td><td><textarea cols=60 rows=4  name=respuesta class="form-control" ></textarea></td></tr> 
+            <td><label class="form-label" for="DESCRIPCION">DESCRIPCION</label></td><td >
+                <textarea class="form-control" cols=60 rows=4 name=descripcion disabled >{{dato.DESCRIPCION}} </textarea></td></tr> 
+            <td><label class="form-label" for="respuesta">RESPUESTA</label></td><td>
+                <textarea cols=60 rows=4  id="respuesta" name="respuesta" class="form-control" required></textarea></td></tr> 
             {%endfor%}
             </table>
-            <button type="submit" class="btn btn-outline-primary btn-sm" style="width:20%;" target="centro">
+            <button  onclick="Ir(1)" class="btn btn-outline-primary btn-sm" style="width:20%;" target="centro">
                 <i class='fas fa-archive' style='font-size:24px'></i>
                 RESPONDER</button>
-            <a href="javascript:Ir(2)" class="btn btn-outline-danger   btn-sm" style="width:20%;" target="centro">
+            <button  onclick="Ir(2)" class="btn btn-outline-danger   btn-sm" style="width:20%;" target="centro">
                 <i class='fas fa-business-time' style='font-size:24px'></i>
-                    CERRAR LA NOVEDAD</a>
+                    CERRAR LA NOVEDAD</button>
             <a href="/novedada" class="btn btn-outline-warning  btn-sm" style="width:20%;" target="centro">
                 <i class='far fa-hand-point-left' style='font-size:24px'></i>
                 CANCELAR</a>

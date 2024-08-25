@@ -12,13 +12,14 @@
     <td>{{datos.AMBIENTE}}-1</td>
     <td>{{datos.FECHA}}</td>
     <td>{{datos.DESCRIPCION}}</td>
-    <td>{%if datos.ESTADO!=0%}
+    <td>{%if datos.ESTADO!=0 %}
         <a href="/lr/l/{{datos.idNOVEDADES}}" title="Listar respuestas de la novedad">
         <i class='far fa-list-alt' style='font-size:24px'></i> </a>
         {%endif%}
+        {%if datos.ESTADO!=2%}
         <a href="/res/{{datos.idNOVEDADES}}" title="Dar respuestas a la novedad">
             <i class='fas fa-microphone' style='font-size:24px'></i></a>
-        
+        {%endif%}
         <a href="/centro" title="Regresar">
         <i class='far fa-arrow-alt-circle-left' style='font-size:24px'></i></a>
     </td>

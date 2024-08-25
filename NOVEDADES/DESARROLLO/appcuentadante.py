@@ -163,12 +163,12 @@ def salvarespuestanov():
     
     response = requests.post("http://127.0.0.1:8000/n/i", json=datos)
     # response = requests.post("/usua/i", json=datos)
-    msg=" RESPUESTA A LA NOVEDAD GRABADA CORRECTAMENTE..."+str(idA)
+    msg=" RESPUESTA A LA NOVEDAD GRABADA CORRECTAMENTE..."
     
     # if cadena==False:
     #     return render_template("alertas.html",msg=msg)
     return render_template("alertas.html",msgito=msg,regreso="/centro")
-@app.route("/n/d",methods=['POST'])
+@app.route("/n/d",methods=['POST','GET'])
 def cierrarespuestanov():
     # u1=Usuario()
     # cadena=u1.ListarJson("/n/"+nov)
@@ -195,7 +195,7 @@ def cierrarespuestanov():
     
     response = requests.post("http://127.0.0.1:8000/n/d", json=datos)
     # response = requests.post("/usua/i", json=datos)
-    msg=" RESPUESTA A LA NOVEDAD GRABADA CORRECTAMENTE..."+str(idA)
+    msg=" LA NOVEDAD CERRADA CORRECTAMENTE..."
     
     # if cadena==False:
     #     return render_template("alertas.html",msg=msg)

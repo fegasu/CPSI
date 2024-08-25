@@ -146,6 +146,7 @@ def salvarespuestanov():
     estado=request.form.get("ESTADO")
     cuentadante=request.form.get("CUENTADANTE")
     respuesta=request.form.get("respuesta").upper()
+    descri1=request.form.get("DESCRI1").upper()
     if estado==0:
         estado=1
     else:
@@ -155,9 +156,10 @@ def salvarespuestanov():
     datos={
             "idAMBIENTE":idA,
             "idNOVEDADES":idN,
-            "DESCRPCION":respuesta,
+            "DESCRIPCION":respuesta,
             "ESTADO":estado,
-            "PADRE":idA
+            "PADRE":idA,
+            "DESCRI1":descri1
         }
     print(datos)
     

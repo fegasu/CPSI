@@ -3,6 +3,7 @@ import requests
 from flask_cors import CORS
 import sqlite3
 import json
+import re
 from  services.adaptador import *
 def create_app():
     app=Flask(__name__)
@@ -97,13 +98,21 @@ def CrearNoved():
     datos=request.get_json()
     idA=datos['idAMBIENTE']
     idN=datos['idNOVEDADES']
-    descri=datos['DESCRPCION'].upper()
+    descri=datos['DESCRIPCION'].upper()
+    descri1=datos['DESCRI1'].upper()
     estado=datos['ESTADO']
     padre=datos['PADRE']
+    match = descri1.rfind("[PROCESO]")
     sql1="insert into NOVEDADES(idAMBIENTE, DESCRIPCION, ESTADO,PADRE) values("+str(idA)+",'"+descri+"',1,"+str(idN)+")"
     con=sqlite3.connect("nov.db")  
     cursor=con.cursor()
-    sql2="update NOVEDADES set ESTADO=1 where idNOVEDADES="+str(idN)
+
+    if match>0:
+        sql2="update NOVEDADES set ESTADO=1,DESCRIPCION=concat(DESCRIPCION,'') where idNOVEDADES="+str(idN)
+    else:
+        sql2="update NOVEDADES set ESTADO=1,DESCRIPCION=concat(DESCRIPCION,'[PROCESO]') where idNOVEDADES="+str(idN)
+    print("-**********>",descri,match)
+    
     cursor.execute(sql1)
     cursor.execute(sql2)
     con.commit()
@@ -122,7 +131,7 @@ def CerrarNoved():
     sql1="insert into NOVEDADES(idAMBIENTE, DESCRIPCION, ESTADO,PADRE) values("+str(idA)+",'"+descri+"',2,"+str(idN)+")"
     con=sqlite3.connect("nov.db")  
     cursor=con.cursor()
-    sql2="update NOVEDADES set ESTADO=2 where PADRE="+str(idN)
+    sql2="update NOVEDADES set ESTADO=2,DESCRIPCION=concat(DESCRIPCION,'[CERRADA]')  where PADRE="+str(idN)
     cursor.execute(sql1)
     cursor.execute(sql2)
     con.commit()

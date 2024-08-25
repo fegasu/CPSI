@@ -110,6 +110,25 @@ def CrearNoved():
     con.close()
     print(sql1)
     return(sql2)
+@app.route("/n/d",methods = ['POST'])
+def CerrarNoved(): 
+    
+    datos=request.get_json()
+    idA=datos['idAMBIENTE']
+    idN=datos['idNOVEDADES']
+    descri=datos['DESCRPCION'].upper()
+    estado=datos['ESTADO']
+    padre=datos['PADRE']
+    sql1="insert into NOVEDADES(idAMBIENTE, DESCRIPCION, ESTADO,PADRE) values("+str(idA)+",'"+descri+"',2,"+str(idN)+")"
+    con=sqlite3.connect("nov.db")  
+    cursor=con.cursor()
+    sql2="update NOVEDADES set ESTADO=2 where PADRE="+str(idN)
+    cursor.execute(sql1)
+    cursor.execute(sql2)
+    con.commit()
+    con.close()
+    print(sql1)
+    return(sql2)
     
   
 if __name__ == '__main__':

@@ -168,6 +168,38 @@ def salvarespuestanov():
     # if cadena==False:
     #     return render_template("alertas.html",msg=msg)
     return render_template("alertas.html",msgito=msg,regreso="/centro")
+@app.route("/n/d",methods=['POST'])
+def cierrarespuestanov():
+    # u1=Usuario()
+    # cadena=u1.ListarJson("/n/"+nov)
+    # llenos=1
+    idN=request.form.get("NOVEDADES")
+    idA=request.form.get("AMBIENTE")
+    estado=request.form.get("ESTADO")
+    cuentadante=request.form.get("CUENTADANTE")
+    respuesta=request.form.get("respuesta").upper()
+    if estado==0:
+        estado=1
+    else:
+        estado=1
+    
+    
+    datos={
+            "idAMBIENTE":idA,
+            "idNOVEDADES":idN,
+            "DESCRPCION":respuesta,
+            "ESTADO":estado,
+            "PADRE":idA
+        }
+    print(datos)
+    
+    response = requests.post("http://127.0.0.1:8000/n/d", json=datos)
+    # response = requests.post("/usua/i", json=datos)
+    msg=" RESPUESTA A LA NOVEDAD GRABADA CORRECTAMENTE..."+str(idA)
+    
+    # if cadena==False:
+    #     return render_template("alertas.html",msg=msg)
+    return render_template("alertas.html",msgito=msg,regreso="/centro")
 
 
 

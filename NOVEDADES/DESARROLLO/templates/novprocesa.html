@@ -5,7 +5,22 @@
     <center>
         
         {%for dato in cadena%}
-        <form method=post action="/n/i">
+        <script>
+            function Ir(paso){
+                let formulario = document.getElementById('mio');
+                if(paso==1){
+                    alert("Ir a /n/i");
+                    formulario.setAttribute('action','/n/i');                   
+                    }
+                
+                if(paso==2){
+                    alert("Ir a /n/d");
+                    formulario.setAttribute('action','/n/d');
+                    }
+                formulario.submit();
+                }
+            </script>
+                <form id=mio method=post action="/n/i">
             <table class="table table-striped table-bordered border=1 tabla" style="width:60%;-" BORDER=1>
             
             <td>
@@ -22,7 +37,7 @@
             <button type="submit" class="btn btn-outline-primary btn-sm" style="width:20%;" target="centro">
                 <i class='fas fa-archive' style='font-size:24px'></i>
                 RESPONDER</button>
-            <a href="/novedada" class="btn btn-outline-danger   btn-sm" style="width:20%;" target="centro">
+            <a href="javascript:Ir(2)" class="btn btn-outline-danger   btn-sm" style="width:20%;" target="centro">
                 <i class='fas fa-business-time' style='font-size:24px'></i>
                     CERRAR LA NOVEDAD</a>
             <a href="/novedada" class="btn btn-outline-warning  btn-sm" style="width:20%;" target="centro">

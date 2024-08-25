@@ -91,7 +91,26 @@ def actualizanov(nove):
     u1=Usuario(app.bd)
     todo=u1.ConsultarJson(sql)
     return(todo)
- 
+@app.route("/n/i",methods = ['POST'])
+def CrearNoved(): 
+    
+    datos=request.get_json()
+    idA=datos['idAMBIENTE']
+    idN=datos['idNOVEDADES']
+    descri=datos['DESCRPCION'].upper()
+    estado=datos['ESTADO']
+    padre=datos['PADRE']
+    sql1="insert into NOVEDADES(idAMBIENTE, DESCRIPCION, ESTADO,PADRE) values("+str(idA)+",'"+descri+"',1,"+str(idN)+")"
+    con=sqlite3.connect("nov.db")  
+    cursor=con.cursor()
+    sql2="update NOVEDADES set ESTADO=1 where idNOVEDADES="+str(idN)
+    cursor.execute(sql1)
+    cursor.execute(sql2)
+    con.commit()
+    con.close()
+    print(sql1)
+    return(sql2)
+    
   
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0',port=8000)

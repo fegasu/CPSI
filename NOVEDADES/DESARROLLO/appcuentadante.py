@@ -136,12 +136,34 @@ def respuestanov(nov):
         return render_template("novprocesa.html",cadena=cadena,msg=msg)
     return render_template("novprocesa.html",cadena=cadena,msg=msg)
     return render_template("novprocesa.html",cadena=cadena,msg=msg)
-@app.route("/res/g/<nov>",methods=['POST'])
-def salvarespuestanov(nov):
+@app.route("/n/i",methods=['POST'])
+def salvarespuestanov():
     # u1=Usuario()
     # cadena=u1.ListarJson("/n/"+nov)
     # llenos=1
-    msg=" RESPUESTA A LA NOVEDAD GRABADA CORRECTAMENTE..."
+    idN=request.form.get("NOVEDADES")
+    idA=request.form.get("AMBIENTE")
+    estado=request.form.get("ESTADO")
+    cuentadante=request.form.get("CUENTADANTE")
+    respuesta=request.form.get("respuesta").upper()
+    if estado==0:
+        estado=1
+    else:
+        estado=1
+    
+    
+    datos={
+            "idAMBIENTE":idA,
+            "idNOVEDADES":idN,
+            "DESCRPCION":respuesta,
+            "ESTADO":estado,
+            "PADRE":idA
+        }
+    print(datos)
+    
+    response = requests.post("http://127.0.0.1:8000/n/i", json=datos)
+    # response = requests.post("/usua/i", json=datos)
+    msg=" RESPUESTA A LA NOVEDAD GRABADA CORRECTAMENTE..."+str(idA)
     
     # if cadena==False:
     #     return render_template("alertas.html",msg=msg)

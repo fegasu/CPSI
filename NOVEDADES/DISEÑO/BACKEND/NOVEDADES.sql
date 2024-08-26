@@ -120,3 +120,15 @@ JOIN USUARIO U
 ON U.IDUSUARIO=A.IDCUENTADANTE;
 
 
+CREATE VIEW VLNOVEDADES;
+CREATE VIEW VLNOVEDADES AS
+select n.*,(select count(*) cantidad from novedades n  where n.padre=v.padre ) CANTNOV 
+from VNOVEDADUNO v;
+
+CREATE TRIGGER TRGUSUARIO AFTER INSERT ON USUARIO 
+FOR EACH ROW 
+      BEGIN
+	  UPDATE USUARIO
+         SET PWD = hash_function(NEW.address)
+  WHERE ROWID = NEW.ROWID;
+      END;

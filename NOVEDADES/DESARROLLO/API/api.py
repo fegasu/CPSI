@@ -88,7 +88,7 @@ def equipamiento(amb):
     return(todo)
 @app.route("/n/<nove>")
 def actualizanov(nove):    
-    sql="select * from VNOVEDADUNO where  idnovedades="+nove    
+    sql="select *,(select count(*) cantidad from novedades n  where n.idnovedades=v.idnovedades ) CANTNOV from VNOVEDADUNO v where  v.idnovedades="+nove    
     u1=Usuario(app.bd)
     todo=u1.ConsultarJson(sql)
     return(todo)
@@ -102,7 +102,7 @@ def CrearNoved():
     descri1=datos['DESCRI1'].upper()
     estado=datos['ESTADO']
     padre=datos['PADRE']
-    match = descri1.rfind("[PROCESO]")
+    match = descri1.rfind   ("[PROCESO]")
     sql1="insert into NOVEDADES(idAMBIENTE, DESCRIPCION, ESTADO,PADRE) values("+str(idA)+",'"+descri+"',1,"+str(idN)+")"
     con=sqlite3.connect("nov.db")  
     cursor=con.cursor()
